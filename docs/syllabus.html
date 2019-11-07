@@ -1,0 +1,66 @@
+<!-- uses https://highlightjs.org/
+-->
+
+<html>
+
+<head>
+	<script type="text/javascript">
+		var codeType = "C++"
+	</script>
+	<script src="../site/highlight.pack.js"></script>
+	<link rel="stylesheet" href="../site/styles/xcode.css">
+	<link rel="stylesheet" href="../site/weekly.css">
+	<script type="text/javascript" src="../site/weekly.js"></script>
+	
+
+</head>
+
+<body onload="fetchSource()">
+<div class="hero-image">
+  <div class="hero-text">
+    <h1>CSE 121c: Week 01</h1>
+    <p>Installation and Purpose</p>
+  </div>
+</div>
+	<h1>The Purpose of C</h1>
+	<h3>Some Background</h3>
+	<p>Before and during the early 1970's, it was common to write operating systems in <a href="https://en.wikipedia.org/wiki/Assembly_language">assembly</a>, 
+	a low-level programming language. The first implementation of the Unix operating system was written in assembly to run on the <a href="https://en.wikipedia.org/wiki/PDP-7">PDP-7</a> computer and later 
+	was ported, by modifying the original assembly code, to the <a href="https://en.wikipedia.org/wiki/PDP-11">PDP-11</a>. Since writing and porting assembly for larger systems is difficult, first Ken Thompson 
+	and later Dennis Richie decided to create languages to make this process easier. Thompson created the 
+	<a href="https://en.wikipedia.org/wiki/B_(programming_language)">B</a> language that Richie used as a starting point when creating the earliest versions of
+	<a href="https://en.wikipedia.org/wiki/C_(programming_language)#Early_developments">C</a>. By the end of 1973, the Unix kernel had been rewritten 
+	completely in C, making it easier to port to new versions of hardware.</p>
+	<p>C, then, was a language designed for writting operating systems and device drivers. The patterns you use when you write C are those you would
+		use if you were writing code for the PDP-11. Thankfully, the <a href="https://en.wikipedia.org/wiki/Portable_C_Compiler">portable C compiler</a> 
+	lead the way to making C available on multiple hardware systems that don't follow the PDP-11 hardware patterns. While porting Unix is not an insignificant 
+	task, the C language has made several flavors of Unix such as Solaris, MacOS, HP-UX, the BSD variants, and AIX possible. 
+	Linux, a Unix-like system, is also written in C.</p>
+	<p>While you will not be writting code to run on a PDP-11, you pretend to do so anytime you use the C language. In computer science terms, you will
+	write to the PDP-11 model even though you are writing code for a modern hardware architecture.</p>
+	<h3>Python and C are Related</h3>
+	<p>Take a look at Figure 1. It shows the ancestery of both C and Python. Since C is an ancestor of Python you can expect to see some
+	things in C that remind you of what you learned about coding in Python. C is not Python's only ancester. A very strong contributor to Python 
+	is the <a href="https://en.wikipedia.org/wiki/Modula">Modula language</a>. Because of this ancestry, modules exist in Python even though the are
+	absent from C. Echos of Modulo's for-loops and ranges, amoung other things, can also be seen in Python. C has no concept of a range and, as you will see, the syntax 
+	and structure of for loops is different from what you learned for Python.</p>
+
+<figure>
+  <img src="../site/images/place_holder.png" alt="place holder">
+  <figcaption>Figure 1. - The anticedent languages for Python and C.</figcaption>
+</figure>
+
+	<h3>A Few Simple Comparisons</h3>
+<pre
+	<code id="junk__c">
+	</code>
+</pre>
+
+<p>Other text</p>
+<pre>
+	<code id="junk2__c">
+	</code>
+</pre>
+
+</body>
+</html>

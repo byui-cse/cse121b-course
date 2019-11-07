@@ -1,0 +1,141 @@
+<!-- uses https://highlightjs.org/
+-->
+
+<html>
+
+<head>
+	<script type="text/javascript">
+		var codeType = "JavaScript"
+	</script>
+	<script src="../../../site/highlight.pack.js"></script>
+	<link rel="stylesheet" href="../../../site/highlight_styles/xcode.css">
+	<link rel="stylesheet" href="../../../site/weekly.css">
+	<script type="text/javascript" src="../../../site/weekly.js"></script>
+	
+
+</head>
+
+<body onload="fetchSource()">
+<div class="hero-image">
+  <div class="hero-text">
+    <h1>CSE 121b: Week 04</h1>
+    <p>Representing Data</p>
+  </div>
+</div>
+	<h1>Beyond Arrays</h1>
+	<p>Arrays are wonderful things. If you need to keep several things of the same type together so you can work with
+	them, an array is the way to go. But what about more complicated data? Consider this situation, you need to write 
+	code to track medications in a pharmacy. For each medication you need to track its name, the amount of the medication, 
+	its unique code, and expiration date. If you do this with arrays, your code could look something like this, the worst 
+	possible implementation.
+	<pre><code class="JavaScript">let names = ['Lactated Ringers','levothyroxine','rosuvastatin','albuterol','esomeprazole']
+let amounts = ['100L','2000ct','1500ct','1325ct','23145ct']
+let codes = ['13ab7','at342','gr5423','iuy6532','mnb78932']
+let expDateDate = ['12/30/2029','03/18/2021','09/01/2020','01/01/2023','10/01/2021']
+</code>
+	</pre>
+	<p>This code is intrinsically unstable. To work with this data, your code must keep track of and use the same index across all three 
+		arrays. However, as the data becomes more and more complicated, not just more data, the medication information will become corrupted. It is too difficult to 
+	keep everything straight; everything lined up, let alone passing this data to a function. Bugs will creap into this code and the application it is part of will fail. 
+	</p>
+	<p>
+		Here is a slightly better way to solve this problem using a two dimentional array.
+	</p>
+	<pre><code class="JavaScript">let medications = [['Lactated Ringers','levothyroxine','rosuvastatin','albuterol','esomeprazole'],
+		   ['100L','2000ct','1500ct','1325ct','23145ct'],
+		   ['13ab7','at342','gr5423','iuy6532','mnb78932'],
+		   ['12/30/2029','03/18/2021','09/01/2020','01/01/2023','10/01/2021']]
+</code>
+	</pre>
+	<p>
+		This code is more organized, but has the same index and complicatedness problem as the first example, though it is easier
+		 to pass the data in this form to a function. However, when writing code using this data, you have to remember the order and indices 
+		 of all the sub-arrays. This will be a constant problem as the data is passed, bugs fixed, and the data becomes more complicated. Thankfully,
+	the creators of JavaScript provided a way out of this mess...defined objects.</p>	
+	<h3>Defined Objects - keeping related data together </h3>
+	<p>Defined objects allow us to mingle different types of data together, and build relationships between the data. Using the 
+	medication example, you could put a bunch of objects in an array. Each of these objects would hold one medication's name, its manufacturer, its best-by
+	date, the amount of the medication on hand, and if that amount is a count or a volume in liters, milliliters, etc.</p>
+
+	<p>
+		The way you would accomplish this in JavaScript is to apply the concept of a key-value pair. Being a BYU-Idaho student, you are familiar with key-value
+		pairs already. Your iNumber is a key, and the data you supplied to the school about yourself is the value. Applying this concept to the medications data 
+		representation problem, a possible, though not optimal, solution looks like this, where id, amount, amountType, and expDate are the keys, and key-value pairs 
+		are seperated by commas.
+	</p>
+
+	<pre><code class="JavaScript">let lactatedRingers = {'id':'13ab7','amount':100,'amountType':'L','expDate':'12/30/2029'}
+let levothyroxine = {'id':'at342','amount':2000,'amountType':'ct','expDate':'03/18/2021'}
+let rosuvastatin = {'id':'gr5423','amount':1500,'amountType':'ct','expDate':'09/01/2020'}
+let albuterol = {'id':'iuy6532','amount':1325,'amountType':'ct','expDate':'01/01/2023'}
+let esomeprazole = {'id':'mnb78932','amount':23145,'amountType':'ct','expDate':'10/01/2021'}
+</code>
+	</pre>
+<p>
+	To access the value associated with one of the keys, you use the name of the variable for the defined object and apply the key to look up the value.
+</p>
+<pre><code class="JavaScript">let anAmount = rosuvastatin['amount']
+</code>
+</pre>
+<p>
+	The variable anAmount would now contain 1500.
+</p>
+<p>
+	Changing a value works much like the code to modify a value in an array, but you would apply a key instead of using an array index. 
+</p>
+<pre><code class="JavaScript">rosuvastatin['amount'] = 1455
+</code>
+</pre>
+<p>Though this solution improves on the array representations, it suffers from having to pass each of the medications to functions that may work with or on the data. Also, it 
+	is easy to accidentally disconnect the medication names from their associated data. An additional layer of keys and values 
+	is needed to resolve this problem. In this solution, a defined object for all the medications contains other defined objects. This is much like a two dimentional array, 
+	an array that contains other arrays. Here, the name of the medication, with correct capitalization, is used as a key, and the data for that medication is the 
+	key's associated value. 
+</p>
+<pre><code class="JavaScript">let medications = {'Lactated Ringers' : {'id':'13ab7','amount':100,'amountType':'L','expDate':'12/30/2029'},
+'Levothyroxine' : {'id':'at342','amount':2000,'amountType':'ct','expDate':'03/18/2021'},
+'Rosuvastatin' : {'id':'gr5423','amount':1500,'amountType':'ct','expDate':'09/01/2020'},
+'Albuterol' : {'id':'iuy6532','amount':1325,'amountType':'ct','expDate':'01/01/2023'},
+'Esomeprazole' : {'id':'mnb78932','amount':23145,'amountType':'ct','expDate':'10/01/2021'}}
+</code>
+</pre>
+<p>
+	Another advantage of this organization of the data is there is no need to remember the order of the data. 
+	If you wanted all the data for Lactated Ringers, the code would look like this. 
+</p>
+<pre><code class="JavaScript">let aMedication = medications['Lactated Ringers']
+</code>
+</pre>
+<p>
+	To get the same data for Lactated Ringers from the 2 dimentional array implementation the code would look like this,
+</p>
+<pre><code class="JavaScript">let aName = medications[0][0]
+let anAmount = medications[1][0]
+let anId = medications[2][0]
+let anExpirationDate = medications[3][0]
+</code>
+</pre>
+<p>a much less readable, intuitive, and debuggable solution.</p>
+<p>Using the defined objects to get the expiration date 
+	for Albuterol without getting all the data for Albuterol, your code would look like this,
+</p>
+
+<pre><code class="JavaScript">let aBestByDate = medications['Albuterol']['expDate']
+</code>
+</pre>
+<p>where getting it using the 2 dimentional array implementation would look like this.</p>
+
+<pre><code class="JavaScript">let aBestByDate = medications[4][4]
+</code>
+</pre>
+<p>To change the amount of Rosuvastatin on hand, the code would look like this,</p>
+<pre><code class="JavaScript">medications['Rosuvastatin']['amount'] = 1432
+</code>
+</pre>
+<p>instead of like this, using the 2 dimentional array.</p>
+<pre><code class="JavaScript">medications[2][3] = '1432ct'
+</code>
+</pre>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!-- uses https://highlightjs.org/
+-->
+
+<html>
+
+<head>
+	<script type="text/javascript">
+		var codeType = "JavaScript"
+	</script>
+	<script src="../../../site/highlight.pack.js"></script>
+	<link rel="stylesheet" href="../../../site/highlight_styles/xcode.css">
+	<link rel="stylesheet" href="../../../site/weekly.css">
+	<script type="text/javascript" src="../../../site/weekly.js"></script>
+	
+
+</head>
+
+<body onload="fetchSource()">
+<div class="hero-image">
+  <div class="hero-text">
+    <h1>CSE 121b: Week 03</h1>
+    <p>Creating, Calling, and Using Functions</p>
+  </div>
+</div>
+	<h1>Organization and Access</h1>
+	<p>All computer languages are ways to organize your communication and thinking. In this, they are very
+	similar to spoken languages. Each spoken language, or family of spoken languages, does this organization
+	differently. English sentences often have a structure of Subject-Helper Verb-Verb-Predicate...The boy will bite the dog, for example.
+	German, a language closely related to English, organizes things differently. Sometimes German sentences have a
+        Subject-Helper Verb-Predicate-Verb structure...
+	Ich werde das Buch bald lesen, which if translated word-by-word is "I will the book soon read." Spanish has adjectives 
+	after the nouns they modify.</p>
+	<p>While each language has its own organizational rules, they all do the same thing. They allow us to organize and express
+	our thinking.</p>
+	<h3>Functions - a fundamental organization concept of JavaScript</h3>
+	<p>Python and JavaScript, being related languages, both have functions as a fundimental organizational structure. When you truly begin 
+	thinking in JavaScript, you will be thinking in functions. You will think of how functions are related to each other. You will 
+	have thoughts along these lines, "If this function calls that one..." You will be able to do this since you will eventually
+	realize that when you are designing solutions in JavaScript, how a function accomplishes something is not as important as that it will, 
+	and that you can wait to figure out how to complete the function later.</p>
+	
+	<p>Put an example here of desinging a solution thinking in functions.</p>
+	<p>In Python and JavaScript there are similarities and differences between the languages regarding how you declare 
+	functions. In JavaScript, the 'function' keyword is used instead of 'def'. Also, JavaScript the convention usually used for names 
+	of functions and variables is called 'camel case'. To create a name, the first word of the name starts with a lower-case letter, and the first letter 
+	of all the rest of the words making up the name begin with an upper-case letter. For example, a function that averages two numbers 
+	could be defined like this.
+
+	<p>JavaScript example
+
+	<pre>
+<code class="JavaScript">function averageTwoNumbers(firstNum, secondNum){
+	return (firstNum+secondNum)/2
+}</code>
+	</pre>
+</p> 
+	Notice the '{' and '}' operators. These are the JavaScript scope operators. These are used instead of the white-space 
+	scope operator used in Python. In JavaScript, white space means nothing but when writing your code, it is important to use 
+	white space to help make your code easier to read. Never left justify your code. 
+	<p>
+		As with Python, JavaScript functions can have more than one line of code. The previous example could be written as
+<pre>
+<code class="JavaScript">function averageTwoNumbers(firstNum, secondNum){
+	let sum = firstNum+secondNum
+	let avg = sum/2
+	return avg
+}</code>
+	</pre>
+It does exactly the same thing, it's just broken up into multiple lines of code.
+	</p>
+
+	<h3>Libraries - sharing your functions with others</h3>
+	<p> A higher order organizational idea in JavaScript is library. Libraries are a way that you can share your code for other programmers 
+	to use in their applications, and you can share your code with them. Libraries are groups of functions that, unlike 
+	applications, can not run on their own. Instead, you use what other people have written and compiled as if you wrote it yourself.</p>
+
+	<p>In JavaScript, libraries consist of some number of files in which you put your JavaScript. By tradition, the names of your files
+		always ends in '.js'. If I had a JavaScript library called totally_awsome, and in it there was some code that moved stuff around 
+		on the screen, I might put that code in a file called 'animations.js'. There would be other files in my library that contained other functions 
+		doing other things. Each file would be named after what it does and use the '.js' name ending. For example, fades.js, slideshow.js, etc.
+	</p>
+
+	<h3>Map, Filter, and Reduce</h3>
+	<p>In JavaScript, as in most languages, it is important not to write code that duplicates fundamental parts of the standard language library. 
+	Therefore, while it would be possible to write a loop in JavaScript to average, modify, or select some elements of an array, you should not. 
+	Instead you should use the built-in filter (select some), reduce (average, sum, product, etc.), or map (convert all) functionallity.
+	</p>
+	<p>
+		Consider a situation where you have been hired to write code for a social media site. 
+		You have been asked to write code to count up the total number of 'likes' postings from a single customer has recieved. 
+	Existing code that others have written puts a likes count for each posting in an array called 'likes' for you.</p>
+	<p>
+		Suppose you were told to filter out all the likes counts that are less then 10. How should this be done?</p>
+		<p>Like this.</p> 
+
+	<pre>
+<code class="JavaScript">let filteredLikes = likes.filter(aCount => aCount >= 10)
+}</code>
+	</pre>
+	<p>Let's break this up so you can see how it is done. The filter function has one parameter, a function similar to the Lambda function 
+		you learned about in Python. That function has one paramter, an element of the array. This parameter, aCount, is seperated by the '=>' operator 
+		from the next bit of code describing the filtering to be done. In this case, comparing the aCount parameter to 10.
+	</p>
+
+	<p>On the other hand, maybe you have been asked to give the customer five 'bonus likes' that are to be added to each posting.</p>
+
+	<p>How should the likes array be modified?</p>
+	<p>
+		Like this.
+	</p>
+	<pre>
+<code class="JavaScript">likes = likes.map(aCount => aCount += 5)
+</code>
+	</pre>
+	<p>
+		Maybe you are asked to total the customers likes. How should you do that?
+	</p>
+	<p>
+		You would use the reduce function. It has two parameters, the first is a function with two paramters and the second is usually called an accumulator initial value. The accumulator's 
+		initial value is used, modified, and returned to accumulates the final result. In this case the the final result is the summation of the likes.
+	</p>
+	<pre>
+<code class="JavaScript">let totalLikes = likes.reduce((accumulator, aCount) => accumulator += aCount,0)
+</code>
+	</pre>
+	<p>
+		What if you are to give five bonus likes only for those that already have 10 likes and then sum the result? 
+		You could do a seperate line of code to accomplish this, or since the map and filter array functions return an array,
+		you could do it more professionally like this. It uses map, filter, and reduce.
+	</p>
+	<pre>
+<code class="JavaScript">let sum = likes.filter(aCount => aCount >= 10).map(aCount=>aCount += 5).reduce((accumulator, aCount) => accumulator += aCount,0)
+</code>
+	</pre>
+	<p>
+		Maybe, in a different part of the application, you are asked to print each of the like values to the console. How should this be done? 
+	</p>
+	<p>Use the forEach function.</p>
+
+	<pre>
+<code class="JavaScript">likes.forEach(aCount => console.log(aCount))
+</code>
+	</pre>
+	<p>
+		Let's imagine that instead of being asked to sum the 
+		filtered likes with their bonus, you were asked to print them all out. How could you do this?
+	</p>
+	<pre>
+<code class="JavaScript">likes.filter(aCount => aCount >= 10).map(aCount=>{
+		aCount += 5
+		console.log(aCount)
+		return aCount
+		})
+</code>
+	</pre>
+	<p>
+		Notice the use of the JavaScript scope operators and the inclusion of the return keyword in the last line of the function 
+		passed to map.
+	</p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</body>
+</html>
