@@ -1,31 +1,181 @@
-<!-- uses https://highlightjs.org/
--->
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<script type="text/javascript">
-		var codeType = "C++"
-	</script>
-	<script src="../../../site/highlight.pack.js"></script>
-	<link rel="stylesheet" href="../../../site/highlight_styles/xcode.css">
-	<link rel="stylesheet" href="../../../site/weekly.css">
-	<script type="text/javascript" src="../../../site/weekly.js"></script>
-	
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSE 121b: Week 02 | Ponder and Prove</title>
+	<link rel="stylesheet" href="styles/default.css">
 </head>
 
-<body onload="fetchSource()">
-<div class="hero-image">
-  <div class="hero-text">
-    <h1>CSE 121b: Week 02</h1>
-    <p>Ponder and Prove</p>
-  </div>
-</div>
-	<h1>Your Task</h1>
-	<p>Create a desktop video of you using the stepwise debugger in the Eclipse IDE. Show how to use the step-over and step-into features, 
-	along with the mouse-over and variables tab feature.</p>
+<body>
+	<header class="task">
+		<div class="hero-text">
+			<h1>CSE 121b: Week 02</h1>
+			<p>Ponder and Prove</p>
+		</div>
+	</header>
+	<main>
+		<h1>Week 2 Task Instructions</h1>
+		<h2>The Fundamentals</h2>
+		<section>
+			<h3>Before beginning this Task:</h3>
+			<ul>
+				<li>
+					Make sure you have reviewed the <a href="../week01/" target="_blank">Installation and
+						Purpose</a>
+					and <a href="../week02/" target="_blank">The Fundamentals</a>
+					course
+					content links.
+				</li>
+				<li>
+					Download the following Zip file and extract it into a local folder of your choice:
+					<a href="week02.zip">week02.zip</a>
+				</li>
+				<li>
+					Open the local folder in VS Code
+				</li>
+			</ul>
+		</section>
+		<section>
+			<h3>JavaScript and HTML</h3>
+			<p>
+				In the Tasks for this course, we will manipulate content in HTML files from JavaScript. In order to link
+				a JavaScript file to an HTML file, an HTML <code>&lt;script&gt;</script></code> tag is used.
+			</p>
+			<p>
+				The <code>&lt;script&gt;</code> tag is commonly placed before the closing <code>&lt;/body&gt;</code> tag
+				as follows:
+			</p>
+			<p>
+				<img src="images/script-example.png" alt="script tag example">
+			</p>
+			<p>
+				The "src" attribute of the <code>&lt;script&gt;</code> tag should point to the folder and file name of
+				the JavaScript file relative to the current HTML file.
+			</p>
+		</section>
+		<section>
+			<h3>Accessing HTML elements from JavaScript</h3>
+			<h4>Even though this course does not dive deep into HTML, you will need an understanding of how to access
+				HTML elements from JavaScript files.</h4>
+			<p>
+				There are several ways to accomplish this.
+				<ul>
+					<li>
+						<p>
+							One is by using the built-in method:
+							<code>document.getElementById('elementId');</code><br><br>
+							The "elementId" is the value of the "id" HTML attribute.
+							For example, with the following HTML element, <code>&lt;section id="discussion"&gt;</code>
+							the "id" would be "discussion"<br><br>
+							In this case, we would use <code>document.getElementById('discussion');</code> to get access
+							to this element from JavaScript.
+						</p>
+					</li>
+					<li>
+						<p>
+							Another approach is to use the built-in method:
+							<code>document.querySelector('#elementId')</code><br><br>
+							The "elementId" is again the value of the "id" HTML attribute. Notice that this approach
+							also requires a pound sign (#) before the name of the "id" value. <br><br>
+							Using the same HTML element above, the JavaScript method would then look like this:
+							<code>document.querySelector('#discussion');</code>
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+						</p>
+					</li>
+				</ul>
+			</p>
+			<p>
+				Once we get access to the HTML element, we can change its content by using one of two properties.
+				<ul>
+					<li>
+						<p>
+							The first way is to use the "innerHTML" property. <br><br>
+							This would look like the following: <br><br>
+							<code>document.querySelector('#discussion').innerHTML = 'The content we would like to
+								display in the HTML file.';</code>
+						</p>
+					</li>
+					<li>
+						<p>
+							A second way is to use the "textContent" property. <br><br>
+							This would look like the following: <br><br>
+							<code>document.querySelector('#discussion').textContent = 'The content we would like to
+								dsiplay in the HTML file.';</code>
+						</p>
+					</li>
+				</ul>
+			</p>
+			<p>
+				We can also set the attributes of HTML elements by using the built-in method:
+				<code>setAttribute('attributeName', 'attributeValue')</code>
+				<ul>
+					<li>
+						<p>
+							For example, we can add a "src" attribute to an "img" element: <br><br>
+							<code>document.querySelector('#mainImage').setAttribute('src', 'images/main.png')</code>
+						</p>
+					</li>
+				</ul>
+			</p>
+		</section>
+		<section>
+			<h3>Variables</h3>
+			<h4>Complete the following steps</h4>
+			<p>In the <code>task2.js</code> file:</p>
+			<ol>
+				<li>Declare and instantiate a variable to hold your name</li>
+				<li>Place the value of the name variable into the <code>task2.html</code> HTML file inside of the
+					element with an "id of "name"
+					(hint: document.querySelector())</li>
+				<li>Declare and instantiate a variable to hold the current year</li>
+				<li>Place the value of the current year variable into the <code>task2.html</code> HTML file inside of
+					the element with an "id of
+					"year"</li>
+				<li>Copy an image of yourself into the "images" folder</li>
+				<li>Declare and instantiate a variable to hold the name and location of your picture (hint:
+					'images/imagename.png')</li>
+				<li>Place the value of the picture variable into the <code>task2.html</code> HTML file in the "src"
+					attribute of the "img"
+					element (hint: document.querySelector().setAttribute())</li>
+			</ol>
+		</section>
+		<section>
+			<h3>Arrays</h3>
+			<h4>Complete the following steps</h4>
+			<p>In the <code>task2.js</code> file:</p>
+			<ol>
+				<li>Declare and instantiate an array variable to hold your favorite foods</li>
+				<li>Place the values of the favorite foods variable into the <code>task2.html</code> HTML file inside of
+					the element with an "id"
+					of "food"</li>
+				<li>Declare and instantiate a variable to hold another favorite food</li>
+				<li>Add the variable holding another favorite food to the favorite food array</li>
+				<li>Repeat Step 2</li>
+				<li>Remove the first element in the favorite foods array</li>
+				<li>Repeat Step 2</li>
+				<li>Remove the last element in the favorite foods array</li>
+				<li>Repeat Step 2</li>
+			</ol>
+		</section>
+		<section>
+			<h3>Review</h3>
+			<h4>After completing the previous steps and submitting the assignment in I-Learn:</h4>
+			<ol>
+				<li>Review the <a href="instructor_solution.html">Instructor Solution</a> for this Task</li>
+				<li>Compare and contrast your code with the Instructor's code</li>
+				<li>Make note of any improvements you could make for future Tasks </li>
+			</ol>
+		</section>
+	</main>
+	<footer>
+		<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License"
+				style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is
+		licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+			Attribution
+			4.0 International License</a>.
+	</footer>
 </body>
+
 </html>
