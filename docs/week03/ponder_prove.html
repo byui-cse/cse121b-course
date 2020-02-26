@@ -1,31 +1,122 @@
-<!-- uses https://highlightjs.org/
--->
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<script type="text/javascript">
-		var codeType = "C++"
-	</script>
-	<script src="../../../site/highlight.pack.js"></script>
-	<link rel="stylesheet" href="../../../site/highlight_styles/xcode.css">
-	<link rel="stylesheet" href="../../../site/weekly.css">
-	<script type="text/javascript" src="../../../site/weekly.js"></script>
-	
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSE 121b: Week 03 | Ponder and Prove</title>
+	<link rel="stylesheet" href="styles/default.css">
 </head>
 
-<body onload="fetchSource()">
-<div class="hero-image">
-  <div class="hero-text">
-    <h1>CSE 121b: Week 03</h1>
-    <p>Ponder and Prove</p>
-  </div>
-</div>
-	<h1>Your Task</h1>
-	<p>Create a desktop video of you using the stepwise debugger in the Eclipse IDE. Show how to use the step-over and step-into features, 
-	along with the mouse-over and variables tab feature.</p>
-
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+<body>
+	<header class="task">
+		<div class="hero-text">
+			<h1>CSE 121b: Week 03</h1>
+			<p>Ponder and Prove</p>
+		</div>
+	</header>
+	<main>
+		<h1>Week 3 Task Instructions</h1>
+		<h2>Creating, Calling, and Using Functions</h2>
+		<section>
+			<h3>Before beginning this Task:</h3>
+			<ul>
+				<li>
+					Make sure you have reviewed the <a href="../week03/" target="_blank">Creating, Calling, and Using
+						Functions</a>
+					course content.
+				</li>
+				<li>
+					Download the following Zip file and extract it into a local folder of your choice:
+					<a href="week03.zip">week03.zip</a>
+				</li>
+				<li>
+					Open the local folder in VS Code
+				</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Getting values in HTML form control elements from JavaScript</h3>
+			<h4>
+				In the previous Task, we learned how to access HTML elements and set their content and attributes from JavaScript.
+				In this Task, we will learn how to retrieve values from HTML form elements.
+			</h4>
+			<p>
+				We will use the same methods to access HTML form elements that we discussed previously.
+				<ul>
+					<li>
+						<p>
+							<code>document.getElementById('formElementId');</code>
+						</p>
+						or
+					</li>
+					<li>
+						<p>
+							<code>document.querySelector('#formElementId');</code>
+						</p>
+					</li>
+				</ul>
+			</p>
+			<p>
+				To retrieve the value of a form control element, we use the <code>value</code> property.
+			</p>
+			<p>
+				For example, to get a value from the following HTML form control with an id of "city":
+			</p>
+			<p>
+				<code>&lt;input type="text" id="city" name="city"&gt;</code>
+			</p>
+			<p>
+				We would use the following syntax:
+			</p>
+			<p>
+				<code>let city = document.querySelector('#city').value;</code>
+			</p>
+		</section>
+		<section>
+			<h3>Functions</h3>
+			<h4>Complete the following steps</h4>
+			<p>In the <code>task3.js</code> file:</p>
+			<ol>
+				<li>Declare a function named <em>sum</em> that takes two arguments, <em>number1</em> and <em>number2</em></li>
+				<li>In the function, return the sum of the parameters <em>number1</em> and <em>number2</em></li>
+				<li>Declare another function named <em>sumNumbers</em> that gets the values of two HTML form controls with IDs of <em>addend1</em> and <em>addend2</em>. Pass them to the <em>sum</em> function</li>
+				<li>Assign the return value to an HTML form element with an id of <em>sum</em></li>
+				<li>Note in the <code>task3.html</code> HTML file there is a reference to the <em>sumNumbers</em> function in the <em>onclick</em> attribute of the first button.</li>
+				<li>Repeat Steps 1-5 with new functions named <em>subtract</em> and <em>subtractNumbers</em> and HTML form controls with IDs of <em>minuend</em>, <em>subtrahend</em> and <em>difference</em></li>
+				<li>Repeat Steps 1-5 with new functions named <em>multiply</em> and <em>mulitplyNumbers</em> and HTML form controls with IDs of <em>factor1</em>, <em>factor2</em> and <em>product</em></li>
+				<li>Repeat Steps 1-5 with new functions named <em>divide</em> and <em>divideNumbers</em> and HTML form controls with IDs of <em>dividend</em>, <em>divisor</em> and <em>quotient</em></li>
+				<li>Test all of the mathematical functionality of the <code>task3.html</code> page.</li>
+			</ol>
+		</section>
+		<section>
+			<h3>Built-In Methods</h3>
+			<h4>Complete the following steps</h4>
+			<p>In the <code>task3.js</code> file:</p>
+			<ol>
+				<li>Declare and instantiate a variable of type Date to hold the current date</li>
+				<li>Declare a variable to hold the current year</li>
+				<li>Using the variable declared in Step 1, call the built-in getFullYear() method/function and assign it to the variable declared in Step 2</li>
+				<li>Assign the current year variable to an HTML form element with an id of year</li>
+			</ol>
+		</section>
+		<section>
+			<h3>Review</h3>
+			<h4>After completing the previous steps and submitting the assignment in I-Learn:</h4>
+			<ol>
+				<li>Review the <a href="instructor_solution.html">Instructor Solution</a> for this Task</li>
+				<li>Compare and contrast your code with the Instructor's code</li>
+				<li>Make note of any improvements you could make for future Tasks </li>
+			</ol>
+		</section>
+	</main>
+	<footer>
+		<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License"
+				style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is
+		licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+			Attribution
+			4.0 International License</a>.
+	</footer>
 </body>
+
 </html>
