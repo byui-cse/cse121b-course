@@ -109,20 +109,20 @@ let esomeprazole = {'id':'mnb78932','amount':23145,'amountType':'ct','expDate':'
 <p>
 	To get the same data for Lactated Ringers from the 2 dimentional array implementation the code would look like this,
 </p>
-<pre><code class="JavaScript">let aName = medications[0][0]
+<p><pre><code class="JavaScript">let aName = medications[0][0]
 let anAmount = medications[1][0]
 let anId = medications[2][0]
 let anExpirationDate = medications[3][0]
 </code>
-</pre>
+</pre></p>
 <p>a much less readable, intuitive, and debuggable solution.</p>
 <p>Using the defined objects to get the expiration date 
 	for Albuterol without getting all the data for Albuterol, your code would look like this,
 </p>
-
+<p>
 <pre><code class="JavaScript">let aBestByDate = medications['Albuterol']['expDate']
 </code>
-</pre>
+</pre></p>
 <p>where getting it using the 2 dimentional array implementation would look like this.</p>
 
 <pre><code class="JavaScript">let aBestByDate = medications[4][4]
@@ -131,11 +131,52 @@ let anExpirationDate = medications[3][0]
 <p>To change the amount of Rosuvastatin on hand, the code would look like this,</p>
 <pre><code class="JavaScript">medications['Rosuvastatin']['amount'] = 1432
 </code>
-</pre>
+</pre></p>
 <p>instead of like this, using the 2 dimentional array.</p>
-<pre><code class="JavaScript">medications[2][3] = '1432ct'
+<p><pre><code class="JavaScript">medications[2][3] = '1432ct'
 </code>
-</pre>
+</pre></p>
+<h3>There is Another Way</h3>
+<p>When you have defined objects, there is another way to access an change values. It uses what is called 'dot notation' 
+	by the JavaScript community. Let's look at the example where the amount of Rosuvastatin was changed again. 
+	You could do it like this.
+</p>
+<p><pre><code class="JavaScript">medications.Rosuvastatin.amount = 1432
+</code>
+</pre></p>
+<p>
+	That's kind of nice. Many fewer characters to type. You drop all the brackets and quotation marks. But can you 
+	use dot notation to set a value? Yep. You can. Here is the Albutorol example from earlier rewritten using dot notation.
+</p>
+
+<p>
+<pre><code class="JavaScript">let aBestByDate = medications.Albuterol.expDate
+</code>
+</pre></p>
+<p>
+	It may seem that, because dot notation is so much less wordy, it should always be used. Not so fast. 
+	There are times when it doesn't work. It only works when you know what the keys are at the time you are writting your code. Let me explain.</p>
+<p>Suppose you had a user interface where the user selected the name of the medication to display the expiration data for. 
+	Now you have a problem. You have to put what the user selected into a variable in order to be able to use it. 
+	Let's say you put it in a variable called 'selectedMedication'. The temptation is to think that this code would work.
+</p>
+<p>
+<pre><code class="JavaScript">let aBestByDate = medications.selectedMedication.expDate
+</code>
+</pre></p>
+<p>It doesn't. This code does work though.</p>
+<p>
+<pre><code class="JavaScript">let aBestByDate = medications[selectedMedication]['expDate']
+</code>
+</pre></p>
+<p>This code works too. It combines both approaches and is probably the cleanest code to solve this problem.</p>
+<p>
+<pre><code class="JavaScript">let aBestByDate = medications[selectedMedication].expDate
+</code>
+</pre></p>
+<p>If nothing else, JavaScript is very flexible. So which one should you use? It depends on which works to solve the 
+	problem you are working on. Pick the one that is the simplest for any given situation.
+</p>
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.
 </body>
 </html>

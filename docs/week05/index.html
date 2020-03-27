@@ -29,8 +29,9 @@
     used by the control structures you will see below.
     </p>
 	<h3>If</h3>
-	<p>In JavaScript, the if...else if....else statement takes this form,</p>
-	<pre><code class="javascript">if(boolean expression){
+	<p>In JavaScript, the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">if...else if....else statement</a> 
+	takes this form,</p>
+	<p><pre><code class="javascript">if(boolean expression){
 	//code if true
 }
 else if(boolean expression){
@@ -39,14 +40,16 @@ else if(boolean expression){
 else{
 	//code if no other match
 }</code>
-	</pre>
+	</pre></p>
+	<p>
 	Notice the boolean expressions have parenthesis around them, and the JavaScript scope operators are used 
 	to indicate what lines of code executes in each condition. Here is a code example that evaluates the number of sales 
 	of product a company has for one day. The first condition checks if the number of sales is less than or equal to 50. Since the 
 	first check has been done, the second actually tests if the number of sales is greater than 50 and less than or equal to 1000. 
 	The default, 'else', is is the number of sales being greater than 1000. 
+	</p>
 
-	<pre><code class="javascript">if(numSales <= 50){
+	<p><pre><code class="javascript">if(numSales <= 50){
 	console.log("Way to few sales");
 }
 else if(numSales <= 1000){
@@ -55,16 +58,22 @@ else if(numSales <= 1000){
 else{
 	console.log("A good number of sales.")
 }</code>
-	</pre>
+	</pre></p>
+	<p>
+		There is another way to control your code that behaves similar to an if-else if-else statement. It's 
+		called a <a href="https://www.w3schools.com/js/js_switch.asp">switch</a>. It can be very helpful if you have large numbers of cases to check. Just be careful using it. 
+		It is VERY easy for those not familiar with them to put logic errors in their code using <a href="https://stackoverflow.com/questions/2922948/javascript-switch-vs-if-else-if-else">switches</a>.
+	</p>
 	<h3>Getting Loopy</h3>
-	<p>As mentioned in week 03, JavaScript has map, reduce, and filter functions for arrays. It also has a forEach loop that is used with arrays</p>
+	<p>As mentioned in week 03, JavaScript has built in map, reduce, and filter functions for arrays. It also has a forEach loop that is used with arrays.</p>
 	<p>
 		Maybe, in a different part of the likes application from week 3, you are asked to print each of the like values to the console. You could use 
-		the forEach loop to do this. 
+		the forEach function to do this. 
 	</p>
 	<pre>
-<code class="JavaScript">likes.forEach(aCount => console.log(aCount))</code>
+<code class="JavaScript">likeCounts.forEach(aCount => console.log(aCount))</code>
 	</pre>
+	</p>
 	<p>
 		Here is an important piece of advice. NEVER use the forEach method when map, filter, reduce, or some combination of them 
 		will accomplish the same task. It should rarely ever be used.
@@ -83,7 +92,7 @@ else{
 for(property in aMedication){
 	console.log(aMedication[aProperty])
 }</code>
-	</pre>
+	</pre></p>
 	<h4>The for-of Loop</h4>
 	<p>The for-of loop IS the same as the Python for-in loop. It can, but shouldn't, be used to iterate over the elements of a list, set, map, or other type of 
 	data structure. It won't iterator over the properties of a defined object.</p>
@@ -92,26 +101,26 @@ for(property in aMedication){
 for(anAge of ages){
 	console.log(anAge)
 }</code>
-	</pre>
+	</pre></p>
 	<h4>The for Loop</h4>
 	<p>Here is another type of loop you shouldn't use. The C-like for loop. JavaScript doesn't have the concept of a range. Heaven forbid 
 	you should use this loop to accomplish something 10 or some other number of times, but this is how you would do it.</p>
-	<pre>
+	<p><pre>
 <code class="JavaScript">for(var i = 1, i <=10, i++){
 	console.log(i)
 }</code>
-	</pre>
+	</pre></p>
 	<h4>The while Loop</h4>
 	<p>Like Python's while loop, JavaScript's while loop works with a single boolean logic check to assess the state of your application 
 		by assessing one or more boolean logic statements. As long as the logic statements are true, the loop continues looping.
 	Otherwise it stops. Again, you may never need to use this loop if you wisely apply map, filter, and reduce.</p>
-	<pre>
+	<p><pre>
 <code class="JavaScript">let total = 0
 while(total < 10){
 	console.log(total)
 	total++
 }</code>
-	</pre>
+	</pre></p>
 	
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.
 </body>

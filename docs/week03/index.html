@@ -39,24 +39,23 @@
 	realize that when you are designing solutions in JavaScript, how a function accomplishes something is not as important as that it will, 
 	and that you can wait to figure out how to complete the function later.</p>
 	
-	<p>Put an example here of desinging a solution thinking in functions.</p>
 	<p>In Python and JavaScript there are similarities and differences between the languages regarding how you declare 
 	functions. In JavaScript, the 'function' keyword is used instead of 'def'. Also, JavaScript the convention usually used for names 
 	of functions and variables is called 'camel case'. To create a name, the first word of the name starts with a lower-case letter, and the first letter 
 	of all the rest of the words making up the name begin with an upper-case letter. For example, a function that averages two numbers 
 	could be defined like this.
 
-	<p>JavaScript example
-
-	<pre>
+	<p><pre>
 <code class="JavaScript">function averageTwoNumbers(firstNum, secondNum){
 	return (firstNum+secondNum)/2
 }</code>
 	</pre>
 </p> 
-	Notice the '{' and '}' operators. These are the JavaScript scope operators. These are used instead of the white-space 
-	scope operator used in Python. In JavaScript, white space means nothing but when writing your code, it is important to use 
-	white space to help make your code easier to read. Never left justify your code. 
+	<p>
+		Notice the '{' and '}' operators. These are the JavaScript scope operators. These are used instead of the white-space 
+		scope operator used in Python. In JavaScript, white space means nothing but when writing your code, it is important to use 
+		white space to help make your code easier to read. Never left justify your code. 
+	</p>
 	<p>
 		As with Python, JavaScript functions can have more than one line of code. The previous example could be written as
 <pre>
@@ -66,10 +65,106 @@
 	return avg
 }</code>
 	</pre>
-It does exactly the same thing, it's just broken up into multiple lines of code.
 	</p>
+	<p>
+		It does exactly the same thing, it's just broken up into multiple lines of code. There is something of great importance to note in 
+		his little example. JavaScript and Python share the same scope rules. When let or const are used within the scope operators in JavaScript, the variable or constant exists only within 
+		that scope. In other words, the sum and avg variables declared between the scope operators for this function can not be used 
+		outside of this function.
+	</p>
+	<p>
+		JavaScript does have another keyword, var, that can be used <a href="https://medium.com/front-end-weekly/es6-cool-stuffs-var-let-and-const-in-depth-24512e593268">to 'hoist'</a>  
+		the variable outside of its declaring scope, but it can cause 
+		logic errors in your code and has fallen out of favor with most developers and engineers. You should rarely use it, and only when you have a great deal of experience with 
+		JavaScript.
+	</p>
+	<h4>Another way to Write Functions</h4>
+	<p>
+		Having seen the traditional way of declaring a function, it is important that you know there are other ways to create functions. 
+		The one we'll look at this week is called 'function expressions' in the JavaScript community. Here is the averageTwoNumbers function 
+		written using the expression type syntax.
+	</p>
+	<p><pre>
+<code class="JavaScript">let averageTwoNumbers = function(firstNum, secondNum){
+	let sum = firstNum+secondNum
+	let avg = sum/2
+	return avg
+}</code>
+	</pre>
+	</p>
+	<p>
+		Regardless of if you used a function declaration or expression to creat it, you would still call averageTwoNumbers 
+		using exactly the same syntax, averageTwoNumbers(15,10). So what then is the difference? Why would you choose one 
+		way over the other?
+	</p>
+	<p>
+		The JavaScript language has a concept called 'global scope'. When you use the traditional function declaration syntax, 
+		your function is created and lives in this global scope. An advantage of this is that you could write code using the 
+		function declaration that used the function BEFORE the function declaration like many other languages allow. Here's a simple, syntactically correct example.
+	</p>
+	<p><pre>
+<code class="JavaScript">averageTwoNumbers(15,20)
+/*
+ *
+ * a bunch of other code goes here
+ *
+ */
 
-	<h3>Libraries - sharing your functions with others</h3>
+function averageTwoNumbers(firstNum, secondNum){
+	let sum = firstNum+secondNum
+	let avg = sum/2
+	return avg
+}</code>
+	</pre>
+	</p>
+	<p>
+		Wow. This does seem pretty good. It does come with a drawback. When the global space becomes too cluttered, 
+		the speed of code execution is impacted. Too many global functions produces slow code.
+	</p>
+	<p>
+		OK then, why not just use the expression syntax? If you tried to do this...
+	</p>
+	<p><pre>
+<code class="JavaScript">averageTwoNumbers(15,20)
+/*
+ *
+ * a bunch of other code goes here
+ *
+ */
+
+let averageTwoNumbers = function(firstNum, secondNum){
+	let sum = firstNum+secondNum
+	let avg = sum/2
+	return avg
+}</code>
+	</pre>
+	</p>
+	<p>
+		your code will fail to run since the averageTwoNumbers function doesn't exist prior to calling it. To make it 
+		work you would need to do this instead.
+	</p>
+	<p><pre>
+<code class="JavaScript">let averageTwoNumbers = function(firstNum, secondNum){
+	let sum = firstNum+secondNum
+	let avg = sum/2
+	return avg
+}
+/*
+ *
+ * a bunch of other code goes here
+ *
+ */
+averageTwoNumbers(15,20)</code>
+	</pre>
+	</p>
+	<p>When you use the function expression syntax, the use of the function HAS to happen AFTER the function is created.</p>
+	<p>One question that usually comes up when using the expression syntax is, "Hey...aren't we just storing a function in a variable? If so, 
+	could we change the function stored in the variable?" The answer is yes though this is often an advanced JavaScript 
+	programming concept. If, on the other hand, your variable was a const instead of a let, no such change could be made.</p>
+	<p>
+		So which way should we use to create functions? There are lots of opinions on that topic. <a href="https://gomakethings.com/function-expressions-vs-function-declarations/">Here is one.</a>
+	</p>
+<h3>Libraries - sharing your functions with others</h3>
 	<p> A higher order organizational idea in JavaScript is library. Libraries are a way that you can share your code for other programmers 
 	to use in their applications, and you can share your code with them. Libraries are groups of functions that, unlike 
 	applications, can not run on their own. Instead, you use what other people have written and compiled as if you wrote it yourself.</p>
@@ -80,7 +175,7 @@ It does exactly the same thing, it's just broken up into multiple lines of code.
 		doing other things. Each file would be named after what it does and use the '.js' name ending. For example, fades.js, slideshow.js, etc.
 	</p>
 
-	<h3>Map, Filter, and Reduce</h3>
+<h3>Map, Filter, and Reduce</h3>
 	<p>In JavaScript, as in most languages, it is important not to write code that duplicates fundamental parts of the standard language library. 
 	Therefore, while it would be possible to write a loop in JavaScript to average, modify, or select some elements of an array, you should not. 
 	Instead you should use the built-in filter (select some), reduce (average, sum, product, etc.), or map (convert all) functionallity.
@@ -94,11 +189,12 @@ It does exactly the same thing, it's just broken up into multiple lines of code.
 		<p>Like this.</p> 
 
 	<pre>
-<code class="JavaScript">let filteredLikes = likes.filter(aCount => aCount >= 10)
+<code class="JavaScript">let filteredLikes = likeCounts.filter(aCount => aCount >= 10)
 }</code>
 	</pre>
-	<p>Let's break this up so you can see how it is done. The filter function has one parameter, a function similar to the Lambda function 
-		you learned about in Python. That function has one paramter, an element of the array. This parameter, aCount, is seperated by the '=>' operator 
+	<p>Let's break this up so you can see how it is done. The filter function has one parameter, a function similar to the callback Lambda function 
+		you learned about in Python. In JavaScript it is called by the less Computer Sciencey name of 'anonymous callback function.' This callback function 
+		has one paramter, an element of the array. This parameter, aCount, is seperated by the '=>' operator 
 		from the next bit of code describing the filtering to be done. In this case, comparing the aCount parameter to 10.
 	</p>
 
@@ -109,7 +205,7 @@ It does exactly the same thing, it's just broken up into multiple lines of code.
 		Like this.
 	</p>
 	<pre>
-<code class="JavaScript">likes = likes.map(aCount => aCount += 5)
+<code class="JavaScript">likes = likeCounts.map(aCount => aCount += 5)
 </code>
 	</pre>
 	<p>
@@ -120,7 +216,7 @@ It does exactly the same thing, it's just broken up into multiple lines of code.
 		initial value is used, modified, and returned to accumulates the final result. In this case the the final result is the summation of the likes.
 	</p>
 	<pre>
-<code class="JavaScript">let totalLikes = likes.reduce((accumulator, aCount) => accumulator += aCount,0)
+<code class="JavaScript">let totalLikes = likeCounts.reduce((accumulator, aCount) => accumulator += aCount,0)
 </code>
 	</pre>
 	<p>
@@ -129,34 +225,25 @@ It does exactly the same thing, it's just broken up into multiple lines of code.
 		you could do it more professionally like this. It uses map, filter, and reduce.
 	</p>
 	<pre>
-<code class="JavaScript">let sum = likes.filter(aCount => aCount >= 10).map(aCount=>aCount += 5).reduce((accumulator, aCount) => accumulator += aCount,0)
+<code class="JavaScript">let sum = likeCounts.filter(aCount => aCount >= 10).map(aCount=>aCount += 5).reduce((accumulator, aCount) => accumulator += aCount,0)
 </code>
 	</pre>
-	<p>
-		Maybe, in a different part of the application, you are asked to print each of the like values to the console. How should this be done? 
 	</p>
-	<p>Use the forEach function.</p>
-
-	<pre>
-<code class="JavaScript">likes.forEach(aCount => console.log(aCount))
-</code>
-	</pre>
-	<p>
-		Let's imagine that instead of being asked to sum the 
-		filtered likes with their bonus, you were asked to print them all out. How could you do this?
-	</p>
-	<pre>
-<code class="JavaScript">likes.filter(aCount => aCount >= 10).map(aCount=>{
+	
+	<p><pre>
+<code class="JavaScript">likeCounts.filter(aCount => aCount >= 10).map(aCount=>{
 		aCount += 5
 		console.log(aCount)
 		return aCount
 		})
 </code>
-	</pre>
+	</pre></p>
 	<p>
 		Notice the use of the JavaScript scope operators and the inclusion of the return keyword in the last line of the function 
-		passed to map.
+		passed to map. This is how you create an anonymous callback function that has multiple lines of code.
 	</p>
+
+
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.
 </body>
 </html>
