@@ -3,7 +3,7 @@ code {
     background-color: yellow;
     border: 1px solid black;
     font-weight: bold;
-    padding: 5px;
+    /* padding: 5px; */
 }
 
 div {
@@ -57,6 +57,14 @@ nav ul li a {
 
 ol li {
     padding: 5px;
+}
+
+pre {
+    border: 1px solid black;
+    display: inline-block;
+    padding: 5px;
+    /* color: white; */
+    /* background-color: black; */
 }
 
 

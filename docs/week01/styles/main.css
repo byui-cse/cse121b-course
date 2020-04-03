@@ -5,6 +5,7 @@ body {
 
 div {
     margin: 10px;
+    text-align: center;
 }
 
 footer {
@@ -25,6 +26,11 @@ label {
     text-align: right;
 }
 
+main {
+    display: flex;
+    justify-content: center;
+}
+
 nav {
     background-color: black;
     color: white;
@@ -37,7 +43,6 @@ nav ul {
     align-content: space-around;
     margin: 0;
     padding: 0;
-    
 }
 
 nav ul li:first-child {
@@ -47,7 +52,7 @@ nav ul li:first-child {
 nav ul li {
     display: none;
     list-style: none;
-    padding: 10px;
+    margin: 10px;
 }
 
 nav ul li a {
@@ -56,7 +61,6 @@ nav ul li a {
     padding: 10px;
     text-decoration: none;
 }
-
 nav ul li a:hover {
     background-color: #efefef;
     color: black;
@@ -77,23 +81,20 @@ section {
 .open li {
     display: block;
 }
-
 /* ID Selectors */
 
 
 @media only screen and (min-width: 32.5em) {
     nav ul {
         flex-direction: row;
-        /* justify-content: center;
-        align-content: space-around;
-        margin: 0; */        
     }
-
+    
     nav ul li:first-child {
         display: none;
     }
 
     nav ul li {
-        display: block;
+        display: inline;
+        margin: 0 10px;
     }
 }

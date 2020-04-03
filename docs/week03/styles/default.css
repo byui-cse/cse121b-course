@@ -1,4 +1,8 @@
 /* HTML Selectors */
+body {
+    max-width: 50%;
+}
+
 code {
     background-color: yellow;
     border: 1px solid black;
