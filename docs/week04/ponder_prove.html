@@ -1,31 +1,100 @@
-<!-- uses https://highlightjs.org/
--->
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<script type="text/javascript">
-		var codeType = "C++"
-	</script>
-	<script src="../../../site/highlight.pack.js"></script>
-	<link rel="stylesheet" href="../../../site/highlight_styles/xcode.css">
-	<link rel="stylesheet" href="../../../site/weekly.css">
-	<script type="text/javascript" src="../../../site/weekly.js"></script>
-	
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSE 121b: Week 04 | Ponder and Prove</title>
+	<link rel="stylesheet" href="styles/default.css">
 </head>
 
-<body onload="fetchSource()">
-<div class="hero-image">
-  <div class="hero-text">
-    <h1>CSE 121b: Week 04</h1>
-    <p>Ponder and Prove</p>
-  </div>
-</div>
-	<h1>Your Task</h1>
-	<p>Create a desktop video of you using the stepwise debugger in the Eclipse IDE. Show how to use the step-over and step-into features, 
-	along with the mouse-over and variables tab feature.</p>
-
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+<body>
+	<header class="task">
+		<div class="hero-text">
+			<h1>CSE 121b: Week 04</h1>
+			<p>Ponder and Prove</p>
+		</div>
+	</header>
+	<main>
+		<h1>Week 4 Task Instructions</h1>
+		<h2>Representing Data</h2>
+		<section>
+			<h3>Before beginning this Task:</h3>
+			<ul>
+				<li>
+					Make sure you have reviewed the <a href="../week04/" target="_blank">Representing Data</a> course content.
+				</li>
+				<li>
+					Download the following Zip file and extract it into a local folder of your choice:
+					<a href="week04.zip">week04.zip</a>
+				</li>
+				<li>
+					Open the local folder in VS Code
+				</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Object Literals</h3>
+			<h4>
+				In previous Tasks, we have declared and used individual variables.  In this Task, we will learn how to declare objects that can hold 
+				multiple name/value pairs as properties.
+			</h4>
+			<p>
+				We will revisit the Biography Task from Lesson 2, this time using object literals.
+			</p>
+		</section>
+		<section>
+			<h3>Data</h3>
+			<h4>Complete the following steps</h4>
+			<p>In the <code>task4.js</code> file:</p>
+			<ol>
+				<li>Declare a new variable to hold information about yourself and assign an empty object to the variable (hint: {} )</li>
+				<li>Inside of the object, add a property named <em>name</em> with a value of your name as a string</li>
+				<li>Add another property named <em>photo</em> with a value of the image path and name (used in Task 2) as a string</li>
+				<li>Add another property named <em>favoriteFoods</em> with a value of an array of your favorite foods as strings ( hint: [] )</li>
+				<li>Add another property named <em>hobbies</em> with a value of an array of your hobbies as strings</li>
+				<li>Add another property named <em>placesLived</em> with a value of an empty array</li>
+				<li>Inside of the empty array above, add a new object with two properties: <em>place</em> and <em>length</em></li>
+				<li>For each property, add appropriate values as strings</li>
+				<li>Add additional objects with the same properties for each place you've lived</li>
+			</ol>
+		</section>
+		<section>
+			<h3>Output</h3>
+			<h4>Complete the following steps</h4>
+			<p>In the <code>task4.js</code> file:</p>
+			<ol>
+				<li>Assign the value of the <em>name</em> property (of the object declared above) to the HTML &lt;span&gt; element with an ID of <em>name</em></li>
+				<li>Assign the value of the <em>photo</em> property as the <em>src</em> attribute of the HTML &lt;img&gt; element with an ID of <em>photo</em></li>
+				<li>Assign the value of the <em>name</em> property as the <em>alt</em> attribute of the HTML &lt;img&gt; element with an ID of <em>photo</em></li>
+				<li>For each favorite food in the <em>favoriteFoods</em> property, create an HTML &lt;li&gt; element and place its value in the &lt;li&gt; element</li>
+				<li>Append the &lt;li&gt; elements created above as children of the HTML &lt;ul&gt; element with an ID of <em>favorite-foods</em></li>
+				<li>Repeat Step 4 for each hobby in the <em>hobbies</em> property</li>
+				<li>Repeat Step 5 using the HTML &lt;ul&gt; element with an ID of <em>hobbies</em></li>
+				<li>For each object in the <em>placesLived</em> property:
+					<br>- Create an HTML &lt;dt&gt; element and put its <em>place</em> property in the &lt;dt&gt; element
+					<br>- Create an HTML &lt;dd&gt; element and put its <em>length</em> property in the &lt;dd&gt; element<br>
+				</li>
+				<li>Append the HTML &lt;dt&gt; and &lt;dd&gt; elements created above to the HTML &lt;dl&gt; element with an ID of <em>places-lived</em></li>
+			</ol>
+		</section>
+		<section>
+			<h3>Review</h3>
+			<h4>After completing the previous steps and submitting the assignment in I-Learn:</h4>
+			<ol>
+				<li>Review the <a href="instructor_solution.html">Sample Solution</a> for this Task</li>
+				<li>Compare and contrast your code with the Sample Solution code</li>
+				<li>Make note of any improvements you could make for future Tasks </li>
+			</ol>
+		</section>
+	</main>
+	<footer>
+		<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License"
+				style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is
+		licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+			Attribution
+			4.0 International License</a>.
+	</footer>
 </body>
+
 </html>

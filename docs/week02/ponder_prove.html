@@ -47,9 +47,27 @@
 				The <code>&lt;script&gt;</code> tag is commonly placed before the closing <code>&lt;/body&gt;</code> tag
 				as follows:
 			</p>
-			<p>
+<pre>
+&lt;main&gt;
+	&lt;section&gt;
+		&lt;div&gt;
+			&lt;label for="name"&gt;Name:&lt;/label&gt;
+			&lt;span id="name"&gt;&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;label for="food"&gt;Favorite Foods:&lt;/label&gt;
+			&lt;span id="food"&gt;&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;
+	&amp;copy;&lt;span id="year"&gt;&lt;/span&gt; | Biography | Lesson 2
+&lt;/footer&gt;
+<code>&lt;script src="scripts/task2.js"&gt;&lt;/script&gt;</code>
+</pre>
+			<!-- <p>
 				<img src="images/script-example.png" alt="script tag example">
-			</p>
+			</p> -->
 			<p>
 				The "src" attribute of the <code>&lt;script&gt;</code> tag should point to the folder and file name of
 				the JavaScript file relative to the current HTML file.
@@ -167,7 +185,7 @@
 			<h4>Complete the following steps</h4>
 			<p>In the <code>task2.js</code> file:</p>
 			<ol>
-				<li>Declare and instantiate an array variable to hold your favorite foods</li>
+				<li>Declare and instantiate an array variable to hold your favorite foods ( hint: [] )</li>
 				<li>Place the values of the favorite foods variable into the <code>task2.html</code> HTML file inside of
 					the element with an "id"
 					of "food"</li>

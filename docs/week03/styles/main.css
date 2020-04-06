@@ -27,8 +27,8 @@ label {
 }
 
 main {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 nav {
@@ -38,21 +38,32 @@ nav {
 
 nav ul {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: space-around;
     margin: 0;
-    
+    padding: 0;
+}
+
+nav ul li:first-child {
+    display: block;
 }
 
 nav ul li {
+    display: none;
     list-style: none;
-    padding: 10px;
+    margin: 10px;
 }
 
 nav ul li a {
     color: white;
-    text-decoration: none;
+    display: block;
     padding: 10px;
+    text-decoration: none;
+}
+nav ul li a:hover {
+    background-color: #efefef;
+    color: black;
 }
 
 section {
@@ -67,4 +78,28 @@ section {
     color: black;
 }
 
+.open li {
+    display: block;
+}
+
 /* ID Selectors */
+
+/* media queries */
+@media only screen and (min-width: 32.5em) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    nav ul {
+        flex-direction: row;
+    }
+    
+    nav ul li:first-child {
+        display: none;
+    }
+
+    nav ul li {
+        display: inline;
+        margin: 0 10px;
+    }
+}
