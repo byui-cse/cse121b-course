@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css">
         <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
         <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
-
+		<link rel="stylesheet" href="../main.css">
 </head>
 
 <body onload="fetchSource()">
@@ -174,10 +174,15 @@ averageTwoNumbers(15,20)</code>
 		on the screen, I might put that code in a file called 'animations.js'. There would be other files in my library that contained other functions 
 		doing other things. Each file would be named after what it does and use the '.js' name ending. For example, fades.js, slideshow.js, etc.
 	</p>
+	<p class="callout">Libraries created like this are simple to make, but do have a few drawbacks. The most important is that everything in them gets added to the global scope with all of the disadvantages mentioned above. If you are interested in learning more about creating small libraries (or modules as they are often called) that addresses this scope issue read this article: <a href="https://tylermcginnis.com/javascript-modules-iifes-commonjs-esmodules/" target="_blank" rel="noreferrer">JavaScript Modules: From IIFEs to CommonJS to ES6 Modules</a>. Read down to the section <strong>IIFE</strong>, if you are interested in some history then read on...if not then skip the next few sections and start again at the <strong>ES Modules</strong> section.  </p>
 
 <h3>Map, Filter, and Reduce</h3>
-	<p>In JavaScript, as in most languages, it is important not to write code that duplicates fundamental parts of the standard language library. 
-	Therefore, while it would be possible to write a loop in JavaScript to average, modify, or select some elements of an array, you should not. 
+	<p>In JavaScript, as in most languages, it is important not to write code that duplicates fundamental parts of the standard language library. Take an <strong>Array</strong> for example as we studied last week. Did you wonder when you saw the code example</p>
+	 <pre><code>names.push('Grace')</code></pre>
+	 <p>where the <strong>.push()</strong>
+	 came from? It's a built in part of an Array in Javascript. Arrays have <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noreferrer">many helpful helper methods</a> that we can and should use. Please visit that link and familiarize yourself with the list.</p>
+	<p>
+	While it would be possible to write a loop in JavaScript to average, modify, or select some elements of an array, you should not. 
 	Instead you should use the built-in filter (select some), reduce (average, sum, product, etc.), or map (convert all) functionallity.
 	</p>
 	<p>
