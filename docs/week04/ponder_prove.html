@@ -5,19 +5,24 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>CSE 121b: Week 04 | Ponder and Prove</title>
-	<link rel="stylesheet" href="styles/default.css">
+	<link rel="stylesheet" href="styles/default.css"><script type="text/javascript">
+    	var codeType = "JavaScript"
+    </script>
+    <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css">
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
+    <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
 </head>
 
 <body>
-	<header class="task">
+	<header class="hero-image">
 		<div class="hero-text">
 			<h1>CSE 121b: Week 04</h1>
 			<p>Ponder and Prove</p>
 		</div>
 	</header>
 	<main>
-		<h1>Week 4 Task Instructions</h1>
-		<h2>Representing Data</h2>
+		<h1>Your Task</h1>
 		<section>
 			<h3>Before beginning this Task:</h3>
 			<ul>
@@ -40,41 +45,43 @@
 			</p>
 		</section>
 		<section>
-			<h3>Data</h3>
-			<h4>Complete the following steps</h4>
-			<p>In the <code>task4.js</code> file:</p>
-			<ol>
-				<li>Declare a new variable to hold information about yourself and assign an empty object to the variable (hint: {} )</li>
-				<li>Add a property to this object literal named <em>name</em> and set its value to be your name as a string</li>
-				<li>Add a property named <em>photo</em>. Set its value to be an image's path and name (one used in Task 2) as a string</li>
-				<li>Add a property named <em>favoriteFoods</em>. Set its value to be an array of your favorite foods as strings ( hint: [] )</li>
-				<li>Add a property named <em>hobbies</em>. Set its value to be an array of your hobbies as strings</li>
-				<li>Add a property named <em>placesLived</em>. Set its value to be an empty array</li>
-				<li>Add an item to the placesLived array that is new object literal with two properties: <em>place</em> and <em>length</em></li>
-				<ul>
-					<li>For each of these properties, add appropriate values as strings</li>
-				</ul>
-				<li>Add additional object literals with appropriate values to the placesLived array for each place you've lived</li>
-			</ol>
+			<h3>Data Changes</h3>
+			<p>Complete the following steps.</p>
+			<p>In the <span class="file_name">task4.js</span> file:
+				<ol>
+					<li>Declare a new variable to hold information about yourself and assign an empty object to the variable (hint: {} )</li>
+					<li>Add a property to this object literal named <em>name</em> and set its value to be your name as a string</li>
+					<li>Add a property named <em>photo</em>. Set its value to be an image's path and name (one used in Task 2) as a string</li>
+					<li>Add a property named <em>favoriteFoods</em>. Set its value to be an array of your favorite foods as strings ( hint: [] )</li>
+					<li>Add a property named <em>hobbies</em>. Set its value to be an array of your hobbies as strings</li>
+					<li>Add a property named <em>placesLived</em>. Set its value to be an empty array</li>
+					<li>Add an item to the placesLived array that is new object literal with two properties: <em>place</em> and <em>length</em></li>
+					<ul>
+						<li>For each of these properties, add appropriate values as strings</li>
+					</ul>
+					<li>Add additional object literals with appropriate values to the placesLived array for each place you've lived</li>
+				</ol>
+			</p>
 		</section>
 		<section>
-			<h3>Output</h3>
-			<h4>Complete the following steps</h4>
-			<p>In the <code>task4.js</code> file:</p>
-			<ol>
-				<li>Assign the value of the <em>name</em> property (of the object declared above) to the HTML &lt;span&gt; who's ID is <em>name</em></li>
-				<li>Assign the value of the <em>photo</em> property as the <em>src</em> attribute of the HTML &lt;img&gt; who's ID is <em>photo</em></li>
-				<li>Assign the value of the <em>name</em> property as the <em>alt</em> attribute of the HTML &lt;img&gt; who's ID is <em>photo</em></li>
-				<li>For each favorite food in the <em>favoriteFoods</em> property, create an HTML &lt;li&gt; element and place its value in the &lt;li&gt; element</li>
-				<li>Append the &lt;li&gt; elements created above as children of the HTML &lt;ul&gt; element who's ID is <em>favorite-foods</em></li>
-				<li>Repeat Step 4 for each hobby in the <em>hobbies</em> property</li>
-				<li>Repeat Step 5 using the HTML &lt;ul&gt; element with an ID of <em>hobbies</em></li>
-				<li>For each object in the <em>placesLived</em> property:
-					<br>- Create an HTML &lt;dt&gt; element and put its <em>place</em> property in the &lt;dt&gt; element
-					<br>- Create an HTML &lt;dd&gt; element and put its <em>length</em> property in the &lt;dd&gt; element<br>
-				</li>
-				<li>Append the HTML &lt;dt&gt; and &lt;dd&gt; elements created above to the HTML &lt;dl&gt; element with an ID of <em>places-lived</em></li>
-			</ol>
+			<h3>Output Changes</h3>
+			<p>Complete the following steps.</p>
+			<p>In the <span class="file_name">task4.js</span> file:
+				<ol>
+					<li>Assign the value of the <em>name</em> property (of the object declared above) to the HTML &lt;span&gt; who's ID is <em>name</em></li>
+					<li>Assign the value of the <em>photo</em> property as the <em>src</em> attribute of the HTML &lt;img&gt; who's ID is <em>photo</em></li>
+					<li>Assign the value of the <em>name</em> property as the <em>alt</em> attribute of the HTML &lt;img&gt; who's ID is <em>photo</em></li>
+					<li>For each favorite food in the <em>favoriteFoods</em> property, create an HTML &lt;li&gt; element and place its value in the &lt;li&gt; element</li>
+					<li>Append the &lt;li&gt; elements created above as children of the HTML &lt;ul&gt; element who's ID is <em>favorite-foods</em></li>
+					<li>Repeat Step 4 for each hobby in the <em>hobbies</em> property</li>
+					<li>Repeat Step 5 using the HTML &lt;ul&gt; element with an ID of <em>hobbies</em></li>
+					<li>For each object in the <em>placesLived</em> property:
+						<br>- Create an HTML &lt;dt&gt; element and put its <em>place</em> property in the &lt;dt&gt; element
+						<br>- Create an HTML &lt;dd&gt; element and put its <em>length</em> property in the &lt;dd&gt; element<br>
+					</li>
+					<li>Append the HTML &lt;dt&gt; and &lt;dd&gt; elements created above to the HTML &lt;dl&gt; element with an ID of <em>places-lived</em></li>
+				</ol>
+			</p>
 		</section>
 		<section>
 			<h3>Review</h3>
