@@ -229,7 +229,8 @@ averageTwoNumbers(15,20)</code>
 </code>
 	</pre>
 	</p>
-	
+	<p>Suppose you wanted to be able to easily test your 'bonus likes' code by printing to the console. It would mean your callback 
+	function would need more than one line of code. You can do that! It would look like this.</p>
 	<p><pre>
 <code class="JavaScript">likeCounts.filter(aCount => aCount >= 10).map(aCount=>{
 		aCount += 5
@@ -239,8 +240,8 @@ averageTwoNumbers(15,20)</code>
 </code>
 	</pre></p>
 	<p>
-		Notice the use of the JavaScript scope operators and the inclusion of the return keyword in the last line of the function 
-		passed to map. This is how you create an anonymous callback function that has multiple lines of code.
+		Notice the use of the JavaScript scope operators and the inclusion of the return keyword in the last line of map's callback 
+		function. For map, whatever is returned by the callback is what ends up in the resulting array.
 	</p>
 
 
