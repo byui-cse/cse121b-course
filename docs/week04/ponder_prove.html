@@ -35,12 +35,8 @@
 		</section>
 		<section>
 			<h3>Object Literals</h3>
-			<h4>
-				In previous Tasks, we have declared and used individual variables.  In this Task, we will learn how to declare objects that can hold 
-				multiple name/value pairs as properties.
-			</h4>
 			<p>
-				We will revisit the Biography Task from Lesson 2, this time using object literals.
+				In your previous tasks, you declared and used individual variables. In this Task, you are to rework the Biography Task from Lesson 2 using object literals.
 			</p>
 		</section>
 		<section>
@@ -49,14 +45,16 @@
 			<p>In the <code>task4.js</code> file:</p>
 			<ol>
 				<li>Declare a new variable to hold information about yourself and assign an empty object to the variable (hint: {} )</li>
-				<li>Inside of the object, add a property named <em>name</em> with a value of your name as a string</li>
-				<li>Add another property named <em>photo</em> with a value of the image path and name (used in Task 2) as a string</li>
-				<li>Add another property named <em>favoriteFoods</em> with a value of an array of your favorite foods as strings ( hint: [] )</li>
-				<li>Add another property named <em>hobbies</em> with a value of an array of your hobbies as strings</li>
-				<li>Add another property named <em>placesLived</em> with a value of an empty array</li>
-				<li>Inside of the empty array above, add a new object with two properties: <em>place</em> and <em>length</em></li>
-				<li>For each property, add appropriate values as strings</li>
-				<li>Add additional objects with the same properties for each place you've lived</li>
+				<li>Add a property to this object literal named <em>name</em> and set its value to be your name as a string</li>
+				<li>Add a property named <em>photo</em>. Set its value to be an image's path and name (one used in Task 2) as a string</li>
+				<li>Add a property named <em>favoriteFoods</em>. Set its value to be an array of your favorite foods as strings ( hint: [] )</li>
+				<li>Add a property named <em>hobbies</em>. Set its value to be an array of your hobbies as strings</li>
+				<li>Add a property named <em>placesLived</em>. Set its value to be an empty array</li>
+				<li>Add an item to the placesLived array that is new object literal with two properties: <em>place</em> and <em>length</em></li>
+				<ul>
+					<li>For each of these properties, add appropriate values as strings</li>
+				</ul>
+				<li>Add additional object literals with appropriate values to the placesLived array for each place you've lived</li>
 			</ol>
 		</section>
 		<section>
@@ -64,11 +62,11 @@
 			<h4>Complete the following steps</h4>
 			<p>In the <code>task4.js</code> file:</p>
 			<ol>
-				<li>Assign the value of the <em>name</em> property (of the object declared above) to the HTML &lt;span&gt; element with an ID of <em>name</em></li>
-				<li>Assign the value of the <em>photo</em> property as the <em>src</em> attribute of the HTML &lt;img&gt; element with an ID of <em>photo</em></li>
-				<li>Assign the value of the <em>name</em> property as the <em>alt</em> attribute of the HTML &lt;img&gt; element with an ID of <em>photo</em></li>
+				<li>Assign the value of the <em>name</em> property (of the object declared above) to the HTML &lt;span&gt; who's ID is <em>name</em></li>
+				<li>Assign the value of the <em>photo</em> property as the <em>src</em> attribute of the HTML &lt;img&gt; who's ID is <em>photo</em></li>
+				<li>Assign the value of the <em>name</em> property as the <em>alt</em> attribute of the HTML &lt;img&gt; who's ID is <em>photo</em></li>
 				<li>For each favorite food in the <em>favoriteFoods</em> property, create an HTML &lt;li&gt; element and place its value in the &lt;li&gt; element</li>
-				<li>Append the &lt;li&gt; elements created above as children of the HTML &lt;ul&gt; element with an ID of <em>favorite-foods</em></li>
+				<li>Append the &lt;li&gt; elements created above as children of the HTML &lt;ul&gt; element who's ID is <em>favorite-foods</em></li>
 				<li>Repeat Step 4 for each hobby in the <em>hobbies</em> property</li>
 				<li>Repeat Step 5 using the HTML &lt;ul&gt; element with an ID of <em>hobbies</em></li>
 				<li>For each object in the <em>placesLived</em> property:
