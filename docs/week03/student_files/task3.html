@@ -13,6 +13,7 @@
 <body class="biography">
     <nav>
         <ul>
+            <li><a id="toggleMenu">&equiv;</a></li>
             <li><a href="#">Home</a></li>
             <li><a href="#">Lesson 2</a></li>
             <li><a class="active" href="#">Lesson 3</a></li>
@@ -35,7 +36,7 @@
                 <input type="text" id="addend2" name="addend2">
             </div>
             <div>
-                <input type="button" onclick="sumNumbers()" value="Add Numbers">
+                <input type="button" id="addNumbers" value="Add Numbers">
             </div>
             <div>
                 <label for="sum">Sum:</label>
@@ -53,7 +54,7 @@
                 <input type="text" id="subtrahend" name="subtrahend">
             </div>
             <div>
-                <input type="button" onclick="subtractNumbers()" value="Subtract Numbers">
+                <input type="button" id="subtractNumbers" value="Subtract Numbers">
             </div>
             <div>
                 <label for="difference">Difference:</label>
@@ -71,7 +72,7 @@
                 <input type="text" id="factor2" name="factor2">
             </div>
             <div>
-                <input type="button" onclick="multiplyNumbers()" value="Multiply Numbers">
+                <input type="button" id="multiplyNumbers" value="Multiply Numbers">
             </div>
             <div>
                 <label for="product">Product:</label>
@@ -89,7 +90,7 @@
                 <input type="text" id="divisor" name="divisor">
             </div>
             <div>
-                <input type="button" onclick="divideNumbers()" value="Divide Numbers">
+                <input type="button" id="divideNumbers" value="Divide Numbers">
             </div>
             <div>
                 <label for="quotient">Quotient:</label>
