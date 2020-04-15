@@ -16,12 +16,12 @@
 </head>
 
 <body onload="fetchSource()">
-<div class="hero-image">
-  <div class="hero-text">
+<header class="hero-image">
+  <section class="hero-text">
     <h1>CSE 121b: Week 03</h1>
     <p>Creating, Calling, and Using Functions</p>
-  </div>
-</div>
+  </section>
+</header>
 	<h1>Organization and Access</h1>
 	<p>All computer languages are ways to organize your communication and thinking. In this, they are very
 	similar to spoken languages. Each spoken language, or family of spoken languages, does this organization
@@ -234,7 +234,8 @@ averageTwoNumbers(15,20)</code>
 </code>
 	</pre>
 	</p>
-	
+	<p>Suppose you wanted to be able to easily test your 'bonus likes' code by printing to the console. It would mean your callback 
+	function would need more than one line of code. You can do that! It would look like this.</p>
 	<p><pre>
 <code class="JavaScript">likeCounts.filter(aCount => aCount >= 10).map(aCount=>{
 		aCount += 5
@@ -244,11 +245,12 @@ averageTwoNumbers(15,20)</code>
 </code>
 	</pre></p>
 	<p>
-		Notice the use of the JavaScript scope operators and the inclusion of the return keyword in the last line of the function 
-		passed to map. This is how you create an anonymous callback function that has multiple lines of code.
+		Notice the use of the JavaScript scope operators and the inclusion of the return keyword in the last line of map's callback 
+		function. For map, whatever is returned by the callback is what ends up in the resulting array.
 	</p>
 
-
+<footer>
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.
+</footer>
 </body>
 </html>

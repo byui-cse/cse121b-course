@@ -27,8 +27,7 @@ label {
 }
 
 main {
-    /* display: flex;
-    justify-content: center; */
+    text-align: center;
 }
 
 nav {

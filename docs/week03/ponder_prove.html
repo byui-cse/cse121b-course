@@ -5,78 +5,77 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>CSE 121b: Week 03 | Ponder and Prove</title>
-	<link rel="stylesheet" href="../main.css">
+	<script type="text/javascript">
+    	var codeType = "JavaScript"
+    </script>
+    <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css">
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
+    <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
 </head>
 
-<body>
-	<header class="task">
-		<div class="hero-text">
+<body onload="fetchSource()">
+	<header class="hero-image">
+		<section class="hero-text">
 			<h1>CSE 121b: Week 03</h1>
 			<p>Ponder and Prove</p>
-		</div>
+		</section>
 	</header>
 	<main>
-		<h1>Week 3 Task Instructions</h1>
-		<h2>Creating, Calling, and Using Functions</h2>
+		<h1>Your Task</h1>
 		<section>
 			<h3>Before beginning this Task:</h3>
 			<ul>
 				<li>
-					Make sure you have reviewed the <a href="../week03/" target="_blank">Creating, Calling, and Using
-						Functions</a>
-					course content.
+					Make sure you have read and understood the <a href="../week03/" target="_blank">reading for the week</a>.
 				</li>
 				<li>
 					Download the following Zip file and extract it into a local folder of your choice:
 					<a href="week03.zip">week03.zip</a>
 				</li>
 				<li>
-					Open the local folder in VS Code
+					Open the folder created by unzipping week03.zip in VS Code
 				</li>
 			</ul>
 		</section>
 		<section>
 			<h3>Getting values in HTML form control elements from JavaScript</h3>
-			<h4>
-				In the previous Task, we learned how to access HTML elements and set their content and attributes from JavaScript.
-				In this Task, we will learn how to retrieve values from HTML form elements.
-			</h4>
 			<p>
-				We will use the same methods to access HTML form elements that we discussed previously.
-				<ul>
-					<li>
-						<p>
-							<code>document.getElementById('formElementId');</code>
-						</p>
-						or
-					</li>
-					<li>
-						<p>
-							<code>document.querySelector('#formElementId');</code>
-						</p>
-					</li>
-				</ul>
+				In last week's task, you accessed HTML elements and set their content and attributes using JavaScript.
+				In this task, you are to retrieve data entered by the user from the HTML form elements they used.
 			</p>
 			<p>
-				To retrieve the value of a form control element, we use the <code>value</code> property.
+				Use the same methods to access the HTML form elements that you used last week,
+
+						<p>
+<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.getElementById('formElementId')</code>
+						</p>
+						<p>or</p>
+					
+						<p>
+<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.querySelector('#formElementId'),</code>
+						</pre>
+			</p>
+			<p>
+				to retrieve the value of a form control element, we use the <span class="file_name">value</span> property.
 			</p>
 			<p>
 				For example, to get a value from the following HTML form control with an ID of <em>city</em>:
 			</p>
 			<p>
-				<code>&lt;input type="text" id="city" name="city"&gt;</code>
+				<code class="HTML" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">&lt;input type="text" id="city" name="city"&gt;</code>
 			</p>
 			<p>
 				We would use the following syntax:
 			</p>
 			<p>
-				<code>let city = document.querySelector('#city').value;</code>
+				<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">let city = document.querySelector('#city').value</code>
 			</p>
 		</section>
 		<section>
 			<h3>Functions</h3>
 			<h4>Complete the following steps</h4>
-			<p>In the <code>task3.js</code> file:</p>
+			<p>In the <span class="file_name">task3.js</span> file:</p>
 			<ol>
 				<li>Using function declaration, define a function named <em>add</em> that takes two arguments, <em>number1</em> and <em>number2</em></li>
 				<li>In the function, return the sum of the parameters <em>number1</em> and <em>number2</em></li>
@@ -86,13 +85,13 @@
 				<li>Using function expressions, repeat Steps 1-5 with new functions named <em>subtract</em> and <em>subtractNumbers</em> and HTML form controls with IDs of <em>minuend</em>, <em>subtrahend</em>, <em>difference</em> and <em>subtractNumbers</em></li>
 				<li>Using arrow functions, repeat Steps 1-5 with new functions named <em>multiply</em> and <em>mulitplyNumbers</em> and HTML form controls with IDs of <em>factor1</em>, <em>factor2</em>, <em>product</em> and <em>multiplyNumbers</em></li>
 				<li>Using any of the three function declaration types, repeat Steps 1-5 with new functions named <em>divide</em> and <em>divideNumbers</em> and HTML form controls with IDs of <em>dividend</em>, <em>divisor</em>, <em>quotient</em> and <em>divideNumbers</em></li>
-				<li>Test all of the mathematical functionality of the <code>task3.html</code> page.</li>
+				<li>Test all of the mathematical functionality of the <span class="file_name">task3.html</span> page.</li>
 			</ol>
 		</section>
 		<section>
 			<h3>Built-In Methods</h3>
 			<h4>Complete the following steps</h4>
-			<p>In the <code>task3.js</code> file:</p>
+			<p>In the <span class="file_name">task3.js</span> file:</p>
 			<ol>
 				<li>Declare and instantiate a variable of type Date to hold the current date</li>
 				<li>Declare a variable to hold the current year</li>

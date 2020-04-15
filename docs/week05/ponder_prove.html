@@ -36,8 +36,8 @@
 		<section>
 			<h3>Conditionals</h3>
 			<h4>
-				In the first part of this Task, we will practice using the <code>if</code>, <code>else if</code> conditionals.  
-				We will also review the <code>switch</code>, <code>case</code> and <code>break</code> statements.
+				In the first part of this Task, you will use the <code>if</code>, <code>else if</code> conditionals.  
+				You will also use the <code>switch</code>, <code>case</code> and <code>break</code> statements.
 			</h4>
 			<p>
 				
@@ -48,7 +48,12 @@
 			<h4>Complete the following steps</h4>
 			<p>In the <code>task5.js</code> file:</p>
 			<ol>
-				<li></li>
+				<li>Declare and initialize a new variable to hold the current date</li>
+				<li>Declare another variable to hold the day of the week</li>
+				<li>Using the variable declared in Step 1, assign the value of the variable declared in Step 2 to the day of the week ( hint: getDay() )</li>
+				<li>Declare a variable to hold a message that will be displayed</li>
+				<li>Using an if statement, if the day of the week is a weekday (i.e. Monday - Friday), set the message variable to the string 'Hang in there!'</li>
+				<li>Using an else statement, set the message variable to 'Woohoo!  It is the weekend!'</li>
 			</ol>
 		</section>
 		<section>
@@ -56,7 +61,38 @@
 			<h4>Complete the following steps</h4>
 			<p>In the <code>task5.js</code> file:</p>
 			<ol>
-				<li></li>
+				<li>Declare a new variable to hold another message</li>
+				<li>Use switch, case and break to set the message variable to the day of the week as a string (e.g. Sunday, Monday, etc.) using the day of week variable declared in Step 2 above</li>
+			</ol>
+		</section>
+		<section>
+			<h3>Output Changes</h3>
+			<h4>Complete the following steps</h4>
+			<p>In the <code>task5.js</code> file:</p>
+			<ol>
+				<li>Assign the value of the first message variable to the HTML element with an ID of message1</li>
+				<li>Assign the value of the second message variable to the HTML element with an ID of message2</li>
+			</ol>
+		</section>
+		<section>
+			<h3>Fetch</h3>
+			<h4>Complete the following steps</h4>
+			<p>In the <code>task5.js</code> file:</p>
+			<ol>
+				<li>Using the built-in fetch method, call this relative URL: 'json/temples.json'</li>
+				<li>Add a .then() method to turn the returned string into a JavaScript object ( hint: .json() )</li>
+				<li>Add another .then() method to iterate over the result using an arrow function and a .foreach() method</li>
+				<li>For each temple, complete the following:
+					<ul>
+						<li>Create an HTML &lt;article&gt; element</li>
+						<li>Create an HTML &lt;h3&gt; element and add the temple's templeName property to it</li>
+						<li>Create an HTML &lt;h4&gt; element and add the temple's location property to it</li>
+						<li>Create an HTML &lt;h4&gt; element and add the temple's dedicated property to it</li>
+						<li>Create an HTML &lt;img&gt; element and add the temple's imageUrl property to the src attribute and the temple's templeName property to the alt attribute</li>
+						<li>Append the &lt;h3&gt; element, the two &lt;h4&gt; elements, and the &lt;img&gt; element to the &lt;article&gt; element as children</li>
+						<li>Append the &lt;article&gt; element to the HTML element with an ID of temples</li>
+					</ul>
+				</li>
 			</ol>
 		</section>
 		<section>

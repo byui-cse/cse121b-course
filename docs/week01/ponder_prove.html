@@ -4,13 +4,14 @@
 <html>
 
 <head>
-	<script type="text/javascript">
-		var codeType = "C++"
-	</script>
-	<script src="../../../site/highlight.pack.js"></script>
-	<link rel="stylesheet" href="../../../site/highlight_styles/xcode.css">
-	<link rel="stylesheet" href="../../../site/weekly.css">
-	<script type="text/javascript" src="../../../site/weekly.js"></script>
+	<link rel="shortcut icon" href="https://byui-cse.github.io/Language-Courses/site/images/fav.ico" type="image/x-icon">
+        <script type="text/javascript">
+                 var codeType = "JavaScript"
+        </script>
+        <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+        <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css">
+        <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
+        <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
 	
 
 </head>
@@ -23,8 +24,81 @@
   </div>
 </div>
 	<h1>Your Task</h1>
-	<p>Create a desktop video of you using the stepwise debugger in the Eclipse IDE. Show how to use the step-over and step-into features, 
-	along with the mouse-over and variables tab feature.</p>
+
+	<p>
+		Google Chrome, the web browser you will be using in this course, contains a set of very helpful developer tools. This task doesn't 
+		cover <a href="https://www.youtube.com/watch?v=x4q86IjJFag">using all of them</a>. Instead it focuses on the built-in stepwise 
+		debugger. 
+	</p>
+	<p>
+		To start with, <a href="example_souce/stepwise_debugging.zip">download the files</a> we'll play with to help you learn how to use the stepwise debugger. 
+		Once you've got the zip file downloaded, <a href="https://www.google.com/search?q=%how to unzip"> unzip it</a>.
+	</p>
+	<p>To accomplish this task, you will need this browser window open with the instructions showing and another open showing the index.html file in the zip file. 
+		Set up these two windows side-by-side so you can see them both at once. The next step is to load the index.html file into the second Chrome browser window. 
+		Do this by launching Chrome and then drag the index.html file onto the second window. 
+		With this done, right click, or control-click for MacOS users, on the window and select 'Inspect'. This will open the 
+		developer tools (There are <a href="https://www.youtube.com/watch?v=x4q86IjJFag">other ways to launch the tools</a> if you are interested). 
+		With the developer tools open, look for and select the 'Sources' tab. You should find it at the top of the developer tools window.
+	</p>
+	<p>
+		The example you are going to mess with consists of two files, index.html and learning.js. Following industry standard practice, all the JavaScript for this example is 
+		found in the learning.js file. Select learning.js from the left-hand view and the learn.js code will appear in the middle view.
+	</p>
+	<img src="example_source/break_point.png" alt="The developer tools running, the JavaScript source file selected, and a break point set on line two."/>
+	<p>
+		In the middle view, you will see a column of numbers indicating the line numbers for each line of the code. This column is called 
+		'the gutter'. Now click on the 2. You will see a blue indicator show up in the gutter. This indicator is showing you where a 'break point' 
+		has just been set in the code. Breakpoints are how you temporarily pause the code's execution so you can see what is actually going on in 
+		the code rather than what you think might be going on. You are now ready to use Chrome's built-in stepwise debugger.
+	</p>
+	<p>The code for this page is designed to run each time the page is loaded, so refresh the page</p>
+	<p>What you now see is a bounded blue selection including all of the 
+		code for line 2. At this point in time, line 2 has not executed. Let's make it execute. In the right-had view of the debugging tools, you will 
+		see a dot with a bent arrow over it. It looks kind of like an eye with an eyebrow. When you move your mouse over it, without clicking, a 
+		help message pops up letting you know this is the 'step over' button. Each time you click this button, the highlighted line of code executes. 
+		Let's give it a go. Click the step over button.
+	</p>
+	<p>
+		The first thing you'll notice is that the highlighter has moved to the next line of code. Now you know the browser is waiting to extecute that line. 
+		Now move your mouse over 'let currentDateAndTime'. As you do, it gets a yellow highlight and the value of this variable is displayed. Handy!! now 
+		you don't have to guess what the value is. If you look in the right-hand view, in the Scope/Script pulldown, you will also see this same variable 
+		and its value. You can use which ever way you like to keep track of the values of any variable you create in your code.
+	</p>
+	<p>
+		Click the step over button again. Now line 4 has executed. In the console tab at the bottom of the developer tools you now see "It is now " followed 
+		by the current date and time. When you use console.log to print out values of your variables, you are using what in programming speak is called a 
+		debug statement. Whether you choose to use a debug statement or the stepwise debugger is situationally dependent. Your instructor, and your own experience, 
+		can help you decide when it is best to use which one.
+	</p>
+	<p>
+		The debugger is now 'stopped' on line 7. Line 7 is different. While you will learn much more about this later, what you see in line 7 is a call to a 
+		JavaScript function that returns a value. That value is stored in the 'theTotal' variable. Now...if you were to (pleae don't) click the step over button again, 
+		you would then see the sum of the numbers 1 through 10 in the theTotal variable, but we are going to do something much more interesting. 
+	</p>
+	<p>
+		Next to the step over button, there is another button. This one is a dot with an arrow pointing down to it. Move your mouse over it and a help 
+		message pops up letting you know that this is the 'step into' button. Go ahead and click it.
+	</p>
+	<p>Wow! The highlighted line of code jumped to line 13! That's because, in programmer speak, you stepped into, instead of over, the total JavaScript function. 
+		Now, as you click the step over button, you can watch the value of each number in theNumbers get added to the sum.
+	</p>
+	<p>
+		Eventually, the numbers have all been added to the sum and the debugger is on line 17. Move your mouse over sum or find it in the right-hand view and 
+		you will find the total is 45. It is important to realize you know this BEFORE the function returns the value.
+	</p>
+	<p>
+		Click step over again, and the hightlighted code moves back to line 9, the next line of code to be executed after line 7. Click step over 
+		one more time and the result of the calculation is printed to the console using JavaScript's Built In Function(BIF), console.log.
+	</p>
+	<p>
+		Noobs and pro's all use the stepwise debugger. When you code is acting up it lets you see EXACTLY what your code is doing instead of thinking you know 
+		what it is doing. Rule number one of debugging your code is "Never assume you know what your code is doing." If you follow this rule and use the stepwise 
+		debugger, you code debugging time will drop dramatically.
+	</p>
+	<p>
+		Play around with this a little bit. Change the numbers being passed to the total function and see what happens.
+	</p>
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 </body>
