@@ -4,16 +4,22 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>CSE 121b: Week 02 | Ponder and Prove</title>
-	<link rel="stylesheet" href="../main.css">
+	<title>CSE 121b: Week 02 | Ponder and Prove</title>    
+	<script type="text/javascript">
+    	var codeType = "JavaScript"
+    </script>
+    <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css">
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
+    <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
 </head>
 
-<body>
-	<header class="task">
-		<div class="hero-text">
+<body  onload="fetchSource()">
+	<header class="hero-image">
+		<section class="hero-text">
 			<h1>CSE 121b: Week 02</h1>
 			<p>Ponder and Prove</p>
-		</div>
+		</section>
 	</header>
 	<main>
 		<h1>Week 2 Task Instructions</h1>
@@ -41,14 +47,14 @@
 			<h3>JavaScript and HTML</h3>
 			<p>
 				In the Tasks for this course, we will manipulate content in HTML files from JavaScript. In order to link
-				a JavaScript file to an HTML file, an HTML <code>&lt;script&gt;</script></code> tag is used.
+				a JavaScript file to an HTML file, an HTML <span class="tag">&lt;script&gt;</span></code> tag is used.
 			</p>
 			<p>
-				The <code>&lt;script&gt;</code> tag is commonly placed before the closing <code>&lt;/body&gt;</code> tag
+				The <span class="tag">&lt;script&gt;</span> tag is commonly placed before the closing <span class="tag">&lt;/body&gt;</span> tag
 				as follows:
 			</p>
-<pre>
-&lt;main&gt;
+
+			<p><pre><code class="HTML">&lt;main&gt;
 	&lt;section&gt;
 		&lt;div&gt;
 			&lt;label for="name"&gt;Name:&lt;/label&gt;
@@ -63,134 +69,124 @@
 &lt;footer&gt;
 	&amp;copy;&lt;span id="year"&gt;&lt;/span&gt; | Biography | Lesson 2
 &lt;/footer&gt;
-<code>&lt;script src="scripts/task2.js"&gt;&lt;/script&gt;</code>
-</pre>
-			<!-- <p>
-				<img src="images/script-example.png" alt="script tag example">
-			</p> -->
+&lt;script src="scripts/task2.js"&gt;&lt;/script&gt;
+</code>
+	</pre></p>
 			<p>
-				The "src" attribute of the <code>&lt;script&gt;</code> tag should point to the folder and file name of
+				The "src" attribute of the <span class="tag">&lt;script&gt;</span> tag should point to the folder and file name of
 				the JavaScript file relative to the current HTML file.
 			</p>
 		</section>
 		<section>
-			<h3>Accessing HTML elements from JavaScript</h3>
-			<h4>Even though this course does not dive deep into HTML, you will need an understanding of how to access
-				HTML elements from JavaScript files.</h4>
+			<h3>Accessing HTML elements using JavaScript</h3>
+			<p>Since this is not an HTML course, you aren't required to know HTML elements in depth. 
+			However, you will need an understanding of how to access HTML elements from JavaScript code, 
+			since using JavaScript to access HTML elements in web pages is a very common use of JavaScript.</p>
 			<p>
-				There are several ways to accomplish this.
-				<ul>
-					<li>
-						<p>
-							One is by using the built-in method:
-							<code>document.getElementById('elementId');</code>
-						</p>
-						<p>
-							The "elementId" is the value of the "id" HTML attribute.
-							For example, with the following HTML element, <code>&lt;section id="discussion"&gt;</code>
-							the "id" would be "discussion"
-						</p>
-						<p>
-							In this case, we would use <code>document.getElementById('discussion');</code> to get access
-							to this element from JavaScript.
-						</p>
-					</li>
-					<li>
-						<p>
-							Another approach is to use the built-in method:
-							<code>document.querySelector('#elementId')</code>
-						</p>
-						<p>
-							The "elementId" is again the value of the "id" HTML attribute. Notice that this approach
-							also requires a pound sign (#) before the name of the "id" value.
-						</p>
-						<p>
-							Using the same HTML element above, the JavaScript method would then look like this:
-							<code>document.querySelector('#discussion');</code>
-						</p>
-					</li>
-				</ul>
+				There are several ways to access HTML elements. One of which is by using this built-in function (BIF).
 			</p>
 			<p>
-				Once we get access to the HTML element, we can change its content by using one of two properties.
-				<ul>
-					<li>
-						<p>
-							The first way is to use the "innerHTML" property.
-						</p>
-						<p>
-							This would look like the following:
-						</p>
-						<p>
-							<code>
-								document.querySelector('#discussion').innerHTML = 'The content we would like to
-								display in the HTML file.';
-							</code>
-						</p>
-					</li>
-					<li>
-						<p>
-							A second way is to use the "textContent" property.
-						</p>
-						<p>
-							This would look like the following:
-						</p>
-						<p>
-							<code>
-								document.querySelector('#discussion').textContent = 'The content we would like to
-								dsiplay in the HTML file.';
-							</code>
-						</p>
-					</li>
-				</ul>
+					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.getElementById('elementId')</code>
+				</p>
+				<p>
+					In real code, the id "elementId" is replaced by an actual, unique id.
+					For example, this HTML element 
+				<p>
+					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">&lt;section id="discussion"&gt;</code>
+				</p>
+				<p>has an id of "discussion". That means the following JavaScript is used to find the element and store it in a variable for later use. 
+				</p>
+				<p>
+					 <code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">let theDiscussionElement = document.getElementById('discussion')</code> 
+				</p>
+
+				<p>
+					Another approach is to use the <span class="file_name">querySelector</span> BIF:
+				</p>
+				<p>
+					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.querySelector('#elementId')</code>
+				</p>
+				<p>
+					The "elementId" is, again, the value of the HTML attribute's id. Notice that this BIF 
+					requires a pound sign (#) before the name of the id value.
+				</p>
+				<p>
+					Using the same discussion HTML element you looked at before, the JavaScript to get it and store it in a variable is
+				</p>
+				<p>
+					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">let theDiscussionElement = document.querySelector('#discussion');</code>
+				</p>
+			</p>
+
+			<h3>Modifying HTML elements using JavaScript</h3>
+			<p>
+				Once we get access to the HTML element, we can change its content by using one of two properties, 
+				the first of which uses the element's <span class="file_name">innerHTML</span> property.
+				</p>
+				<p>
+					Here is some JavaScript code that does this.
+				</p>
+				<p>
+					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">
+						document.querySelector('#discussion').innerHTML = 'The content we would like to
+						display in the HTML file.'
+					</code>
+				</p>
+				<p>
+					Another, similar, way uses the element's <span class="file_name">textContent</span> property.
+				</p>
+				<p>
+					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">
+						document.querySelector('#discussion').textContent = 'The content we would like to
+						display in the HTML file.'
+					</code>
+				</p>
 			</p>
 			<p>
-				We can also set the attributes of HTML elements by using the built-in method:
-				<code>setAttribute('attributeName', 'attributeValue')</code>
-				<ul>
-					<li>
-						<p>
-							For example, we can add a "src" attribute to an "img" element:
-						</p>
-						<p>
-							<code>document.querySelector('#mainImage').setAttribute('src', 'images/main.png')</code>
-						</p>
-					</li>
-				</ul>
+				You can also modify an HTML element using the <span class="file_name">setAttribute</span> BIF. To 
+				change the picture displayed in an image tag modify the <span class="file_name">src</span> property of the image element.
+			</p>
+			<p>
+				<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.querySelector('#mainImage').setAttribute('src', 'images/main.png')</code>
+			</p>
+			<p>
+				Of course, you can make this same modification directly.
+			</p>
+
+			<p>
+				<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.querySelector('#mainImage').src = 'images/main.png'</code>
 			</p>
 		</section>
 		<section>
 			<h3>Variables</h3>
 			<h4>Complete the following steps</h4>
-			<p>In the <code>task2.js</code> file:</p>
+			<p>In the <span class="file_name">task2.js</span> file:</p>
 			<ol>
 				<li>Declare and instantiate a variable to hold your name</li>
-				<li>Place the value of the name variable into the <code>task2.html</code> HTML file inside of the
+				<li>Place the value of the name variable into the <span class="file_name">task2.html</span> file inside of the
 					element with an "id of "name"
 					(hint: document.querySelector())</li>
 				<li>Declare and instantiate a variable to hold the current year</li>
-				<li>Place the value of the current year variable into the <code>task2.html</code> HTML file inside of
-					the element with an "id of
+				<li>Place the value of the current year variable into the <span class="file_name">task2.html</span> file inside of
+					the element with an <span class="file_name">id</span> of
 					"year"</li>
-				<li>Copy an image of yourself into the "images" folder</li>
+				<li>Copy an image of yourself into the <span class="file_name">images</span> folder</li>
 				<li>Declare and instantiate a variable to hold the name and location of your picture (hint:
-					'images/imagename.png')</li>
-				<li>Place the value of the picture variable into the <code>task2.html</code> HTML file in the "src"
-					attribute of the "img"
+					<span class="file_name">images/imagename.png</span>)</li>
+				<li>Place the value of the picture variable into the <span class="file_name">task2.html</span> file in the "src"
+					attribute of the <span class="file_name">img</span>
 					element (hint: document.querySelector().setAttribute())</li>
 			</ol>
 		</section>
 		<section>
 			<h3>Arrays</h3>
 			<h4>Complete the following steps</h4>
-			<p>In the <code>task2.js</code> file:</p>
+			<p>In the <span class="file_name">task2.js</span> file:</p>
 			<ol>
-				<li>Declare and instantiate an array variable to hold your favorite foods ( hint: [] )</li>
-				<li>Place the values of the favorite foods variable into the <code>task2.html</code> HTML file inside of
-					the element with an "id"
-					of "food"</li>
-				<li>Declare and instantiate a variable to hold another favorite food</li>
-				<li>Add the variable holding another favorite food to the favorite food array</li>
+				<li>Declare an array variable to hold your favorite foods ( hint: [] ) and fill it with your favorite foods as strings.</li>
+				<li>Use JavaScript to modify the element who's <span class="file_name">id</span> is "food" found in the <span class="file_name">task2.html</span> file.</li>
+				<li>Declare and instantiate a variable to hold another of your favorite foods.</li>
+				<li>Add the value stored in this variable to the favorite food array.</li>
 				<li>Repeat Step 2</li>
 				<li>Remove the first element in the favorite foods array</li>
 				<li>Repeat Step 2</li>
