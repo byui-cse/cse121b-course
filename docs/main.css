@@ -1,13 +1,8 @@
-body {
-  font-size: 1.2em;
-  max-width: 1080px;
-  margin: 0 auto;
-}
-img {
-  max-width: 100%;
-}
-footer {
-  text-align: center;
+:root {
+  --callout-bgcolor: #cbe1e8;
+  --callout-color: black;
+  --footer-bgcolor: gray;
+  --footer-color: white;
 }
 
 h1 {
@@ -20,8 +15,6 @@ h2 {
   width: 100%;
 }
 p {
-  /* max-width: 70%; */
-  /* margin: 0 auto; */
   width: 100%;
   line-height: 1.5;
 }
@@ -54,21 +47,10 @@ div {
   margin: 10px;
 }
 
-footer {
-  background-color: gray;
-  color: white;
-  padding: 5px;
-  text-align: center;
-}
-
 label {
   display: inline-block;
   min-width: 120px;
   text-align: right;
-}
-
-main {
-  margin-left: 25px;
 }
 
 nav {
@@ -135,12 +117,4 @@ ol li {
   background-size: cover;
   position: relative;
   min-height: 150px;
-}
-
-.callout {
-  max-width: 90%;
-  margin: 1em auto;
-  padding: 0.5em;
-  /* color: #013b4d; */
-  background: #cbe1e8;
 }

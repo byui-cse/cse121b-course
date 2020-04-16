@@ -2,107 +2,154 @@
 -->
 
 <html>
+  <head>
+    <link
+      rel="shortcut icon"
+      href="https://byui-cse.github.io/Language-Courses/site/images/fav.ico"
+      type="image/x-i        con"
+    />
+    <script type="text/javascript">
+      var codeType = "JavaScript";
+    </script>
+    <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://byui-cse.github.io/Language-Courses/site/weekly.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://byui-cse.github.io/Language-Courses/site/weekly.js"
+    ></script>
+  </head>
 
-<head>
-        <link rel="shortcut icon" href="https://byui-cse.github.io/Language-Courses/site/images/fav.ico" type="image/x-i        con">
-        <script type="text/javascript">
-                 var codeType = "JavaScript"
-        </script>
-        <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
-        <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css">
-        <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
-        <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
-		<link rel="stylesheet" href="../main.css">
-</head>
+  <body onload="fetchSource()">
+    <header class="hero-image">
+      <section class="hero-text">
+        <h1>CSE 121b: Week 03</h1>
+        <p>Creating, Calling, and Using Functions</p>
+      </section>
+    </header>
+    <main>
+      <h1>Organization and Access</h1>
+      <p>
+        All computer languages are ways to organize your communication and
+        thinking. In this, they are very similar to spoken languages. Each
+        spoken language, or family of spoken languages, does this organization
+        differently. English sentences often have a structure of Subject-Helper
+        Verb-Verb-Predicate...The boy will bite the dog, for example. German, a
+        language closely related to English, organizes things differently.
+        Sometimes German sentences have a Subject-Helper Verb-Predicate-Verb
+        structure... Ich werde das Buch bald lesen, which if translated
+        word-by-word is "I will the book soon read." Spanish has adjectives
+        after the nouns they modify.
+      </p>
+      <p>
+        While each language has its own organizational rules, they all do the
+        same thing. They allow us to organize and express our thinking.
+      </p>
+      <h3>Functions - a fundamental organization concept of JavaScript</h3>
+      <p>
+        Python and JavaScript, being related languages, both have functions as a
+        fundimental organizational structure. When you truly begin thinking in
+        JavaScript, you will be thinking in functions. You will think of how
+        functions are related to each other. You will have thoughts along these
+        lines, "If this function calls that one..." You will be able to do this
+        since you will eventually realize that when you are designing solutions
+        in JavaScript, how a function accomplishes something is not as important
+        as that it will, and that you can wait to figure out how to complete the
+        function later.
+      </p>
 
-<body onload="fetchSource()">
-<header class="hero-image">
-  <section class="hero-text">
-    <h1>CSE 121b: Week 03</h1>
-    <p>Creating, Calling, and Using Functions</p>
-  </section>
-</header>
-	<h1>Organization and Access</h1>
-	<p>All computer languages are ways to organize your communication and thinking. In this, they are very
-	similar to spoken languages. Each spoken language, or family of spoken languages, does this organization
-	differently. English sentences often have a structure of Subject-Helper Verb-Verb-Predicate...The boy will bite the dog, for example.
-	German, a language closely related to English, organizes things differently. Sometimes German sentences have a
-        Subject-Helper Verb-Predicate-Verb structure...
-	Ich werde das Buch bald lesen, which if translated word-by-word is "I will the book soon read." Spanish has adjectives 
-	after the nouns they modify.</p>
-	<p>While each language has its own organizational rules, they all do the same thing. They allow us to organize and express
-	our thinking.</p>
-	<h3>Functions - a fundamental organization concept of JavaScript</h3>
-	<p>Python and JavaScript, being related languages, both have functions as a fundimental organizational structure. When you truly begin 
-	thinking in JavaScript, you will be thinking in functions. You will think of how functions are related to each other. You will 
-	have thoughts along these lines, "If this function calls that one..." You will be able to do this since you will eventually
-	realize that when you are designing solutions in JavaScript, how a function accomplishes something is not as important as that it will, 
-	and that you can wait to figure out how to complete the function later.</p>
-	
-	<p>In Python and JavaScript there are similarities and differences between the languages regarding how you declare 
-	functions. In JavaScript, the 'function' keyword is used instead of 'def'. Also, JavaScript the convention usually used for names 
-	of functions and variables is called 'camel case'. To create a name, the first word of the name starts with a lower-case letter, and the first letter 
-	of all the rest of the words making up the name begin with an upper-case letter. For example, a function that averages two numbers 
-	could be defined like this.
-
-	<p><pre>
+      <p>
+        In Python and JavaScript there are similarities and differences between
+        the languages regarding how you declare functions. In JavaScript, the
+        'function' keyword is used instead of 'def'. Also, JavaScript the
+        convention usually used for names of functions and variables is called
+        'camel case'. To create a name, the first word of the name starts with a
+        lower-case letter, and the first letter of all the rest of the words
+        making up the name begin with an upper-case letter. For example, a
+        function that averages two numbers could be defined like this.
+      </p>
+      <pre>
 <code class="JavaScript">function averageTwoNumbers(firstNum, secondNum){
 	return (firstNum+secondNum)/2
 }</code>
 	</pre>
-</p> 
-	<p>
-		Notice the '{' and '}' operators. These are the JavaScript scope operators. These are used instead of the white-space 
-		scope operator used in Python. In JavaScript, white space means nothing but when writing your code, it is important to use 
-		white space to help make your code easier to read. Never left justify your code. 
-	</p>
-	<p>
-		As with Python, JavaScript functions can have more than one line of code. The previous example could be written as
-<pre>
+
+      <p>
+        Notice the '{' and '}' operators. These are the JavaScript scope
+        operators. These are used instead of the white-space scope operator used
+        in Python. In JavaScript, white space means nothing but when writing
+        your code, it is important to use white space to help make your code
+        easier to read. Never left justify your code.
+      </p>
+      <p>
+        As with Python, JavaScript functions can have more than one line of
+        code. The previous example could be written as
+      </p>
+      <pre>
 <code class="JavaScript">function averageTwoNumbers(firstNum, secondNum){
 	let sum = firstNum+secondNum
 	let avg = sum/2
 	return avg
 }</code>
 	</pre>
-	</p>
-	<p>
-		It does exactly the same thing, it's just broken up into multiple lines of code. There is something of great importance to note in 
-		his little example. JavaScript and Python share the same scope rules. When let or const are used within the scope operators in JavaScript, the variable or constant exists only within 
-		that scope. In other words, the sum and avg variables declared between the scope operators for this function can not be used 
-		outside of this function.
-	</p>
-	<p>
-		JavaScript does have another keyword, var, that can be used <a href="https://medium.com/front-end-weekly/es6-cool-stuffs-var-let-and-const-in-depth-24512e593268">to 'hoist'</a>  
-		the variable outside of its declaring scope, but it can cause 
-		logic errors in your code and has fallen out of favor with most developers and engineers. You should rarely use it, and only when you have a great deal of experience with 
-		JavaScript.
-	</p>
-	<h4>Another way to Write Functions</h4>
-	<p>
-		Having seen the traditional way of declaring a function, it is important that you know there are other ways to create functions. 
-		The one we'll look at this week is called 'function expressions' in the JavaScript community. Here is the averageTwoNumbers function 
-		written using the expression type syntax.
-	</p>
-	<p><pre>
+
+      <p>
+        It does exactly the same thing, it's just broken up into multiple lines
+        of code. There is something of great importance to note in his little
+        example. JavaScript and Python share the same scope rules. When let or
+        const are used within the scope operators in JavaScript, the variable or
+        constant exists only within that scope. In other words, the sum and avg
+        variables declared between the scope operators for this function can not
+        be used outside of this function.
+      </p>
+      <p>
+        JavaScript does have another keyword, var, that can be used
+        <a
+          href="https://medium.com/front-end-weekly/es6-cool-stuffs-var-let-and-const-in-depth-24512e593268"
+          >to 'hoist'</a
+        >
+        the variable outside of its declaring scope, but it can cause logic
+        errors in your code and has fallen out of favor with most developers and
+        engineers. You should rarely use it, and only when you have a great deal
+        of experience with JavaScript.
+      </p>
+      <h3>Another way to Write Functions</h3>
+      <p>
+        Having seen the traditional way of declaring a function, it is important
+        that you know there are other ways to create functions. The one we'll
+        look at this week is called 'function expressions' in the JavaScript
+        community. Here is the averageTwoNumbers function written using the
+        expression type syntax.
+      </p>
+      <pre>
 <code class="JavaScript">let averageTwoNumbers = function(firstNum, secondNum){
 	let sum = firstNum+secondNum
 	let avg = sum/2
 	return avg
 }</code>
 	</pre>
-	</p>
-	<p>
-		Regardless of if you used a function declaration or expression to creat it, you would still call averageTwoNumbers 
-		using exactly the same syntax, averageTwoNumbers(15,10). So what then is the difference? Why would you choose one 
-		way over the other?
-	</p>
-	<p>
-		The JavaScript language has a concept called 'global scope'. When you use the traditional function declaration syntax, 
-		your function is created and lives in this global scope. An advantage of this is that you could write code using the 
-		function declaration that used the function BEFORE the function declaration like many other languages allow. Here's a simple, syntactically correct example.
-	</p>
-	<p><pre>
+
+      <p>
+        Regardless of if you used a function declaration or expression to creat
+        it, you would still call averageTwoNumbers using exactly the same
+        syntax, averageTwoNumbers(15,10). So what then is the difference? Why
+        would you choose one way over the other?
+      </p>
+      <p>
+        The JavaScript language has a concept called 'global scope'. When you
+        use the traditional function declaration syntax, your function is
+        created and lives in this global scope. An advantage of this is that you
+        could write code using the function declaration that used the function
+        BEFORE the function declaration like many other languages allow. Here's
+        a simple, syntactically correct example.
+      </p>
+      <pre>
 <code class="JavaScript">averageTwoNumbers(15,20)
 /*
  *
@@ -116,15 +163,17 @@ function averageTwoNumbers(firstNum, secondNum){
 	return avg
 }</code>
 	</pre>
-	</p>
-	<p>
-		Wow. This does seem pretty good. It does come with a drawback. When the global space becomes too cluttered, 
-		the speed of code execution is impacted. Too many global functions produces slow code.
-	</p>
-	<p>
-		OK then, why not just use the expression syntax? If you tried to do this...
-	</p>
-	<p><pre>
+
+      <p>
+        Wow. This does seem pretty good. It does come with a drawback. When the
+        global space becomes too cluttered, the speed of code execution is
+        impacted. Too many global functions produces slow code.
+      </p>
+      <p>
+        OK then, why not just use the expression syntax? If you tried to do
+        this...
+      </p>
+      <pre>
 <code class="JavaScript">averageTwoNumbers(15,20)
 /*
  *
@@ -138,12 +187,13 @@ let averageTwoNumbers = function(firstNum, secondNum){
 	return avg
 }</code>
 	</pre>
-	</p>
-	<p>
-		your code will fail to run since the averageTwoNumbers function doesn't exist prior to calling it. To make it 
-		work you would need to do this instead.
-	</p>
-	<p><pre>
+
+      <p>
+        your code will fail to run since the averageTwoNumbers function doesn't
+        exist prior to calling it. To make it work you would need to do this
+        instead.
+      </p>
+      <pre>
 <code class="JavaScript">let averageTwoNumbers = function(firstNum, secondNum){
 	let sum = firstNum+secondNum
 	let avg = sum/2
@@ -156,101 +206,195 @@ let averageTwoNumbers = function(firstNum, secondNum){
  */
 averageTwoNumbers(15,20)</code>
 	</pre>
-	</p>
-	<p>When you use the function expression syntax, the use of the function HAS to happen AFTER the function is created.</p>
-	<p>One question that usually comes up when using the expression syntax is, "Hey...aren't we just storing a function in a variable? If so, 
-	could we change the function stored in the variable?" The answer is yes though this is often an advanced JavaScript 
-	programming concept. If, on the other hand, your variable was a const instead of a let, no such change could be made.</p>
-	<p>
-		So which way should we use to create functions? There are lots of opinions on that topic. <a href="https://gomakethings.com/function-expressions-vs-function-declarations/">Here is one.</a>
-	</p>
-<h3>Libraries - sharing your functions with others</h3>
-	<p> A higher order organizational idea in JavaScript is library. Libraries are a way that you can share your code for other programmers 
-	to use in their applications, and you can share your code with them. Libraries are groups of functions that, unlike 
-	applications, can not run on their own. Instead, you use what other people have written and compiled as if you wrote it yourself.</p>
 
-	<p>In JavaScript, libraries consist of some number of files in which you put your JavaScript. By tradition, the names of your files
-		always ends in '.js'. If I had a JavaScript library called totally_awsome, and in it there was some code that moved stuff around 
-		on the screen, I might put that code in a file called 'animations.js'. There would be other files in my library that contained other functions 
-		doing other things. Each file would be named after what it does and use the '.js' name ending. For example, fades.js, slideshow.js, etc.
-	</p>
-	<p class="callout">Libraries created like this are simple to make, but do have a few drawbacks. The most important is that everything in them gets added to the global scope with all of the disadvantages mentioned above. If you are interested in learning more about creating small libraries (or modules as they are often called) that addresses this scope issue read this article: <a href="https://tylermcginnis.com/javascript-modules-iifes-commonjs-esmodules/" target="_blank" rel="noreferrer">JavaScript Modules: From IIFEs to CommonJS to ES6 Modules</a>. Read down to the section <strong>IIFE</strong>, if you are interested in some history then read on...if not then skip the next few sections and start again at the <strong>ES Modules</strong> section.  </p>
+      <p>
+        When you use the function expression syntax, the use of the function HAS
+        to happen AFTER the function is created.
+      </p>
+      <p>
+        One question that usually comes up when using the expression syntax is,
+        "Hey...aren't we just storing a function in a variable? If so, could we
+        change the function stored in the variable?" The answer is yes though
+        this is often an advanced JavaScript programming concept. If, on the
+        other hand, your variable was a const instead of a let, no such change
+        could be made.
+      </p>
+      <p>
+        So which way should we use to create functions? There are lots of
+        opinions on that topic.
+        <a
+          href="https://gomakethings.com/function-expressions-vs-function-declarations/"
+          >Here is one.</a
+        >
+      </p>
+      <h3>Libraries - sharing your functions with others</h3>
+      <p>
+        A higher order organizational idea in JavaScript is library. Libraries
+        are a way that you can share your code for other programmers to use in
+        their applications, and you can share your code with them. Libraries are
+        groups of functions that, unlike applications, can not run on their own.
+        Instead, you use what other people have written and compiled as if you
+        wrote it yourself.
+      </p>
 
-<h3>Map, Filter, and Reduce</h3>
-	<p>In JavaScript, as in most languages, it is important not to write code that duplicates fundamental parts of the standard language library. Take an <strong>Array</strong> for example as we studied last week. Did you wonder when you saw the code example</p>
-	 <pre><code>names.push('Grace')</code></pre>
-	 <p>where the <strong>.push()</strong>
-	 came from? It's a built in part of an Array in Javascript. Arrays have <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noreferrer">many helpful helper methods</a> that we can and should use. Please visit that link and familiarize yourself with the list.</p>
-	<p>
-	While it would be possible to write a loop in JavaScript to average, modify, or select some elements of an array, you should not. 
-	Instead you should use the built-in filter (select some), reduce (average, sum, product, etc.), or map (convert all) functionallity.
-	</p>
-	<p>
-		Consider a situation where you have been hired to write code for a social media site. 
-		You have been asked to write code to count up the total number of 'likes' postings from a single customer has recieved. 
-	Existing code that others have written puts a likes count for each posting in an array called 'likes' for you.</p>
-	<p>
-		Suppose you were told to filter out all the likes counts that are less then 10. How should this be done?</p>
-		<p>Like this.</p> 
+      <p>
+        In JavaScript, libraries consist of some number of files in which you
+        put your JavaScript. By tradition, the names of your files always ends
+        in '.js'. If I had a JavaScript library called totally_awsome, and in it
+        there was some code that moved stuff around on the screen, I might put
+        that code in a file called 'animations.js'. There would be other files
+        in my library that contained other functions doing other things. Each
+        file would be named after what it does and use the '.js' name ending.
+        For example, fades.js, slideshow.js, etc.
+      </p>
+      <p class="callout">
+        Libraries created like this are simple to make, but do have a few
+        drawbacks. The most important is that everything in them gets added to
+        the global scope with all of the disadvantages mentioned above. If you
+        are interested in learning more about creating small libraries (or
+        modules as they are often called) that addresses this scope issue read
+        this article:
+        <a
+          href="https://tylermcginnis.com/javascript-modules-iifes-commonjs-esmodules/"
+          target="_blank"
+          rel="noreferrer"
+          >JavaScript Modules: From IIFEs to CommonJS to ES6 Modules</a
+        >. Read down to the section <strong>IIFE</strong>, if you are interested
+        in some history then read on...if not then skip the next few sections
+        and start again at the <strong>ES Modules</strong> section.
+      </p>
 
-	<pre>
+      <h3>Map, Filter, and Reduce</h3>
+      <p>
+        In JavaScript, as in most languages, it is important not to write code
+        that duplicates fundamental parts of the standard language library. Take
+        an <strong>Array</strong> for example as we studied last week. Did you
+        wonder when you saw the code example
+      </p>
+      <pre><code>names.push('Grace')</code></pre>
+      <p>
+        where the <strong>.push()</strong> came from? It's a built in part of an
+        Array in Javascript. Arrays have
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+          target="_blank"
+          rel="noreferrer"
+          >many helpful helper methods</a
+        >
+        that we can and should use. Please visit that link and familiarize
+        yourself with the list.
+      </p>
+      <p>
+        While it would be possible to write a loop in JavaScript to average,
+        modify, or select some elements of an array, you should not. Instead you
+        should use the built-in <kbd>filter</kbd> (select some),
+        <kbd>reduce</kbd> (average, sum, product, etc.), or
+        <kbd>map</kbd> (convert all) functionallity.
+      </p>
+      <p>
+        Consider a situation where you have been hired to write code for a
+        social media site. You have been asked to write code to count up the
+        total number of 'likes' postings from a single customer has recieved.
+        Existing code that others have written puts a likes count for each
+        posting in an array called 'likes' for you.
+      </p>
+      <p>
+        Suppose you were told to filter out all the likes counts that are less
+        then 10. How should this be done?
+      </p>
+      <p>Like this.</p>
+
+      <pre>
 <code class="JavaScript">let filteredLikes = likeCounts.filter(aCount => aCount >= 10)
 }</code>
 	</pre>
-	<p>Let's break this up so you can see how it is done. The filter function has one parameter, a function similar to the callback Lambda function 
-		you learned about in Python. In JavaScript it is called by the less Computer Sciencey name of 'anonymous callback function.' This callback function 
-		has one paramter, an element of the array. This parameter, aCount, is seperated by the '=>' operator 
-		from the next bit of code describing the filtering to be done. In this case, comparing the aCount parameter to 10.
-	</p>
+      <p>
+        Let's break this up so you can see how it is done. The filter function
+        has one parameter, a function similar to the callback Lambda function
+        you learned about in Python. In JavaScript it is called by the less
+        Computer Sciencey name of 'anonymous callback function.' This callback
+        function has one paramter, an element of the array. This parameter,
+        aCount, is seperated by the '=>' operator from the next bit of code
+        describing the filtering to be done. In this case, comparing the aCount
+        parameter to 10.
+      </p>
 
-	<p>On the other hand, maybe you have been asked to give the customer five 'bonus likes' that are to be added to each posting.</p>
+      <p>
+        On the other hand, maybe you have been asked to give the customer five
+        'bonus likes' that are to be added to each posting.
+      </p>
 
-	<p>How should the likes array be modified?</p>
-	<p>
-		Like this.
-	</p>
-	<pre>
+      <p>How should the likes array be modified?</p>
+      <p>
+        Like this.
+      </p>
+      <pre>
 <code class="JavaScript">likes = likeCounts.map(aCount => aCount += 5)
 </code>
 	</pre>
-	<p>
-		Maybe you are asked to total the customers likes. How should you do that?
-	</p>
-	<p>
-		You would use the reduce function. It has two parameters, the first is a function with two paramters and the second is usually called an accumulator initial value. The accumulator's 
-		initial value is used, modified, and returned to accumulates the final result. In this case the the final result is the summation of the likes.
-	</p>
-	<pre>
+      <p>
+        Maybe you are asked to total the customers likes. How should you do
+        that?
+      </p>
+      <p>
+        You would use the reduce function. It has two parameters, the first is a
+        function with two paramters and the second is usually called an
+        accumulator initial value. The accumulator's initial value is used,
+        modified, and returned to accumulates the final result. In this case the
+        the final result is the summation of the likes.
+      </p>
+      <pre>
 <code class="JavaScript">let totalLikes = likeCounts.reduce((accumulator, aCount) => accumulator += aCount,0)
 </code>
 	</pre>
-	<p>
-		What if you are to give five bonus likes only for those that already have 10 likes and then sum the result? 
-		You could do a seperate line of code to accomplish this, or since the map and filter array functions return an array,
-		you could do it more professionally like this. It uses map, filter, and reduce.
-	</p>
-	<pre>
+      <p>
+        What if you are to give five bonus likes only for those that already
+        have 10 likes and then sum the result? You could do a seperate line of
+        code to accomplish this, or since the map and filter array functions
+        return an array, you could do it more professionally like this. It uses
+        map, filter, and reduce.
+      </p>
+      <pre>
 <code class="JavaScript">let sum = likeCounts.filter(aCount => aCount >= 10).map(aCount=>aCount += 5).reduce((accumulator, aCount) => accumulator += aCount,0)
 </code>
 	</pre>
-	</p>
-	<p>Suppose you wanted to be able to easily test your 'bonus likes' code by printing to the console. It would mean your callback 
-	function would need more than one line of code. You can do that! It would look like this.</p>
-	<p><pre>
+
+      <p>
+        Suppose you wanted to be able to easily test your 'bonus likes' code by
+        printing to the console. It would mean your callback function would need
+        more than one line of code. You can do that! It would look like this.
+      </p>
+      <pre>
 <code class="JavaScript">likeCounts.filter(aCount => aCount >= 10).map(aCount=>{
 		aCount += 5
 		console.log(aCount)
 		return aCount
 		})
 </code>
-	</pre></p>
-	<p>
-		Notice the use of the JavaScript scope operators and the inclusion of the return keyword in the last line of map's callback 
-		function. For map, whatever is returned by the callback is what ends up in the resulting array.
-	</p>
-
-<footer>
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.
-</footer>
-</body>
+	</pre>
+      <p>
+        Notice the use of the JavaScript scope operators and the inclusion of
+        the return keyword in the last line of map's callback function. For map,
+        whatever is returned by the callback is what ends up in the resulting
+        array.
+      </p>
+    </main>
+    <footer>
+      <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        ><img
+          alt="Creative Commons License"
+          style="border-width: 0;"
+          src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a
+      ><br />This work is licensed under a
+      <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        >Creative Commons Attribution 4.0 International License</a
+      >.
+    </footer>
+  </body>
 </html>
