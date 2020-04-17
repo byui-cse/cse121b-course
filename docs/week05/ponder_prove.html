@@ -5,22 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSE 121b: Week 05 | Ponder and Prove</title>
     <script type="text/javascript">
-      var codeType = "JavaScript";
+      var codeType = "JavaScript"
     </script>
-    <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://byui-cse.github.io/Language-Courses/site/weekly.css"
-    />
-    <script
-      type="text/javascript"
-      src="https://byui-cse.github.io/Language-Courses/site/weekly.js"
-    ></script>
-    <link rel="stylesheet" href="../main.css" />
+    <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css">
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
+    <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
   </head>
 
   <body>
@@ -31,8 +21,7 @@
       </section>
     </header>
     <main>
-      <h1>Week 5 Task Instructions</h1>
-      <h2>Controlling Your Code</h2>
+      <h1>Your Task</h1>
       <section>
         <h3>Before beginning this Task:</h3>
         <ul>
@@ -53,31 +42,30 @@
       </section>
       <section>
         <h3>Conditionals</h3>
-        <h4>
-          In the first part of this Task, you will use the <code>if</code>,
-          <code>else if</code> conditionals. You will also use the
-          <code>switch</code>, <code>case</code> and
-          <code>break</code> statements.
-        </h4>
-        <p></p>
+        <p>
+          In the first part of this Task, you will use the <span class="file_name">if</span>,
+          <span class="file_name">else if</span> conditionals. You will also use the
+          <span class="file_name" >switch</span>, <span class="file_name">case</span> and
+          <span class="file_name">break</span> statements.
+        </p>
       </section>
       <section>
-        <h3>If/Else If</h3>
+        <h3>Using If and Else If</h3>
         <h4>Complete the following steps</h4>
-        <p>In the <code>task5.js</code> file:</p>
+        <p>In the <span class="file_name">task5.js</span> file:</p>
         <ol>
           <li>
-            Declare and initialize a new variable to hold the current date
+            Declare and initialize a new variable to hold the current date.
           </li>
-          <li>Declare another variable to hold the day of the week</li>
+          <li>Declare another variable to hold the day of the week.</li>
           <li>
             Using the variable declared in Step 1, assign the value of the
             variable declared in Step 2 to the day of the week ( hint: getDay()
-            )
+            ).
           </li>
-          <li>Declare a variable to hold a message that will be displayed</li>
+          <li>Declare a variable to hold a message that will be displayed.</li>
           <li>
-            Using an if statement, if the day of the week is a weekday (i.e.
+            Using an if statement, when the day of the week is a weekday (i.e.
             Monday - Friday), set the message variable to the string 'Hang in
             there!'
           </li>
@@ -90,74 +78,74 @@
       <section>
         <h3>Switch, Case, Break</h3>
         <h4>Complete the following steps</h4>
-        <p>In the <code>task5.js</code> file:</p>
+        <p>In the <span class="file_name">task5.js</span> file:</p>
         <ol>
-          <li>Declare a new variable to hold another message</li>
+          <li>Declare a new variable to hold another message.</li>
           <li>
             Use switch, case and break to set the message variable to the day of
             the week as a string (e.g. Sunday, Monday, etc.) using the day of
-            week variable declared in Step 2 above
+            week variable declared in Step 2 above.
           </li>
         </ol>
       </section>
       <section>
         <h3>Output Changes</h3>
         <h4>Complete the following steps</h4>
-        <p>In the <code>task5.js</code> file:</p>
+        <p>In the <span class="file_name">task5.js</span> file:</p>
         <ol>
           <li>
             Assign the value of the first message variable to the HTML element
-            with an ID of message1
+            with an ID of message1.
           </li>
           <li>
             Assign the value of the second message variable to the HTML element
-            with an ID of message2
+            with an ID of message2.
           </li>
         </ol>
       </section>
       <section>
         <h3>Fetch</h3>
         <h4>Complete the following steps</h4>
-        <p>In the <code>task5.js</code> file:</p>
+        <p>In the <span class="file_name">task5.js</span> file:</p>
         <ol>
           <li>Declare a global empty array variable to store a list of temples</li>
           <li>Declare a function named output that accepts a list of temples as an array argument and does the following for each temple:
             <ul>
               <li>Creates an HTML &lt;article&gt; element</li>
-              <li>Creates an HTML &lt;h3&gt; element and add the temple's templeName property to it</li>
-              <li>Creates an HTML &lt;h4&gt; element and add the temple's location property to it</li>
-              <li>Creates an HTML &lt;h4&gt; element and add the temple's dedicated property to it</li>
-              <li>Creates an HTML &lt;img&gt; element and add the temple's imageUrl property to the src attribute and the temple's templeName property to the alt attribute</li>
-              <li>Appends the &lt;h3&gt; element, the two &lt;h4&gt; elements, and the &lt;img&gt; element to the &lt;article&gt; element as children</li>
-              <li>Appends the &lt;article&gt; element to the HTML element with an ID of temples</li>
+              <li>Creates an HTML &lt;h3&gt; element and add the temple's templeName property to it.</li>
+              <li>Creates an HTML &lt;h4&gt; element and add the temple's location property to it.</li>
+              <li>Creates an HTML &lt;h4&gt; element and add the temple's dedicated property to it.</li>
+              <li>Creates an HTML &lt;img&gt; element and add the temple's imageUrl property to the src attribute and the temple's templeName property to the alt attribute.</li>
+              <li>Appends the &lt;h3&gt; element, the two &lt;h4&gt; elements, and the &lt;img&gt; element to the &lt;article&gt; element as children.</li>
+              <li>Appends the &lt;article&gt; element to the HTML element with an ID of temples.</li>
             </ul>
           </li>
           <li>
             Using the built-in fetch method, call this absolute URL:
-            'https://byui-cse.github.io/cse121b-course/week05/temples.json'
+            'https://byui-cse.github.io/cse121b-course/week05/temples.json'.
           </li>
           <li>
             Add a .then() method to turn the returned string into a JavaScript
-            object ( hint: .json() )
+            object ( hint: .json() ).
           </li>
           <li>
-            Add another .then() method with a variable name to hold the temples and an empty arrow function
+            Add another .then() method with a variable name to hold the temples and an empty arrow function.
           </li>
           <li>
-            Inside of second .then() method, assign the list of temples (as a JSON object) to the temples variable
+            Inside of second .then() method, assign the list of temples (as a JSON object) to the temples variable.
           </li>
           <li>
-            Finally, call the output function and pass it the list of temples
+            Finally, call the output function and pass it the list of temples.
           </li>
-          <li>Declare a function named reset that clears all of the &lt;article&gt; elements from the HTML element with an ID of temples</li>
-          <li>Declare a function named sortBy that does the following:
+          <li>Declare a function named reset that clears all of the &lt;article&gt; elements from the HTML element with an ID of temples.</li>
+          <li>Declare a function named sortBy that:
             <ul>
-              <li>Calls the reset function</li>
-              <li>Sorts the global temple list by the currently selected value of the HTML element with an ID of sortBy</li>
-              <li>Calls the output function passing in the sorted list of temples</li>
+              <li>calls the reset function,</li>
+              <li>sorts the global temple list by the currently selected value of the HTML element with an ID of sortBy, and</li>
+              <li>calls the output function passing in the sorted list of temples.</li>
             </ul>
           </li>
-          <li>Add a change event listener to the HTML element with an ID of sortBy that calls the sortBy function</li>
+          <li>Add a change event listener to the HTML element with an ID of sortBy that calls the sortBy function.</li>
         </ol>
       </section>
       <section>
@@ -177,8 +165,8 @@
       </section>
       <section>
         <h3>Stretch (optional)</h3>
-        <h4>Consider adding a "Filter by" feature that allows users to filter the list of temples</h4>
-        <p>This will require changes to both the HTML and the JavaScript files</p>
+        <p>Consider adding a "Filter by" feature that allows users to filter the list of temples. 
+        This will require changes to both the HTML and the JavaScript files</p>
       </section>
     </main>
     <footer>
