@@ -1,4 +1,10 @@
 /* HTML Selectors */
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 body {
     font-family: 'Kalam', cursive;
 }
@@ -24,11 +30,6 @@ label {
     display: inline-block;
     min-width: 120px;
     text-align: right;
-}
-
-main {
-    display: grid;
-    grid-template-columns: 1fr;
 }
 
 nav {
@@ -67,10 +68,9 @@ nav ul li a:hover {
 }
 
 section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
 }
+
 
 /* Class Selectors */
 .active {
@@ -83,13 +83,13 @@ section {
 }
 
 /* ID Selectors */
+#functions {
+    display: grid;
+    grid-template-columns: 1fr;
+}
 
 /* media queries */
 @media only screen and (min-width: 32.5em) {
-    main {
-        grid-template-columns: 1fr 1fr;
-    }
-    
     nav ul {
         flex-direction: row;
     }
@@ -101,5 +101,9 @@ section {
     nav ul li {
         display: inline;
         margin: 0 10px;
+    }
+
+    #functions {
+        grid-template-columns: 1fr 1fr;
     }
 }

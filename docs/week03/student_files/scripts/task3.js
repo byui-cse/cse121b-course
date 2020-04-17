@@ -30,3 +30,20 @@
 // Step 3: Using the variable declared in Step 1, call the built-in getFullYear() method/function and assign it to the variable declared in Step 2
 
 // Step 4: Assign the current year variable to an HTML form element with an ID of year
+
+
+/* ARRAY METHODS */
+
+// Step 1: Declare and instantiate an array variable to hold the numbers 1 through 25
+
+// Step 2: Assign the value of the array variable to the HTML element with an ID of "array"
+
+// Step 3: Use the filter array method to find all of the odd numbers of the array variable and assign the reult to the HTML element with an ID of "odds" ( hint: % (modulus operartor) )
+
+// Step 4: Use the filter array method to find all of the even numbers of the array variable and assign the result to the HTML element with an ID of "evens"
+
+// Step 5: Use the reduce array method to sum the array variable elements and assign the result to the HTML element with an ID of "sumOfArray"
+
+// Step 6: Use the map array method to multiple each element in the array variable by 2 and assign the result to the HTML element with an ID of "multiplied"
+
+// Step 7: Use the map and reduce array methods to sum the array elements after multiplying each element by two.  Assign the result to the HTML element with an ID of "sumOfMultiplied"

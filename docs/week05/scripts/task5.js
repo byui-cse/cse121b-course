@@ -70,7 +70,7 @@ document.querySelector('#message2').textContent = message2;
 
 /* FETCH */
 
-// Step 1: Using the built-in fetch method, call this relative URL: 'json/temples.json'
+// Step 1: Using the built-in fetch method, call this absolute URL: 'https://byui-cse.github.io/cse121b-course/week05/json/temples.json'
 // fetch('json/temples.json');
 
 // Step 2: Add a .then() method to turn the returned string into a JavaScript object ( hint: .json() )
@@ -97,7 +97,7 @@ document.querySelector('#message2').textContent = message2;
 // - Append the <h3> element, the two <h4> elements, and the <img> element to the <article> element as children
 // - Append the <article> element to the HTML element with an ID of temples
 
-fetch('json/temples.json')
+fetch('https://byui-cse.github.io/cse121b-course/week05/json/temples.json')
     .then(response => response.json())
     .then(temples => {
         temples.forEach(
