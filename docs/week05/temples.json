@@ -1,0 +1,38 @@
+[
+    {
+        "templeName": "Bountiful Utah Temple",
+        "location": "Bountiful, Utah, United States",
+        "dedicated": "8 January 1995",
+        "imageUrl": "https://assets.ldscdn.org/b3/1f/b31f8fc3892ce063cfbd0607cd53980290fcc0ae/aba_nigeria_temple_lds.jpeg"
+    },
+    {
+        "templeName": "Brigham City Utah Temple",
+        "location": "Brigham City, Utah, United States",
+        "dedicated": "23 September 2012",
+        "imageUrl": "https://assets.ldscdn.org/93/92/9392e6adee3d1aa025548de1a852a27ad8ea40f4/brigham_city_utah_temple_dawn.jpeg"
+    },
+    {
+        "templeName": "Cedar City Utah Temple",
+        "location": "Cedar City, Utah, United States",
+        "dedicated": "10 December 2017",
+        "imageUrl": "https://assets.ldscdn.org/b2/89/b2891eb1787414ec6995a32c42d03981732c2d6a/cedar_city_utah_temple_exterior.jpeg"
+    },
+    {
+        "templeName": "Draper Utah Temple",
+        "location": "Draper, Utah, United States",
+        "dedicated": "20 March 2009",
+        "imageUrl": "https://assets.ldscdn.org/9d/dc/9ddc03f577e4395b3408d00dcc874fb6b74b36de/draper_utah_temple.jpeg"
+    },
+    {
+        "templeName": "Jordan River Utah Temple",
+        "location": "South Jordan, Utah, United States",
+        "dedicated": "16 November 1981",
+        "imageUrl": "https://assets.ldscdn.org/e5/54/e5546a3599c023ba83a4d751fb6fc196b5ab6ada/jordan_river_temple_exterior_images.jpeg"
+    },
+    {
+        "templeName": "Logan Utah Temple",
+        "location": "Logan, Utah, United States",
+        "dedicated": "17 May 1884",
+        "imageUrl": "https://assets.ldscdn.org/07/66/0766f32cfa9c69e9c838361d874aeb819983139a/logan_temple_lds.jpeg"
+    }
+]
