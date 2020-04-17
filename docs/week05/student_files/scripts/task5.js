@@ -31,17 +31,38 @@
 
 /* FETCH */
 
-// Step 1: Using the built-in fetch method, call this relative URL: 'json/temples.json'
+// Step 1: Declare a global empty array variable to store a list of temples
 
-// Step 2: Add a .then() method to turn the returned string into a JavaScript object ( hint: .json() )
+// Step 2: Declare a function named output that accepts a list of temples as an array argument and does the following for each temple:
+// - Creates an HTML <article> element
+// - Creates an HTML <h3> element and add the temple's templeName property to it
+// - Creates an HTML <h4> element and add the temple's location property to it
+// - Creates an HTML <h4> element and add the temple's dedicated property to it
+// - Creates an HTML <img> element and add the temple's imageUrl property to the src attribute and the temple's templeName property to the alt attribute
+// - Appends the <h3> element, the two <h4> elements, and the <img> element to the <article> element as children
+// - Appends the <article> element to the HTML element with an ID of temples
 
-// Step 3: Add another .then() method to iterate over the result using an arrow function and a .foreach() method
+// Step 3: Using the built-in fetch method, call this absolute URL: 'https://byui-cse.github.io/cse121b-course/week05/temples.json'
 
-// Step 4: For each temple, complete the following:
-// - Create an HTML <article> element
-// - Create an HTML <h3> element and add the temple's templeName property to it
-// - Create an HTML <h4> element and add the temple's location property to it
-// - Create an HTML <h4> element and add the temple's dedicated property to it
-// - Create an HTML <img> element and add the temple's imageUrl property to the src attribute and the temple's templeName property to the alt attribute
-// - Append the <h3> element, the two <h4> elements, and the <img> element to the <article> element as children
-// - Append the <article> element to the HTML element with an ID of temples
+// Step 4: Add a .then() method to turn the returned string into a JavaScript object ( hint: .json() )
+
+// Step 5: Add another .then() method with a variable name to hold the temples and an empty arrow function
+
+// Step 6: Inside of second .then() method, assign the list of temples (as a JSON object) to the temples variable
+
+// Step 7: Finally, call the output function and pass it the list of temples
+
+// Step 8: Declare a function named reset that clears all of the <article> elements from the HTML element with an ID of temples
+
+// Step 9: Declare a function named sortBy that does the following:
+// - Calls the reset function
+// - Sorts the global temple list by the currently selected value of the HTML element with an ID of sortBy
+// - Calls the output function passing in the sorted list of temples
+
+// Step 10: Add a change event listener to the HTML element with an ID of sortBy that calls the sortBy function
+
+
+/* STRETCH */
+
+// Consider adding a "Filter by" feature that allows users to filter the list of temples
+// This will require changes to both the HTML and the JavaScript files

@@ -120,50 +120,44 @@
         <h4>Complete the following steps</h4>
         <p>In the <code>task5.js</code> file:</p>
         <ol>
+          <li>Declare a global empty array variable to store a list of temples</li>
+          <li>Declare a function named output that accepts a list of temples as an array argument and does the following for each temple:
+            <ul>
+              <li>Creates an HTML &lt;article&gt; element</li>
+              <li>Creates an HTML &lt;h3&gt; element and add the temple's templeName property to it</li>
+              <li>Creates an HTML &lt;h4&gt; element and add the temple's location property to it</li>
+              <li>Creates an HTML &lt;h4&gt; element and add the temple's dedicated property to it</li>
+              <li>Creates an HTML &lt;img&gt; element and add the temple's imageUrl property to the src attribute and the temple's templeName property to the alt attribute</li>
+              <li>Appends the &lt;h3&gt; element, the two &lt;h4&gt; elements, and the &lt;img&gt; element to the &lt;article&gt; element as children</li>
+              <li>Appends the &lt;article&gt; element to the HTML element with an ID of temples</li>
+            </ul>
+          </li>
           <li>
             Using the built-in fetch method, call this absolute URL:
-            'https://byui-cse.github.io/cse121b-course/week05/json/temples.json'
+            'https://byui-cse.github.io/cse121b-course/week05/temples.json'
           </li>
           <li>
             Add a .then() method to turn the returned string into a JavaScript
             object ( hint: .json() )
           </li>
           <li>
-            Add another .then() method to iterate over the result using an arrow
-            function and a .foreach() method
+            Add another .then() method with a variable name to hold the temples and an empty arrow function
           </li>
           <li>
-            For each temple, complete the following:
+            Inside of second .then() method, assign the list of temples (as a JSON object) to the temples variable
+          </li>
+          <li>
+            Finally, call the output function and pass it the list of temples
+          </li>
+          <li>Declare a function named reset that clears all of the &lt;article&gt; elements from the HTML element with an ID of temples</li>
+          <li>Declare a function named sortBy that does the following:
             <ul>
-              <li>Create an HTML &lt;article&gt; element</li>
-              <li>
-                Create an HTML &lt;h3&gt; element and add the temple's
-                templeName property to it
-              </li>
-              <li>
-                Create an HTML &lt;h4&gt; element and add the temple's location
-                property to it
-              </li>
-              <li>
-                Create an HTML &lt;h4&gt; element and add the temple's dedicated
-                property to it
-              </li>
-              <li>
-                Create an HTML &lt;img&gt; element and add the temple's imageUrl
-                property to the src attribute and the temple's templeName
-                property to the alt attribute
-              </li>
-              <li>
-                Append the &lt;h3&gt; element, the two &lt;h4&gt; elements, and
-                the &lt;img&gt; element to the &lt;article&gt; element as
-                children
-              </li>
-              <li>
-                Append the &lt;article&gt; element to the HTML element with an
-                ID of temples
-              </li>
+              <li>Calls the reset function</li>
+              <li>Sorts the global temple list by the currently selected value of the HTML element with an ID of sortBy</li>
+              <li>Calls the output function passing in the sorted list of temples</li>
             </ul>
           </li>
+          <li>Add a change event listener to the HTML element with an ID of sortBy that calls the sortBy function</li>
         </ol>
       </section>
       <section>
@@ -173,10 +167,18 @@
           I-Learn:
         </h4>
         <ol>
-          <li>Review one of the many <a href="provided_solution.zip">possible solutions</a> for this task,</li>
-          <li>Compare and contrast your code with the possible solution's code, and</li>
-          <li>Make note of any improvements you could make for future tasks.</li>
+          <li>
+            Review the
+            <a href="instructor_solution.html">Sample Solution</a> for this Task
+          </li>
+          <li>Compare and contrast your code with the Sample Solution code</li>
+          <li>Make note of any improvements you could make for future Tasks</li>
         </ol>
+      </section>
+      <section>
+        <h3>Stretch (optional)</h3>
+        <h4>Consider adding a "Filter by" feature that allows users to filter the list of temples</h4>
+        <p>This will require changes to both the HTML and the JavaScript files</p>
       </section>
     </main>
     <footer>
