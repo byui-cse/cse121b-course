@@ -54,6 +54,9 @@ switch (dayOfWeek) {
     case 6:
         message2 = 'Saturday';
         break;
+    default:
+        message2 = 'Unknown - ' + dayOfWeek;
+        break;
 }
 
 
