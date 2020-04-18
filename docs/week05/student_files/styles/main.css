@@ -1,4 +1,8 @@
 /* HTML Selectors */
+article {
+    margin: 10px;
+}
+
 body {
     font-family: 'Kalam', cursive;
 }
@@ -18,6 +22,10 @@ footer {
 header {
     margin: auto;
     text-align: center;
+}
+
+img {
+    width: 80%;
 }
 
 label {
@@ -92,6 +100,11 @@ section {
     vertical-align: top;
 }
 
+#temples {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
 /* Media Queries */
 @media only screen and (min-width: 32.5em) {
     nav ul {
@@ -105,5 +118,15 @@ section {
     nav ul li {
         display: inline;
         margin: 0 10px;
+    }
+
+    #temples {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 64em) {
+    #temples {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
