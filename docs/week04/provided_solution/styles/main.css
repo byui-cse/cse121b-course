@@ -26,11 +26,6 @@ label {
     text-align: right;
 }
 
-main {
-    /* display: flex;
-    justify-content: center; */
-}
-
 nav {
     background-color: black;
     color: white;
@@ -65,13 +60,6 @@ nav ul li a:hover {
     background-color: #efefef;
     color: black;
 }
-
-section {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
-}
-
 
 /* Class Selectors */
 .active {
