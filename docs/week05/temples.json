@@ -1,0 +1,104 @@
+[
+    {
+        "templeName": "Bountiful Utah Temple",
+        "location": "Bountiful, Utah, United States",
+        "dedicated": "8 January 1995",
+        "imageUrl": "https://assets.ldscdn.org/b3/1f/b31f8fc3892ce063cfbd0607cd53980290fcc0ae/aba_nigeria_temple_lds.jpeg"
+    },
+    {
+        "templeName": "Brigham City Utah Temple",
+        "location": "Brigham City, Utah, United States",
+        "dedicated": "23 September 2012",
+        "imageUrl": "https://assets.ldscdn.org/93/92/9392e6adee3d1aa025548de1a852a27ad8ea40f4/brigham_city_utah_temple_dawn.jpeg"
+    },
+    {
+        "templeName": "Cedar City Utah Temple",
+        "location": "Cedar City, Utah, United States",
+        "dedicated": "10 December 2017",
+        "imageUrl": "https://assets.ldscdn.org/b2/89/b2891eb1787414ec6995a32c42d03981732c2d6a/cedar_city_utah_temple_exterior.jpeg"
+    },
+    {
+        "templeName": "Draper Utah Temple",
+        "location": "Draper, Utah, United States",
+        "dedicated": "20 March 2009",
+        "imageUrl": "https://assets.ldscdn.org/9d/dc/9ddc03f577e4395b3408d00dcc874fb6b74b36de/draper_utah_temple.jpeg"
+    },
+    {
+        "templeName": "Jordan River Utah Temple",
+        "location": "South Jordan, Utah, United States",
+        "dedicated": "16 November 1981",
+        "imageUrl": "https://assets.ldscdn.org/e5/54/e5546a3599c023ba83a4d751fb6fc196b5ab6ada/jordan_river_temple_exterior_images.jpeg"
+    },
+    {
+        "templeName": "Logan Utah Temple",
+        "location": "Logan, Utah, United States",
+        "dedicated": "17 May 1884",
+        "imageUrl": "https://assets.ldscdn.org/07/66/0766f32cfa9c69e9c838361d874aeb819983139a/logan_temple_lds.jpeg"
+    },
+    {
+        "templeName": "Manti Utah Temple",
+        "location": "Manti, Utah, United States",
+        "dedicated": "21 May 1888",
+        "imageUrl": "https://assets.ldscdn.org/f3/85/f38513cc90a30a2095d0891fb1b1a9419fcfeba5/manti_temple_lds.jpeg"
+    },
+    {
+        "templeName": "Monticello Utah Temple",
+        "location": "Monticello, Utah, United States",
+        "dedicated": "26 July 1998",
+        "imageUrl": "https://assets.ldscdn.org/c1/4f/c14f8dc51dab085e74a56355b841ab7887a246b5/monticello_utah_temple.jpeg"
+    },
+    {
+        "templeName": "Mount Timpanogos Utah Temple",
+        "location": "American Fork, Utah, United States",
+        "dedicated": "13 October 1996",
+        "imageUrl": "https://assets.ldscdn.org/38/f4/38f4f0d08d11f9aa517fb57f68bbf7f95f1de7ed/mount_timpanogos_utah_temple.jpeg"        
+    },
+    {
+        "templeName": "Ogden Utah Temple",
+        "location": "Ogden, Utah, United States",
+        "dedicated": "18 January 1972",
+        "imageUrl": "https://assets.ldscdn.org/0f/02/0f025531c7bdeb20c986e0c53c2ab063b9e12deb/ogden_utah_temple.jpeg"
+    },
+    {
+        "templeName": "Oquirrh Mountain Utah Temple",
+        "location": "South Jordan, Utah, United States",
+        "dedicated": "21 August 2009",
+        "imageUrl": "https://assets.ldscdn.org/12/79/1279ca967a843a350968560551d6cf5aac5e12da/oquirrh_mountain_utah_temple.jpeg"
+    },
+    {
+        "templeName": "Payson Utah Temple",
+        "location": "Payson, Utah, United States",
+        "dedicated": "7 June 2015",
+        "imageUrl": "https://assets.ldscdn.org/c8/b5/c8b5e860a7edbbef90734c83be366e8d359d2c0b/payson_utah_temple.jpg"
+    },
+    {
+        "templeName": "Provo City Center Temple",
+        "location": "Provo, Utah, United States",
+        "dedicated": "20 March 2016",
+        "imageUrl": "https://assets.ldscdn.org/57/18/5718c8b9c5a103646c0bd22554cb268b88986f05/provo_city_center_temple_exterior.jpg"
+    },
+    {
+        "templeName": "Provo Utah Temple",
+        "location": "Provo, Utah, United States",
+        "dedicated": "9 February 1972",
+        "imageUrl": "https://assets.ldscdn.org/77/eb/77eb82391ad1795a117b25ee3deaf2a4d229311a/provo_temple_lds.jpg"
+    },
+    {
+        "templeName": "Salt Lake Temple",
+        "location": "Salt Lake City, Utah, United States",
+        "dedicated": "Renovation",
+        "imageUrl": "https://assets.ldscdn.org/cc/dc/ccdce513b921520a0740a60b5f349759a269eceb142197/salt_lake_temple_lds.jpeg"
+    },
+    {
+        "templeName": "St. George Utah Temple",
+        "location": "St. George, Utah, United States",
+        "dedicated": "Renovation",
+        "imageUrl": "https://assets.ldscdn.org/2a/d5/2ad54a2218bcb5b9437bbb53a33141934dc2fd7b1073956/st_george_temple_lds.jpeg"
+    },
+    {
+        "templeName": "Vernal Utah Temple",
+        "location": "Vernal, Utah, United States",
+        "dedicated": "2 November 1997",
+        "imageUrl": "https://assets.ldscdn.org/41/0a/410a29915aac112f15a293d963abfadee117776f1068523/vernal_temple_lds.jpeg"
+    }
+]

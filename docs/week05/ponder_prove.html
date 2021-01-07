@@ -1,31 +1,188 @@
-<!-- uses https://highlightjs.org/
--->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSE 121b: Week 05 | Ponder and Prove</title>
+    <script type="text/javascript">
+      var codeType = "JavaScript"
+    </script>
+    <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css">
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
+    <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
+  </head>
 
-<html>
-
-<head>
-	<script type="text/javascript">
-		var codeType = "C++"
-	</script>
-	<script src="../../../site/highlight.pack.js"></script>
-	<link rel="stylesheet" href="../../../site/highlight_styles/xcode.css">
-	<link rel="stylesheet" href="../../../site/weekly.css">
-	<script type="text/javascript" src="../../../site/weekly.js"></script>
-	
-
-</head>
-
-<body onload="fetchSource()">
-<div class="hero-image">
-  <div class="hero-text">
-    <h1>CSE 121b: Week 05</h1>
-    <p>Ponder and Prove</p>
-  </div>
-</div>
-	<h1>Your Task</h1>
-	<p>Create a desktop video of you using the stepwise debugger in the Eclipse IDE. Show how to use the step-over and step-into features, 
-	along with the mouse-over and variables tab feature.</p>
-
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
-</body>
+  <body>
+    <header class="hero-image">
+      <section class="hero-text">
+        <h1>CSE 121b: Week 05</h1>
+        <p>Ponder and Prove</p>
+      </section>
+    </header>
+    <main>
+      <h1>Your Task</h1>
+      <section>
+        <h3>Before beginning this Task:</h3>
+        <ul>
+          <li>
+            Make sure you have reviewed the
+            <a href="../week05/" target="_blank">Controlling Your Code</a>
+            course content.
+          </li>
+          <li>
+            Download the following Zip file and extract it into a local folder
+            of your choice:
+            <a href="week05.zip">week05.zip</a>
+          </li>
+          <li>
+            Open the local folder in VS Code
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Conditionals</h3>
+        <p>
+          In the first part of this Task, you will use the <span class="file_name">if</span>,
+          <span class="file_name">else if</span> conditionals. You will also use the
+          <span class="file_name" >switch</span>, <span class="file_name">case</span> and
+          <span class="file_name">break</span> statements.
+        </p>
+      </section>
+      <section>
+        <h3>Using If and Else If</h3>
+        <h4>Complete the following steps</h4>
+        <p>In the <span class="file_name">task5.js</span> file:</p>
+        <ol>
+          <li>
+            Declare and initialize a new variable to hold the current date.
+          </li>
+          <li>Declare another variable to hold the day of the week.</li>
+          <li>
+            Using the variable declared in Step 1, assign the value of the
+            variable declared in Step 2 to the day of the week ( hint: getDay()
+            ).
+          </li>
+          <li>Declare a variable to hold a message that will be displayed.</li>
+          <li>
+            Using an if statement, when the day of the week is a weekday (i.e.
+            Monday - Friday), set the message variable to the string 'Hang in
+            there!'
+          </li>
+          <li>
+            Using an else statement, set the message variable to 'Woohoo! It is
+            the weekend!'
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h3>Switch, Case, Break</h3>
+        <h4>Complete the following steps</h4>
+        <p>In the <span class="file_name">task5.js</span> file:</p>
+        <ol>
+          <li>Declare a new variable to hold another message.</li>
+          <li>
+            Use switch, case and break to set the message variable to the day of
+            the week as a string (e.g. Sunday, Monday, etc.) using the day of
+            week variable declared in Step 2 above.
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h3>Output Changes</h3>
+        <h4>Complete the following steps</h4>
+        <p>In the <span class="file_name">task5.js</span> file:</p>
+        <ol>
+          <li>
+            Assign the value of the first message variable to the HTML element
+            with an ID of message1.
+          </li>
+          <li>
+            Assign the value of the second message variable to the HTML element
+            with an ID of message2.
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h3>Fetch</h3>
+        <h4>Complete the following steps</h4>
+        <p>In the <span class="file_name">task5.js</span> file:</p>
+        <ol>
+          <li>Declare a global empty array variable to store a list of temples</li>
+          <li>Declare a function named output that accepts a list of temples as an array argument and does the following for each temple:
+            <ul>
+              <li>Creates an HTML &lt;article&gt; element</li>
+              <li>Creates an HTML &lt;h3&gt; element and add the temple's templeName property to it.</li>
+              <li>Creates an HTML &lt;h4&gt; element and add the temple's location property to it.</li>
+              <li>Creates an HTML &lt;h4&gt; element and add the temple's dedicated property to it.</li>
+              <li>Creates an HTML &lt;img&gt; element and add the temple's imageUrl property to the src attribute and the temple's templeName property to the alt attribute.</li>
+              <li>Appends the &lt;h3&gt; element, the two &lt;h4&gt; elements, and the &lt;img&gt; element to the &lt;article&gt; element as children.</li>
+              <li>Appends the &lt;article&gt; element to the HTML element with an ID of temples.</li>
+            </ul>
+          </li>
+          <li>
+            Using the built-in fetch method, call this absolute URL:
+            'https://byui-cse.github.io/cse121b-course/week05/temples.json'.
+          </li>
+          <li>
+            Add a .then() method to turn the returned string into a JavaScript
+            object ( hint: .json() ).
+          </li>
+          <li>
+            Add another .then() method with a variable name to hold the temples and an empty arrow function.
+          </li>
+          <li>
+            Inside of second .then() method, assign the list of temples (as a JSON object) to the temples variable.
+          </li>
+          <li>
+            Finally, call the output function and pass it the list of temples.
+          </li>
+          <li>Declare a function named reset that clears all of the &lt;article&gt; elements from the HTML element with an ID of temples.</li>
+          <li>Declare a function named sortBy that:
+            <ul>
+              <li>calls the reset function,</li>
+              <li>sorts the global temple list by the currently selected value of the HTML element with an ID of sortBy, and</li>
+              <li>calls the output function passing in the sorted list of temples.</li>
+            </ul>
+          </li>
+          <li>Add a change event listener to the HTML element with an ID of sortBy that calls the sortBy function.</li>
+        </ol>
+      </section>
+      <section>
+        <h3>Review</h3>
+        <h4>
+          After completing the previous steps:
+        </h4>
+        <ol>
+          <li>
+            Review one of the many <a href="provided_solution.zip">possible solutions</a> for this task,
+          </li>
+          <li>Compare and contrast your code with the possible solution's code, and</li>
+          <li>Make note of any improvements you could make for future tasks.</li>
+        </ol>
+      </section>
+      <section>
+        <h3>Stretch (optional)</h3>
+        <p>Consider adding a "Filter by" feature that allows users to filter the list of temples. 
+        This will require changes to both the HTML and the JavaScript files</p>
+      </section>
+    </main>
+    <footer>
+      <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        ><img
+          alt="This work is licensed under a Creative Commons Attribution 4.0 International License"
+          style="border-width: 0;"
+          src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a
+      ><br />This work is licensed under a
+      <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        >Creative Commons Attribution 4.0 International License</a
+      >.
+    </footer>
+  </body>
 </html>

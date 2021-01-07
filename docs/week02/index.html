@@ -2,160 +2,292 @@
 -->
 
 <html>
+  <head>
+    <link
+      rel="shortcut icon"
+      href="https://byui-cse.github.io/Language-Courses/site/images/fav.ico"
+      type="image/x-i        con"
+    />
+    <script type="text/javascript">
+      var codeType = "JavaScript";
+    </script>
+    <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://byui-cse.github.io/Language-Courses/site/weekly.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://byui-cse.github.io/Language-Courses/site/weekly.js"
+    ></script>
+  </head>
 
-<head>
-          <link rel="shortcut icon" href="https://byui-cse.github.io/Language-Courses/site/images/fav.ico" type="image/x-i        con">
-        <script type="text/javascript">
-                 var codeType = "JavaScript"
-        </script>
-        <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
-        <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css">
-        <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
-        <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
-	
+  <body onload="fetchSource()">
+    <header class="hero-image">
+      <section class="hero-text">
+        <h1>CSE 121b: Week 02</h1>
+        <p>The Fundamentals</p>
+      </section>
+    </header>
+    <main>
+      <h1>Some Similarities and Differences</h1>
+      <h3>Shared Operators</h3>
+      <p>
+        Remember, both Python and JavaScript have C as one of their ancestors.
+        Because of this, it is not shocking to find out that they share many of
+        the same operators as C. These include +, -, /, *, ==, !=, &lt, &gt,
+        etc. By going to these two sites, you can compare the operators for the
+        two languages.
+        <a
+          href="https://www.tutorialspoint.com/python/python_basic_operators.htm"
+          target="_blank"
+          >Python's list of operators</a
+        >
+        to
+        <a
+          href="https://www.w3schools.com/jsref/jsref_operators.asp"
+          target="_blank"
+          >JavaScript's list of operators</a
+        >. When you do so, you will find that Python has a few that JavaScript
+        does not. You will also see that the conditional operators, also known
+        as logical operators, exist in both languages but use different
+        characters.
+      </p>
+      <h3>JavaScript's missing operators</h3>
+      <p>
+        Because Python and JavaScript are different languages and the creators
+        of JavaScript had different opinions than those who created Python,
+        there are some Python operators you should not expect to find in
+        JavaScript. They are:
+      </p>
+      <ul>
+        <li>// - the floor division operator</li>
+        <li>&lt&gt - an alternative to !=</li>
+        <li>**= - the exponent and assign operator</li>
+        <li>and - the logical and operator</li>
+        <li>or - the locical or operator</li>
+        <li>not - the logical not operator</li>
+      </ul>
+      <p>
+        Don't get the wrong idea. Each of these behaviors can be done in
+        JavaScript, they will just be done a little differently. Take a look at
+        Table 1 to see how.
+      </p>
 
-</head>
+      <table class="blueTable">
+        <caption>
+          Table 1: C Equivalents of Python Operators
+        </caption>
+        <thead>
+          <tr>
+            <th>Python</th>
+            <th>JavaScript</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>a//b</td>
+            <td>Math.floor(a/b)</td>
+          </tr>
+          <tr>
+            <td>a &lt&gt b</td>
+            <td>a != b</td>
+          </tr>
+          <tr>
+            <td>a**=b</td>
+            <td>a = Math.pow(a,b)</td>
+          </tr>
+          <tr>
+            <td>a and b</td>
+            <td>a && b</td>
+          </tr>
+          <tr>
+            <td>a or b</td>
+            <td>a || b</td>
+          </tr>
+          <tr>
+            <td>not(a and b)</td>
+            <td>!(a && b)</td>
+          </tr>
+        </tbody>
+      </table>
 
-<body onload="fetchSource()">
-	<div class="hero-image">
-		<div class="hero-text">
-			<h1>CSE 121b: Week 02</h1>
-			<p>The Fundamentals</p>
-		</div>
-	</div>
-	<h1>Some Similarities and Differences</h1>
-	<h3>Shared Operators</h3>
-	<p>Remember, both Python and JavaScript have C as one of thier ancestors. Because of this, it is not shocking 
-	to find out that they share many of the same operators as C. These include +, -, /, *, ==, !=, &lt, &gt, etc. 
-	By going to these two sites, you can compare the operators for the two languages.
-		<a href="https://www.tutorialspoint.com/python/python_basic_operators.htm">Python's list of operators</a> to 
-		<a href="https://www.w3schools.com/jsref/jsref_operators.asp">JavaScript's list of operators</a>. When you do so, 
-		you will find that Python has a few that JavaScript does not. You will also see that the conditional operators, 
-		also known as logical operators, exist in both languages but use different characters.</p>
-	<h3>JavaScript's missing operators</h3>
-	<p>Because Python and JavaScript are different languages and the creators of JavaScript had different opinions 
-	than those who created Python, there are some Python operators you should not expect to find in JavaScript. They are:</p>
-	<ul>
-		<li>// - the floor division operator</li>
-		<li>&lt&gt - an alternative to !=</li>
-		<li>**= - the exponent and assign operator</li>
-		<li>and - the logical and operator</li>
-		<li>or - the locical or operator</li>
-		<li>not - the logical not operator</li>
-	</ul>
-	<p>Don't get the wrong idea. Each of these behaviors can be done in JavaScript, they will just be done a little differently. Take a look
-	at Table 1 to see how.</p>
-	<p>
-		<table class="blueTable">
-			<caption>Table 1: C Equivalents of Python Operators</caption>
-			<thead>
-				<tr>
-					<th>Python</th>
-					<th>JavaScript</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>a//b</td><td>Math.floor(a/b)</td>
-				</tr>
-				<tr>
-					<td>a &lt&gt b</td><td>a != b</td>
-				</tr>
-				<tr>
-					<td>a**=b</td><td>a = Math.pow(a,b)</td>
-				</tr>
-				<tr>
-					<td>a and b</td><td>a && b</td>
-				</tr>
-				<tr>
-					<td>a or b</td><td>a || b</td>
-				</tr>
-				<tr>
-					<td>not(a and b)</td><td>!(a && b)</td>
-				</tr>
-			</tbody>
-		</table>
-	</p>
-	<p> 
-		JavaScript has <a href="https://www.w3schools.com/jsref/jsref_operators.asp">other operators</a> available as well.
-	</p>
-	<h3>Variables</h3>
-	<p>In Python, a variable can hold any type of value and can change the type of value it holds. For example, 
-	this code is valid in Python.</p>
-	<pre>
+      <p>
+        JavaScript has
+        <a
+          href="https://www.w3schools.com/jsref/jsref_operators.asp"
+          target="_blank"
+          >other operators</a
+        >
+        available as well.
+      </p>
+      <h3>Variables</h3>
+      <p>
+        In Python, a variable can hold any type of value and can change the type
+        of value it holds. For example, this code is valid in Python.
+      </p>
+      <pre>
 <code class="Python">age = 3
 age = 5
 age = 4.2
 age = 'old'</code>
 	</pre>
-	<p>JavaScript variables behave in much the same way. Just like in Python, they can hold any type and the type can change.
-       	However, JavaScript does require you to use the let keyword to declare a variable. Like this:</p>
-	<pre>
+      <p>
+        JavaScript variables behave in much the same way. Just like in Python,
+        they can hold any type and the type can change. However, JavaScript does
+        require you to use the let keyword to declare a variable. Like this:
+      </p>
+      <pre>
 <code class="JavaScript">let age = 3
 age = 5
 age = 4.2
 age = 'old'</code>
 	</pre>
-	<h3>Constants</h3>
-	<p>In Python, Constants are declared using an all upper case name</p>
-	
-	<pre>
+      <h3>Constants</h3>
+      <p>In Python, Constants are declared using an all upper case name</p>
+
+      <pre>
 <code class="Python">PI=3.14</code>
 	</pre>
-	<p>In JavaScript this is done differently, instead of using all upper case names, JavaScript requires 
-	the use of the const keyword. Like this:</p>
-	<pre>
+      <p>
+        In JavaScript this is done differently, instead of using all upper case
+        names, JavaScript requires the use of the const keyword. Like this:
+      </p>
+      <pre>
 <code>const PI = 3.14</code>
 	</pre>
-	<p>While it is not required that the names of your constantes be all upper case, it is considered good form.</p>
-	<h3>Wrap Up</h3><p>As with all things, there are pluses and minuses of requiring keywords like const and let and 
-	having or not having some operators. One disadvantage of requiring let and const is 
-	the extra cluttering of the code with 'unnecessary' words. An advantage is explicitness. Everyone that later reads 
-	your code will know exactly what you meant to have happen. Also, because of this explicitness, a variable can't be 
-	accidentally declared twice in JavaScript, a situation which can produce strange, difficult to debug, bad behavior in large Python code sets.</p>
-	<p>Which operator set to use in a language often depends on the languages the 
-	language create likes and dislikes. Perhaps the creators of Python thought the syntax of Structured Query Language 
-	(SQL) was easier to understand and so they adopted its and, or, and not operators. This is opinion and as such it 
-	and the alternative C operators used in JavaScript, &&, ||, !, are just as valid. Don't get caught up in the 
-	psuedo-religious ferver that some programmers adopt. Every language is good at some things and bad at others. This 
-	includes both Python and JavaScript.</p>
 
-	<h1>Arrays</h1>
-	<p>In JavaScript, arrays can be declared like this.</p>
-	<pre><code>
+      <p>
+        While it is not required that the names of your constants be all upper
+        case, it is considered good form.
+      </p>
+      <p>
+        For more information about declaring and using variables in Javascript
+        please go now and read
+        <a
+          href="https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/ch2.md"
+          target="_blank"
+          rel="noreferrer"
+          >You Don't Know JS Yet, Ch2</a
+        >
+        <strong>through</strong> the section Declaring and Using Variables. And
+        then read
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Declarations"
+          target="_blank"
+          rel="noreferrer"
+          >MDN: Javascript Basics</a
+        >
+        <strong>through</strong> the section
+        <strong>Data structures and types</strong>.
+      </p>
+      <h3>Wrap Up</h3>
+
+      <p>
+        As with all things, there are pluses and minuses of requiring keywords
+        like const and let and having or not having some operators. One
+        disadvantage of requiring let and const is the extra cluttering of the
+        code with 'unnecessary' words. An advantage is explicitness. Everyone
+        that later reads your code will know exactly what you meant to have
+        happen. Also, because of this explicitness, a variable can't be
+        accidentally declared twice in JavaScript, a situation which can produce
+        strange, difficult to debug, bad behavior in large Python code sets.
+      </p>
+      <p>
+        Which operator set to use in a language often depends on the languages
+        the language create likes and dislikes. Perhaps the creators of Python
+        thought the syntax of Structured Query Language (SQL) was easier to
+        understand and so they adopted its and, or, and not operators. This is
+        opinion and as such it and the alternative C operators used in
+        JavaScript, &&, ||, !, are just as valid. Don't get caught up in the
+        psuedo-religious ferver that some programmers adopt. Every language is
+        good at some things and bad at others. This includes both Python and
+        JavaScript.
+      </p>
+
+
+      <h1>Arrays</h1>
+      <p>In JavaScript, arrays can be declared like this.</p>
+      <pre><code>
 let names = ['Bob','Sue','Jorge','Svetlana']
 	</code></pre>
-	<p>This should look very familiar to you.</p>
-	<p>You access elements of an array like this</p>
-	<pre><code>
+      <p>This should look very familiar to you.</p>
+      <p>You access elements of an array like this</p>
+      <pre><code>
 let aName = names[0]
 	</code></pre>
-	<p>with zero being the index of the first element in the array. Modifying values in the array is doable also.</p>
-	<pre><code>
+      <p>
+        with zero being the index of the first element in the array. Modifying
+        values in the array is doable also.
+      </p>
+      <pre><code>
 names[2]='George'
 	</code></pre>
-	<p>Now the third element of the array is George instead of Jorge.</p>
-	<p>JavaScript has a lot of Built in Functions(BIF's) that you can use to modify arrays. Imagine you needed to use 
-	an array to keep track of customers lined up to see a movie. As people show up, they need to line up in the order 
-	they arrived. You can simulate this using the push method of array.</p>
-	<p>If Bob, Sue, George, and Svetlana were already waiting in line for the show in that order, and then Grace showed 
-	up too, you would use push to add Grace at the end of the array (the back of the line).</p>
-	<pre><code>
+      <p>Now the third element of the array is George instead of Jorge.</p>
+      <p>
+        JavaScript has a lot of Built in Functions(BIF's) that you can use to
+        modify arrays. Imagine you needed to use an array to keep track of
+        customers lined up to see a movie. As people show up, they need to line
+        up in the order they arrived. You can simulate this using the push
+        method of array.
+      </p>
+      <p>
+        If Bob, Sue, George, and Svetlana were already waiting in line for the
+        show in that order, and then Grace showed up too, you would use push to
+        add Grace at the end of the array (the back of the line).
+      </p>
+      <pre><code>
 names.push('Grace')
 	</code></pre>
-	<p>Print the updated names array to the console and you see Grace added on the end.</p>
-	<pre><code>
+      <p>
+        Print the updated names array to the console and you see Grace added on
+        the end.
+      </p>
+      <pre><code>
 console.log(names)//Displays ['Bob','Sue','George','Svetlana','Grace']
 	</code></pre>
-	<p>Since you can add elements to the end of the array, surely there is a way to remove elements from the end of 
-	the array. You do this with the pop method.<p>
-	<pre><code>
+      <p>
+        Since you can add elements to the end of the array, surely there is a
+        way to remove elements from the end of the array. You do this with the
+        pop method.
+      </p>
+      <p></p>
+      <pre><code>
 names.pop()
 console.log(names)//Displays ['Bob','Sue','George','Svetlana']
 	</code></pre>
-	<p>Can you remove elements from the end or add them to the beginning of the array? You bet. There are a large number 
-	of BIF's that <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"> you can apply to array</a>. Check them out. Also, you'll be learning about using filter, sort, map, and reduce array BIF's next week.</p>
-
-	<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
-</body>
+      <p>
+        Can you remove elements from the end or add them to the beginning of the
+        array? You bet. There are a large number of BIF's that
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+          target="_blank"
+        >
+          you can apply to array</a
+        >. Check them out. Also, you'll be learning about using filter, sort,
+        map, and reduce array BIF's next week.
+      </p>
+    </main>
+    <footer>
+      <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        ><img
+          alt="This work is licensed under a Creative Commons Attribution 4.0 International License"
+          style="border-width: 0;"
+          src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a
+      ><br />This work is licensed under a
+      <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        >Creative Commons Attribution 4.0 International License</a
+      >.
+    </footer>
+  </body>
 </html>
