@@ -84,7 +84,7 @@
 			However, you will need an understanding of how to access HTML elements from JavaScript code, 
 			since using JavaScript to access HTML elements in web pages is a very common use of JavaScript.</p>
 			<p>
-				There are several ways to access HTML elements. One of which is by using this built-in function (BIF).
+				There are several ways to access HTML elements. One of which is by using the <span class="file_name">getElementById</span> method.
 			</p>
 			<p>
 					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.getElementById('elementId')</code>
@@ -102,14 +102,13 @@
 				</p>
 
 				<p>
-					Another approach is to use the <span class="file_name">querySelector</span> BIF:
+					Another approach is to use the <span class="file_name">querySelector</span> method:
 				</p>
 				<p>
 					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.querySelector('#elementId')</code>
 				</p>
 				<p>
-					The "elementId" is, again, the value of the HTML attribute's id. Notice that this BIF 
-					requires a pound sign (#) before the name of the id value.
+					The "elementId" is, again, the value of the HTML attribute's id. Notice that a pound sign (#) is required before the name of the id value.
 				</p>
 				<p>
 					Using the same discussion HTML element you looked at before, the JavaScript to get it and store it in a variable is
@@ -144,7 +143,7 @@
 				</p>
 			</p>
 			<p>
-				You can also modify an HTML element using the <span class="file_name">setAttribute</span> BIF. To 
+				You can also modify an HTML element using the <span class="file_name">setAttribute</span> method. To 
 				change the picture displayed in an image tag modify the <span class="file_name">src</span> property of the image element.
 			</p>
 			<p>
