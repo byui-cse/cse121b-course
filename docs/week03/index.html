@@ -26,7 +26,6 @@
     ></script>
   </head>
 
-
   <body onload="fetchSource()">
     <header class="hero-image">
       <section class="hero-text">
@@ -224,9 +223,28 @@ averageTwoNumbers(15,20)</code>
       </p>
       <p>
         So which way should we use to create functions? There are lots of
-        opinions on that topic. Feel free to read  
-        <a href="https://gomakethings.com/function-expressions-vs-function-declarations/">this opinion of one person.</a>
+        opinions on that topic. This short article expresses one common opinion:
+        <a
+          href="https://gomakethings.com/function-expressions-vs-function-declarations/"
+          >function expressions vs function declarations.</a
+        >
       </p>
+      <h3>Functions under the hood</h3>
+      <p>
+        It can be helpful to understand how Javascript works under the hood when
+        you write your code. Codesmith created a wonderful video series that
+        explains what happens when your Javascript code is executed. Watch the
+        first segment now, then come back and finish reading:
+      </p>
+      <p>
+        <a
+          href="https://www.youtube.com/watch?v=exrc_rLj5iw"
+          target="_blank"
+          rel="noreferrer"
+          >An Introduction to Functions, Execution Context and the Call Stack </a
+        >. (22min)
+      </p>
+      <p></p>
       <h3>Libraries - sharing your functions with others</h3>
       <p>
         A higher order organizational idea in JavaScript is library. Libraries
@@ -240,12 +258,12 @@ averageTwoNumbers(15,20)</code>
       <p>
         In JavaScript, libraries consist of some number of files in which you
         put your JavaScript. By tradition, the names of your files always ends
-        in '.js'. If I had a JavaScript library called totally_awesome, and in it
-        there was some code that moved stuff around on the screen, I might put
-        that code in a file called 'animations.js'. There would be other files
-        in my library that contained other functions doing other things. Each
-        file would be named after what it does and use the '.js' name ending.
-        For example, fades.js, slideshow.js, etc.
+        in '.js'. If I had a JavaScript library called totally_awesome, and in
+        it there was some code that moved stuff around on the screen, I might
+        put that code in a file called 'animations.js'. There would be other
+        files in my library that contained other functions doing other things.
+        Each file would be named after what it does and use the '.js' name
+        ending. For example, fades.js, slideshow.js, etc.
       </p>
       <p class="callout">
         Libraries created like this are simple to make, but do have a few
@@ -325,9 +343,7 @@ averageTwoNumbers(15,20)</code>
       </p>
 
       <p>How should the likes array be modified?</p>
-      <p>
-        Like this.
-      </p>
+      <p>Like this.</p>
       <pre>
 <code class="JavaScript">likes = likeCounts.map(aCount => aCount += 5)
 </code>
@@ -378,9 +394,13 @@ averageTwoNumbers(15,20)</code>
         whatever is returned by the callback is what ends up in the resulting
         array.
       </p>
-      
+
       <p>
-      	If you would like a deeper dive into JavaScript functions, there are many resources on the web. Mahendra Choudrey has produced a <a href="https://medium.com/@iampika/javascript-functions-e66ed8871771">quick, deep, overview</a>.
+        If you would like a deeper dive into JavaScript functions, there are
+        many resources on the web. Mahendra Choudrey has produced a
+        <a href="https://medium.com/@iampika/javascript-functions-e66ed8871771"
+          >quick, deep, overview</a
+        >.
       </p>
     </main>
     <footer>
@@ -390,7 +410,7 @@ averageTwoNumbers(15,20)</code>
         target="_blank"
         ><img
           alt="This work is licensed under a Creative Commons Attribution 4.0 International License"
-          style="border-width: 0;"
+          style="border-width: 0"
           src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a
       ><br />This work is licensed under a
       <a

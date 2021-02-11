@@ -1,6 +1,10 @@
 /* Lesson 4 */
 
 /* DATA */
+// This solution shows how your object would look after each step. 
+// If you are at the end skip down to step 9 and ignore the rest of the steps. 
+// You should only declare your object once and you don't need to repeat like the example did.
+// Again: your code should look like STEP 9 when you are done!
 
 // Step 1: Declare a new variable to hold information about yourself
 let myInfo = {};
@@ -114,6 +118,7 @@ myInfo = {
     ]
 };
 
+// This is the one most of you will be looking for!
 // Step 9: Add additional objects with the same properties for each place you've lived
 myInfo = {
     name: 'Brother Thayne',
