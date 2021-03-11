@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Getting Started with Javascript</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Getting Started with Javascript</h1>
+    </header>
+    <main>
+      <section>
+        <h2>History</h2>
+        <ol>
+          <li>
+            Early 90s: Marc Andreessen, founder of Netscape Communications and
+            part of the ex-Mosaic team, had the vision that the web needed a way
+            to become more dynamic. Animations, interaction and other forms of
+            small automation should be part of the web of the future. So the web
+            needed a small scripting language that could interact with the DOM
+          </li>
+          <li>
+            Created by Brendan Eich in 1995 during his time at Netscape
+            Communications. It was developed in 6 months!
+          </li>
+          <li>
+            Why 'Java'script? Does it have anything to do with Java? Code name
+            was 'Mocha', Netscape internally called it LiveScript, publically
+            Javascript won. Java is only in the name as a marketing ploy to get
+            Java developers interested in it when it was first released.
+          </li>
+          <li>
+            It was a marriage of Java-like syntax, with elements from the Scheme
+            and Self languages.
+          </li>
+          <li>
+            Douglas Crockford (well known author and speaker on Javascript)
+            described the difference between Java and Javascript once like
+            this:<br />
+            <img src="../images/JS-StarWars.png" alt="" />
+          </li>
+          <li>The official name of the language is ECMAScript</li>
+        </ol>
+      </section>
+      <section>
+        <h2>Versioning and new Features</h2>
+        <p>
+          In 1996 The ECMA group (ECMA is an industry association formed in 1961
+          concerned solely with standardization of information and
+          communications systems) started working on a standardization of
+          Javascript. Because of copyright issues they couldn't use "Java" so
+          the language was renamed to ECMAScript.
+        </p>
+        <p>
+          Versioning has caused some confusion:
+          <a href="https://www.w3schools.com/js/js_versions.asp" target="_blank"
+            >Javascript versions</a
+          >
+        </p>
+        <p>
+          One of the decisions made early on with JS was that it would maintain
+          backwards compatibility. This means no new changes will ever break old
+          code. This has lead to many challenges to fix problems in the
+          language. It does not promise forward compatibility however...that
+          future code will work everywhere. This adds additional challenges.
+        </p>
+        <p>
+          Javascript is unique in the fact that the developer has no control
+          over the environment where there code will run in most cases. The end
+          user chooses the browser they will view the app in, and that browser
+          may or may not have implemented all of the features in a version of JS
+          yet. So the developer wants to use the very helpful an powerful new
+          feature in the language...but doing so will cause their code to break
+          for many people.
+        </p>
+        <p>
+          This dilemma has lead to the rise of several tools that are often used
+          in Javascript development:
+          <a href="https://caniuse.com" target="_blank">caniuse</a>,
+          transpilers, and polyfills.
+        </p>
+      </section>
+      <section>
+        <h2>JS and the Web</h2>
+        <p>
+          The purpose of Javascript from the beginning was to allow for dynamic
+          web pages, and so it should come as no surprise that most Javascript
+          is run in a browser. It is surprising how much of what we consider as
+          part of Javascript is really web browser APIS to allow JS to interact
+          with the browser better however. We will talk more about this later.
+        </p>
+        <p>
+          While most JS is used in front-end development (code that runs in a
+          browser), there is an increasing push to use it for back-end
+          development (code that runs on a server) as well. That desire resulted
+          in the NodeJS project which has become very popular.
+        </p>
+      </section>
+      <a href="2-vsCode.html">Next: VS Code</a>
+    </main>
+    <footer>
+      Sources:
+      <a
+        href="https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/ch1.md"
+        >You Don't Know JS Yet Ch 1</a
+      >,
+      <a href="https://auth0.com/blog/a-brief-history-of-javascript/"
+        >Brief History of Javascript</a
+      >
+    </footer>
+  </body>
+</html>

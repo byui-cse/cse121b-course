@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debugging Javascript</title>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Debugging Javascript</h1>
+    </header>
+    <main>
+      <h2>Running JS in the browser</h2>
+      <ol>
+        <li>Create a folder called <kbd>sandbox</kbd>.</li>
+        <li>
+          In the sandbox folder create an html file called
+          <kbd>week1.html</kbd> with the html for a basic page. (Hint: In VS
+          Code type <kbd>!</kbd> in your blank .html file...then press the
+          <kbd>tab</kbd> key. You are welcome...;)
+        </li>
+        <li>Create a file called <kbd>main1.js</kbd></li>
+        <li>
+          Add a <code>script</code> element to your <kbd>week1.html</kbd> file.
+          The script element is how we let the browser know that there is some
+          Javascript code that it needs to fetch and execute.
+          <div class="callout">
+            <p>
+              There are a few special elements in HTML. They are special because
+              the contents of those elements are <strong>not</strong> treated as
+              HTML, but something different.
+            </p>
+            <p>
+              <code>&lt;script&gt;</code> and <code>&lt;style&gt;</code> are the
+              most common of these special tags. In the case of
+              <code>&lt;style&gt;</code> the contents are treated as CSS (which
+              we won't talk about much in this course). For
+              <code>&lt;script&gt;</code> the contents are treated as
+              Javascript.
+            </p>
+            <p>
+              The <code>&lt;script&gt;</code> can be used in two ways: we can
+              add the code we want executed inside of the element, ie:
+            </p>
+            <pre><code class="lang-markup">&lt;script&gt;
+    let myVar = 3; 
+&lt;/script&gt;</code></pre>
+            <p>
+              ...or we can put our Javascript code inside of a separate file and
+              link it in:
+            </p>
+            <pre><code class="lang-markup">&lt;script src="main1.js"&gt;&lt;/script&gt;</code></pre>
+            <p>
+              This second method is considered best practice and is how we will
+              run our Javascript in this course. The other method is often used
+              for quick proof-of-concept hacking, but the code will usually get
+              moved into a JS file if the code is going to be kept.
+            </p>
+          </div>
+        </li>
+        <li>
+          Add the following code to your <kbd>main1.js file:</kbd>
+          <pre><code class="lang-js">const PI = 3.14;
+const radius = 3;
+let area = 0;
+area = radius * radius * pi;
+radius = 4;
+area = radius * radius * pi;
+        </code></pre>
+        </li>
+        <li>
+          Using the Liveserver extension open the <kbd>week1.html</kbd> file in
+          a browser.
+        </li>
+        <li>
+          There is nothing on the screen! This is normal...in our HTML we didn't
+          ask for anything to be on the screen. Open up the developer
+          tools...check the console.
+        </li>
+        <li>Fix the errors.</li>
+        <li>Add a breakpoint and step through.</li>
+        <li>Add some <code>console.log</code> statements</li>
+        <li>Refactor our area calculation to a function.</li>
+        <li>Step into the function</li>
+      </ol>
+    </main>
+    <script src="../js/prism.js"></script>
+  </body>
+</html>
