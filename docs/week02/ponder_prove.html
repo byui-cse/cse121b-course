@@ -8,11 +8,13 @@
 	<script type="text/javascript">
     	var codeType = "JavaScript"
     </script>
-    <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
-    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css">
+    <!-- <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css"> -->
     <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
+	<link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 	<script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
-	<link rel="stylesheet" href="../main.css">
+	<!-- <link rel="stylesheet" href="../main.css"> -->
 </head>
 
 <body  onload="fetchSource()">
@@ -55,7 +57,7 @@
 				as follows:
 			</p>
 
-			<p><pre><code class="HTML">&lt;main&gt;
+			<p><pre><code class="lang-markup">&lt;main&gt;
 	&lt;section&gt;
 		&lt;div&gt;
 			&lt;label for="name"&gt;Name:&lt;/label&gt;
@@ -71,8 +73,7 @@
 	&amp;copy;&lt;span id="year"&gt;&lt;/span&gt; | Biography | Lesson 2
 &lt;/footer&gt;
 &lt;script src="scripts/task2.js"&gt;&lt;/script&gt;
-</code>
-	</pre></p>
+</code></pre></p>
 			<p>
 				The "src" attribute of the <span class="tag">&lt;script&gt;</span> tag should point to the folder and file name of
 				the JavaScript file relative to the current HTML file.
@@ -87,25 +88,26 @@
 				There are several ways to access HTML elements. One of which is by using the <span class="file_name">getElementById</span> method.
 			</p>
 			<p>
-					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.getElementById('elementId')</code>
+					<pre><code class="lang-js" >document.getElementById('elementId')</code></pre>
 				</p>
 				<p>
 					In real code, the id "elementId" is replaced by an actual, unique id.
 					For example, this HTML element 
 				<p>
-					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">&lt;section id="discussion"&gt;</code>
+					<pre><code class="lang-js" >&lt;section id="discussion"&gt;</code></pre>
 				</p>
 				<p>has an id of "discussion". That means the following JavaScript is used to find the element and store it in a variable for later use. 
 				</p>
 				<p>
-					 <code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">let theDiscussionElement = document.getElementById('discussion')</code> 
+					 <pre><code class="lang-js" >let theDiscussionElement = 
+				document.getElementById('discussion')</code></pre> 
 				</p>
 
 				<p>
 					Another approach is to use the <span class="file_name">querySelector</span> method:
 				</p>
 				<p>
-					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.querySelector('#elementId')</code>
+					<pre><code class="lang-js" >document.querySelector('#elementId')</code></pre>
 				</p>
 				<p>
 					The "elementId" is, again, the value of the HTML attribute's id. Notice that a pound sign (#) is required before the name of the id value.
@@ -114,7 +116,8 @@
 					Using the same discussion HTML element you looked at before, the JavaScript to get it and store it in a variable is
 				</p>
 				<p>
-					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">let theDiscussionElement = document.querySelector('#discussion');</code>
+					<pre><code class="lang-js" >let theDiscussionElement =
+				 document.querySelector('#discussion');</code></pre>
 				</p>
 			</p>
 
@@ -127,19 +130,19 @@
 					Here is some JavaScript code that does this.
 				</p>
 				<p>
-					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">
-						document.querySelector('#discussion').innerHTML = 'The content I would like to
-						display in the HTML file.'
-					</code>
+					<pre><code class="lang-js" >
+document.querySelector('#discussion').innerHTML = 'The content I would like to
+display in the HTML file.';
+					</code></pre>
 				</p>
 				<p>
 					Another, similar, way uses the element's <span class="file_name">textContent</span> property.
 				</p>
 				<p>
-					<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">
-						document.querySelector('#discussion').textContent = 'The content I would like to
-						display in the HTML file.'
-					</code>
+					<pre><code class="lang-js" >
+document.querySelector('#discussion').textContent = 'The content I would like to
+display in the HTML file.';
+					</code></pre>
 				</p>
 			</p>
 			<p>
@@ -147,14 +150,15 @@
 				change the picture displayed in an image tag modify the <span class="file_name">src</span> property of the image element.
 			</p>
 			<p>
-				<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.querySelector('#mainImage').setAttribute('src', 'images/main.png')</code>
+				<pre><code class="lang-js" >document.querySelector('#mainImage')
+		.setAttribute('src', 'images/main.png');</code></pre>
 			</p>
 			<p>
 				Of course, you can make this same modification directly.
 			</p>
 
 			<p>
-				<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.querySelector('#mainImage').src = 'images/main.png'</code>
+				<pre><code class="lang-js" >document.querySelector('#mainImage').src = 'images/main.png';</code></pre>
 			</p>
 		</section>
 		<section>
@@ -221,6 +225,7 @@
         >Creative Commons Attribution 4.0 International License</a
       >.
     </footer>
+	<script src="../js/prism.js"></script>
 </body>
 
 </html>

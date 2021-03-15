@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organizing code</title>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Organizing code</h1>
+    </header>
+    <main>
+      <h2>Purpose</h2>
+      <p>
+        Encapsulation: "The goal of encapsulation is the bundling or co-location
+        of information (data) and behavior (functions) that together serve a
+        common purpose."
+      </p>
+      <p>
+        "The idea is to group alike program bits together, and selectively limit
+        programmatic access to the parts we consider private details. What's not
+        considered private is then marked as public, accessible to the whole
+        program."
+      </p>
+      <h2>Functions</h2>
+      <p>
+        There is a concept in programming called DRY. Don't Repeat Yourself.
+        Which means that if we are coding and find ourselves doing the exact
+        same thing more than once...we should find a way to re-use. Functions
+        are made for this.
+      </p>
+      <h3>Three ways to declare functions in Javascript</h3>
+      <ol>
+        <li>
+          Function Declaration
+          <pre><code class="lang-js">
+function mySuperFunction() {
+   // Do stuff here
+}
+          </code></pre>
+        </li>
+        <li>
+          Function Expression
+          <pre><code class="lang-js">
+const mySuperFunction = function() {
+    // Do stuff here
+}
+                      </code></pre>
+        </li>
+        <li>
+          Arrow Function (Lambda)
+          <pre><code class="lang-js">
+const mySuperFunction = () => {
+    // Do stuff here
+}
+                      </code></pre>
+        </li>
+      </ol>
+      <h3>Which should I use?</h3>
+      <p>
+        For the most part it really doesn't matter. Choose the one that makes
+        the most sense to your brain and be consistant with it. The arrow
+        function notation is more concise that the others, and so is used more
+        often in <kbd>callbacks</kbd>, but the methods really are pretty
+        interchangable.
+      </p>
+      <h3>Parameters.</h3>
+      <p>
+        Functions become much more reusable when we can customize them when we
+        use them through parameters.
+      </p>
+      <pre><code class="lang-js">
+// not very useful
+function doubleTwo() {
+  return 2 * 2;
+}
+      </code></pre>
+      <pre><code class="lang-js">
+// more useful
+function double(num) {
+  return 2 * num;
+}
+              </code></pre>
+      <pre><code class="lang-js">
+// another example--single usecase
+function selectNav() {
+  return document.querySelector('nav');
+}
+// or making it more general and more reusable
+function qs(selector) {
+  return document.querySelector(selector);
+}
+                      </code></pre>
+      <h2>Object literals</h2>
+      <p>
+        These are fantastic for organizing...but stay tuned for next week...
+      </p>
+      <h2>libraries/Modules</h2>
+      <p>
+        Dividing our code up into related functions is a great start to higher
+        level organization, but we can take it a step further with ESModules.
+      </p>
+      <p>First a few important facts about ESModules</p>
+      <ul>
+        <li>ESModules are based around files...one module per file.</li>
+        <li>ESModules are strict by default</li>
+        <li>ESModules establish their own private scope.</li>
+        <li>
+          Anything that you need access to outside of the module must be
+          exported.
+        </li>
+        <li>
+          Exports can be <kbd>default</kbd> (one per module) or
+          <kbd>named</kbd> (as many as you need)
+        </li>
+        <li>You use the <code>import</code> command to use a module.</li>
+        <li>
+          When you use ESModules you need to let the browser know by adding
+          <code>type="module"</code> to your script tag ie.
+          <pre><code class="lang-js">&lt;script src="main.js" type = "module"&gt;&lt;/script&gt;</code></pre>
+        </li>
+      </ul>
+      <p>
+        If we had a simple module for utility functions it might look like this:
+      </p>
+      <pre><code class="lang-js">
+// filename: utility.js
+// wrapper function for querySelector
+export function qs(selector) {
+    return document.querySelector(selector);
+}
+
+// create an alert at the top of the page for 3 seconds
+// requires the message to be displayed and the time in milliseconds.
+export function alertMessage(message, duration=3000) {
+  const alert = document.createElement("p");
+  alert.innerHTML = message;
+  alert.setAttribute(
+    "style",
+    "background-color:lightpink; border: 1px solid red; position:absolute; top:0; left:0; right:0; padding: 1em;"
+  );
+  document.body.appendChild(alert);
+  setTimeout(function () {
+    document.body.removeChild(alert);
+  }, duration);
+}
+      </code></pre>
+      <p>
+        To use this we would <code>import</code> the functions we wanted to use
+        in our main javascript file
+      </p>
+      <pre><code class="lang-js">
+// main.js...this is the file that you added to the html through a script tag
+import { qs, alertMessage } from './utilities.js';
+// now you can use those functions just like if they were declared locally.
+alertMessage("I'm from the module!");
+
+</code></pre>
+      <h2>Examples</h2>
+      <h3>GPA Calculator</h3>
+      <p>
+        If we think about a gpa Calculator app that runs in the browser, how
+        would we organize the code for that? What does it need to do?
+      </p>
+      <ol>
+        <li>Display the options for the user</li>
+        <li>Accept input from the user</li>
+        <li>
+          Perform the requested operation with the user provided arguments
+        </li>
+        <li>Display the result of the operation</li>
+      </ol>
+      <p>
+        Our program could be organized into two sets of functionality: code that
+        is responsible to receive and display information, and code that will
+        calculate the GPA with the user supplied input.
+      </p>
+      <p>Let's break down our functionality a bit further:</p>
+      <ol>
+        <li>
+          Display input box for user to enter grades along with a button to kick
+          off the calculation.
+        </li>
+        <li>
+          Add an event listener to the button that will do the following when
+          clicked:
+          <ol>
+            <li>Get the string of grades from the input</li>
+            <li>
+              Convert the string to an array (<code>String.split(',')</code>),
+              clean up any extra spaces, and make the grades all uppercase.
+            </li>
+            <li>
+              Do a lookup on each grade to convert it to it's point value (ie A
+              = 4.0)
+            </li>
+            <li>
+              Total up all the point values, and divide by the number of grades
+              to get the GPA
+            </li>
+            <li>Output the GPA to the browser</li>
+          </ol>
+        </li>
+      </ol>
+      <h3>Steps</h3>
+      <ol>
+        <li>
+          Start by creating two files in the sandbox: <kbd>week3.html</kbd>, and
+          <kbd>main3.js</kbd>. Just like before add the HTML for a basic page,
+          and a <code>script</code> element linking our JS to our HTML
+        </li>
+        <li>
+          Copy the following HTML into the <code>body</code> of your HTML file:
+          <pre><code class="lang-markup">
+  &lt;h1&gt;GPA Calculator&lt;/h1&gt;
+  &lt;p&gt;Enter a comma separated list of grades.&lt;/p&gt;
+  &lt;p&gt;
+    &lt;label for="grades"&gt;Grades&lt;/label&gt;
+    &lt;input
+      type="text"
+      id="grades"
+      placeholder="comma separated list of grades"
+    /&gt;
+  &lt;/p&gt;
+  &lt;button id="submitButton"&gt;Generate&lt;/button&gt;
+  &lt;p id="output"&gt;&lt;/p&gt;
+  &lt;script src="main3.js" type="module"&gt;&lt;/script&gt;
+        </code></pre>
+        </li>
+        <li>
+          Create two additional files. Call one <kbd>gpa.js</kbd> and the other
+          <kbd>ui.js</kbd>.
+        </li>
+        <li>
+          Copy the code from the utility module example above as a starting
+          point into the <kbd>ui.js</kbd> file.
+        </li>
+
+        <li>
+          Add two more functions to <kbd>ui.js</kbd>:
+          <pre><code class="lang-js">
+export function setHtml(selector, text) {
+  qs(selector).innerHTML = text;
+}
+
+export function setListener(selector, event, callback) {
+  qs(selector).addEventListener(event, callback);
+}
+        </code></pre>
+        </li>
+        <li>
+          Now we need to import in the functions we need from
+          <kbd>ui.js</kbd> into <kbd>main3.js</kbd>. Add the following line to
+          main3.js:
+          <pre><code class="lang-js">import { setListener, setHtml } from "./ui.js";</code></pre>
+        </li>
+        <li>
+          Moving to <kbd>gpa.js</kbd> we need probably 3 functions and a place
+          to store our list of grades:
+          <pre><code class="lang-js">
+          let grades = [];
+
+          function setGrades() { 
+            // get grades from the input box and split them into an array
+          }
+
+          function lookupGrade(grade) {
+            // converts the letter grade to it's GPA point value and returns it
+          }
+
+          export default function calculateGpa() {
+            // grabs a list of grades from the input, converts them all to gpa points, and calculates the GPA from that. Should return the GPA
+          }
+        </code></pre>
+        </li>
+        <li>
+          Notice that only the <code>calculateGpa</code> function is exported.
+          That will be the only thing we need to expose for this to be used.
+          Everything else is only used inside the module and so we want it to be
+          private. Since there is only one thing we are exporting it is also
+          using a <kbd>default</kbd> export.
+        </li>
+        <li>
+          We can import in our gpa function to <kbd>main3.js</kbd> with the
+          following:
+          <pre><code class="lang-js">import  calculateGpa  from "./gpa.js";</code></pre>
+        </li>
+        <li>
+          See if you can complete the module. (continue into next week) Earlier
+          this week we saw examples that should help with the
+          <code>lookupGrade</code> and <code>calculateGpa</code> functions.
+        </li>
+        <li>
+          Finally we need to connect all the dots. We need to attach a listener
+          to the button, when it is clicked it should calculate the gpa, and
+          then display the result in the <code>#output</code> element. Give it a
+          try to code this with your teams. When you are done you can look
+          below:
+          <section class="hint">
+            <input type="checkbox" />
+            <h3>Finished Main3.js</h3>
+            <i></i>
+            <div>
+              <pre><code class="lang-js">
+import { setListener, setHtml } from "./ui.js";
+import calculateGpa from "./gpa.js";
+
+function submit() {
+  const gpa = calculateGpa();
+  setHtml("#output", gpa);
+}
+
+setListener("#submitButton", "click", submit);
+                        </code></pre>
+            </div>
+          </section>
+        </li>
+
+        <li>
+          You may have noticed the <code>alertMessage</code> function we placed
+          in the <kbd>ui.js</kbd> module. It will place a colored box at the top
+          of the screen for a few seconds then it will disappear. How would you
+          use that in this application to make the GPA show in the alert? Try
+          it...
+        </li>
+        <li>
+          Here is a link to the
+          <a href="../solutions/gpa-calculator/index.html" target="_blank"
+            >completed exercise</a
+          >
+        </li>
+      </ol>
+    </main>
+    <footer>
+      Much of the detail above comes from
+      <a
+        href="https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch8.md"
+        >You Don't Know JS Yet</a
+      >
+      Highly recommend reading to learn more.
+    </footer>
+    <script src="../js/prism.js"></script>
+  </body>
+</html>

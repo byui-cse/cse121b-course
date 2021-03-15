@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables in Javascript</title>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body class="line-numbers">
+    <header>
+      <h1>Variables in Javascript</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Values</h2>
+        <p>
+          The most fundamental unit of information in a program is a value.
+          Values are data. They're how the program maintains state. Values come
+          in two forms in JS: primitive and object.
+        </p>
+        <ol>
+          <li>Two types: primitives and Objects</li>
+          <li>primitives: string, number, boolean, null, undefined</li>
+          <li>Values are embedded in programs using literals</li>
+          <li>
+            <code>typeof</code>...try it:
+            <pre><code class="lang-js">typeof 42;                  
+typeof "abc";           
+typeof true;             
+typeof undefined;      
+typeof null;             
+typeof { "a": 1 };       
+typeof [1,2,3];         
+typeof function hello(){};  </code></pre>
+            <p>
+              Any surprises? What does a literal for a basic Object look like?
+              An Array?
+            </p>
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h2>Variables</h2>
+        <ol>
+          <li>Variables are containers for values</li>
+          <li>Must be declared (created) to be used</li>
+          <li><code>var</code></li>
+          <li><code>let</code></li>
+          <li><code>const</code></li>
+          <li>
+            Differences (Which should I use?)
+            <pre><code class="lang-js">var adult = true;
+
+if (adult) {
+    var myName = "Bob";
+    let age = 24;
+}
+
+console.log(myName);
+// Bob
+
+console.log(age);
+// Error!</code></pre>
+            <p>Why did we get an error on line 11?</p>
+          </li>
+          <li>
+            <code>const</code> declared variables are not "unchangeable", they
+            just cannot be re-assigned.
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h2>Strongly Typed? Weakly typed? What does that even mean?</h2>
+        <p>
+          Python is considered a strongly typed language. If you assign a value
+          to a variable Python will not change the type of that variable. For
+          example something like this would throw an error in Python:
+        </p>
+        <pre><code class="lang-python">'foo' + 3 --> TypeError: cannot concatenate 'str' and 'int' objects</code></pre>
+        <p>
+          Javascript is weakly typed...so if you tried the same thing it would
+          work:
+        </p>
+        <pre><code class="lang-js">'foo' + 3  // 'foo3'</code></pre>
+        <p>
+          Javascript knows that it cannot add a string and an integer...but it
+          does know that it can add 2 strings, so it 'coerces' the integer value
+          into a string so the operation will work. Sometimes this is
+          helpful...but sometimes it can cause weird bugs.
+        </p>
+      </section>
+      <section>
+        <h2>Why do I have to declare?</h2>
+        <p>
+          Javascript will actually let you use a variable without declaring it.
+          Just because you can do something doesn't mean you should! This has
+          been one criticism of Javascript because it can lead to bugs. Because
+          of the decision to never break backwards compatibility they couldn't
+          just fix this...so instead they added an option for a new mode to run
+          your code in: Strict mode.
+        </p>
+        <p>
+          One of the things that changes is if you are in strict mode the
+          browser will throw an error if it finds you using a variable before
+          you declare it. This is a good thing. To turn strict mode on we simply
+          add <code>'use strict';</code> to the top of a file (or function). For
+          a more complete description of what strict mode does visit
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode"
+            target="_blank"
+            >MDN: Strict Mode</a
+          >
+        </p>
+        <pre><code class="lang-js">let myVariable = 4;
+// do some stuff with myVariable
+
+// reassign myVariable?
+myVarable = 4
+
+// do some more stuff expecting myVariable to be changed...
+        </code></pre>
+      </section>
+      <a href="2-comparisions.html">Next: Operators</a>
+    </main>
+    <footer>
+      Much of the detail above comes from
+      <a
+        href="https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/ch2.md"
+        >You Don't Know JS Yet Ch 2</a
+      >
+      Highly recommend reading to learn more.
+    </footer>
+    <script src="../js/prism.js"></script>
+  </body>
+</html>

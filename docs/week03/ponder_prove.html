@@ -6,11 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>CSE 121b: Week 03 | Ponder and Prove</title>
 	<script type="text/javascript">
-    	var codeType = "JavaScript"
+    	var codeType = "lang-js"
     </script>
-    <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
-    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css">
+    <!-- <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css"> -->
     <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
+	<link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
 </head>
 
@@ -47,15 +49,15 @@
 			<p>
 				Use the same methods to access the HTML form elements that you used last week,
 
-						<p>
-<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.getElementById('formElementId')</code>
-						</p>
+						
+<pre><code class="lang-js">document.getElementById('formElementId')</code></pre>
+						
 						<p>or</p>
 					
-						<p>
-<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">document.querySelector('#formElementId'),</code>
+					
+<pre><code class="lang-js">document.querySelector('#formElementId'),</code></pre>
 						</pre>
-			</p>
+			
 			<p>
 				to retrieve the value of a form control element, we use the <span class="file_name">value</span> property.
 			</p>
@@ -63,13 +65,13 @@
 				For example, to get a value from the following HTML form control with an ID of <em>city</em>:
 			</p>
 			<p>
-				<code class="HTML" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">&lt;input type="text" id="city" name="city"&gt;</code>
+				<pre><code class="lang-markup">&lt;input type="text" id="city" name="city"&gt;</code></pre>
 			</p>
 			<p>
 				We would use the following syntax:
 			</p>
 			<p>
-				<code class="JavaScript" style="border: none;margin: 0px;padding: 0px; padding-left: 20px;">let city = document.querySelector('#city').value</code>
+				<pre><code class="lang-js">let city = document.querySelector('#city').value</code></pre>
 			</p>
 		</section>
 		<section>
@@ -140,6 +142,7 @@
         >Creative Commons Attribution 4.0 International License</a
       >.
     </footer>
+	<script src="../js/prism.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Working with the Document Object Model (DOM)</title>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Working with the Document Object Model (DOM)</h1>
+    </header>
+    <main>
+      <h2>What is the DOM?</h2>
+      <p>
+        First thing...the Document Object Model is NOT Javascript. But
+        Javascript can interact with the DOM with a bunch of built in functions
+        that are available in all browsers.
+      </p>
+      <p>
+        The DOM is the representation of the nodes or elements of a web page in
+        code. The DOM is exposed through a special object to Javascript:
+        <kbd>document</kbd>. If you have not already, create a new html file in
+        your sandbox directory for this week. Call it <kbd>week2.html</kbd>.
+        Enter the following HTML into it (remember if you are in VS Code you can
+        type '!' then hit the tab key to get some HTML boilerplate as a starting
+        point):
+      </p>
+      <pre><code class="lang-markup">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Week 2&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Week 2&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph&lt;/p&gt;
+    &lt;p id="p2"&gt;This is a paragraph with an ID&lt;/p&gt;
+    &lt;script src="main2.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+      <p>
+        Open the page in the browser, then open the developer tools, goto the
+        console, and enter <kbd>document</kbd> in the prompt, then hit 'return'.
+      </p>
+      <h2>Things to try:</h2>
+      <ol>
+        <li>
+          type <kbd>document.</kbd> (don't forget the . at the end) notice the
+          long list of options that pops up. Those are all things we can do with
+          the document.
+        </li>
+        <li>
+          Since all of the elements the users sees live in the
+          <code>body</code> element, we are provided a shortcut to it:
+          <code>document.body</code>.
+        </li>
+        <li>
+          Notice that we can also look at the <code>children</code> and
+          <code>parentElement</code> of body. We could if we wanted traverse
+          anywhere in our page by using these...it's a bit tedious though, so we
+          have been given shortcuts: <kbd>document.getElementById</kbd> and
+          <kbd>document.querySelector</kbd>
+        </li>
+        <li>
+          Type <kbd>document.body.innerText</kbd>, then try
+          <kbd>document.body.innerHTML</kbd>. Notice the difference
+        </li>
+        <li>
+          Try doing this:
+          <kbd>document.body.innerHTML = 'Hello World'</kbd> What happened?
+        </li>
+        <li>Refresh your browser to get the page back.</li>
+        <li>
+          Now try this:
+          <kbd>document.getElementById('p2').innerText = 'Hello World'</kbd>
+          That worked a bit better.
+        </li>
+        <li><kbd>document.querySelector('#p2')</kbd></li>
+        <li><kbd>document.querySelector('p')</kbd></li>
+        <li>
+          Did you notice that there is also a
+          <kbd>document.querySelectorAll</kbd>? Try it with 'p'
+        </li>
+        <li>
+          Lets add some content to the body. This will be much easier in a
+          javascript file. Create a file called <kbd>main2.js</kbd> and enter
+          the following:
+          <pre><code class="lang-js">
+const newParagraph = document.createElement('p');
+newParagraph.innerText = 'Added with Javascript!';
+document.body.appendChild(newParagraph);
+        </code></pre>
+        </li>
+        <li>
+          What if we wanted to add an image?
+          <pre><code class="lang-js">
+const newImage = document.createElement('img');
+newImage.setAttribute('src', 'path/to/image.jpg');
+newImage.setAttribute('alt', 'Description of image');
+document.body.appendChild(newImage);
+        </code></pre>
+        </li>
+        <li>
+          Next add this to main:
+          <pre><code class="lang-js">
+const newDiv = document.createElement('div');
+newDiv.innerHTML = '&lt;ul&gt;&lt;li&gt;One&lt;/li&gt;&lt;li&gt;Two&lt;/li&gt;&lt;li&gt;Three&lt;/li&gt;&lt;/ul&gt;';
+document.body.appendChild(newDiv);
+          </code></pre>
+        </li>
+        <li>
+          Try it on your own.
+          <ol>
+            <li>Create a new <code>section</code> element.</li>
+            <li>Add an <code>h2</code> element with the content "CSE 121b"</li>
+            <li>Add a paragraph that says: "Welcome to Javascript Language"</li>
+            <li>Add your <code>section</code> to the body.</li>
+          </ol>
+        </li>
+      </ol>
+    </main>
+    <script src="../js/prism.js"></script>
+  </body>
+</html>

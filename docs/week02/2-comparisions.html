@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operators and comparisons</title>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Operators and comparisons</h1>
+    </header>
+    <main>
+      <h2>Operators</h2>
+      <h3>Arithmetic and Assignment Operators</h3>
+      <p>
+        These should feel pretty familiar:
+        <a
+          href="https://www.w3schools.com/jsref/jsref_operators.asp"
+          target="_blank"
+          >JS operators</a
+        >.
+      </p>
+      <h3>Comparison Operators</h3>
+      <p>
+        Javascript has two equality comparison operators..."==": loose equality,
+        and "===": strict equality. Both of these do approximately the same
+        thing...they let you know if two values are the same. The difference in
+        them is that the double equal allows for the values to be coerced
+        (changed) before the comparison is made, while the triple equals does
+        not.
+      </p>
+      <p>
+        Note that neither equality operator will allow you to check to see if
+        the contents of an Array or other Object is the same as another. It can
+        only check if two Arrays <em>are the same</em>...ie they are both bound
+        to the same value in memory. See example below.
+      </p>
+
+      <h2>Coercion</h2>
+      <p>
+        Coercion is simply the process Javascript uses when it has to do a
+        comparison or arithmetic operation between two values that don't match.
+        It is important to understand that it happens...and that JS has a few
+        guidelines it follows as it is doing it.
+      </p>
+      <ol>
+        <li>
+          Javascript prefers numeric comparisons and will coerce to a primitve
+          numeric value if it can
+        </li>
+        <li>
+          In the case of '+' (addition or concatination). If there is a string
+          involved...all values will be converted to strings. That's the only
+          way JS knows to combine mixed values.
+        </li>
+      </ol>
+      <h2>Examples</h2>
+      <pre><code class="lang-js">
+// These would also be true with a double equals        
+3 === 3.0;              // true
+"yes" === "yes";        // true
+null === null;          // true
+false === false;        // true
+
+42 === "42";            // false
+"hello" === "Hello";    // false
+true === 1;             // false
+0 === null;             // false
+"" === null;            // false
+null === undefined;     // false
+//note the difference in a double equal comparison
+42 == "42";             // true...the string "42" gets coerced into the number 42
+"hello" == "Hello";    // false...are you surprised at this one?
+1 == true;              // true...the boolean value true gets coerced into the number 1
+null == undefined;     //  true
+</code></pre>
+      <pre><code class="lang-js">
+  // array example
+  var x = [ 1, 2, 3 ];
+
+// assignment is by reference-copy, so
+// y references the *same* array as x,
+// not another copy of it.
+var y = x;
+
+y === x;              // true...both variables are bound to the exact same array.
+y === [ 1, 2, 3 ];    // false...it might look the same, but this is NOT the same array that y is bound to.
+x === [ 1, 2, 3 ];    // false
+y == [ 1, 2, 3 ];     // false...doesn't work with double equal either :(
+</code></pre>
+
+      <h2>Which should I use?</h2>
+      <p>
+        In most cases you should use the strict equality (triple equals) for
+        your comparisons. The double equals is helpful when you are comparing
+        two values where the result will be the same whether coercion happens or
+        not, or when you don't care if the value is the same type...sometimes
+        you want things to be coerced.
+      </p>
+      <a href="3-dom.html">Next: DOM</a>
+    </main>
+    <footer>
+      Much of the detail above comes from
+      <a
+        href="https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/ch2.md"
+        >You Don't Know JS Yet Ch 2</a
+      >
+      Highly recommend reading to learn more.
+    </footer>
+    <script src="../js/prism.js"></script>
+  </body>
+</html>

@@ -5,9 +5,11 @@
   --link-visited: #29530c;
   --code-color: #1990b8;
 }
-
+html {
+  font-size: 1rem;
+}
 body {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-family: Arial, Helvetica, sans-serif;
   padding: 1em;
 }
@@ -15,6 +17,8 @@ body {
 code {
   font-weight: bold;
   color: var(--code-color);
+  border-style: none;
+  margin-left: 0;
 }
 kbd {
   font-weight: bold;

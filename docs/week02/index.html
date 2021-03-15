@@ -3,23 +3,26 @@
 
 <html>
   <head>
+    <title>CSE 121b | Fundamentals</title>
     <link
       rel="shortcut icon"
       href="https://byui-cse.github.io/Language-Courses/site/images/fav.ico"
-      type="image/x-i        con"
+      type="image/x-icon"
     />
     <script type="text/javascript">
       var codeType = "JavaScript";
     </script>
-    <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <!-- <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
     <link
       rel="stylesheet"
       href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css"
-    />
+    /> -->
     <link
       rel="stylesheet"
       href="https://byui-cse.github.io/Language-Courses/site/weekly.css"
     />
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <script
       type="text/javascript"
       src="https://byui-cse.github.io/Language-Courses/site/weekly.js"
@@ -131,35 +134,31 @@
         of value it holds. For example, this code is valid in Python.
       </p>
       <pre>
-<code class="Python">age = 3
+<code class="lang-python">age = 3
 age = 5
 age = 4.2
-age = 'old'</code>
-	</pre>
+age = 'old'</code></pre>
       <p>
         JavaScript variables behave in much the same way. Just like in Python,
         they can hold any type and the type can change. However, JavaScript does
         require you to use the let keyword to declare a variable. Like this:
       </p>
       <pre>
-<code class="JavaScript">let age = 3
+<code class="lang-js">let age = 3
 age = 5
 age = 4.2
-age = 'old'</code>
-	</pre>
+age = 'old'</code></pre>
       <h3>Constants</h3>
       <p>In Python, Constants are declared using an all upper case name</p>
 
       <pre>
-<code class="Python">PI=3.14</code>
-	</pre>
+<code class="lang-python">PI=3.14</code></pre>
       <p>
         In JavaScript this is done differently, instead of using all upper case
         names, JavaScript requires the use of the const keyword. Like this:
       </p>
       <pre>
-<code>const PI = 3.14</code>
-	</pre>
+<code class="lang-js">const PI = 3.14</code></pre>
 
       <p>
         While it is not required that the names of your constants be all upper
@@ -198,56 +197,56 @@ age = 'old'</code>
         strange, difficult to debug, bad behavior in large Python code sets.
       </p>
       <p>
-        Which operator set to use in a language often depends on the languages. Perhaps the creators of Python
-        thought the syntax of Structured Query Language (SQL) was easier to
-        understand and so they adopted its and, or, and not operators. This is
-        opinion and as such it and the alternative C operators used in
-        JavaScript, &&, ||, !, are just as valid. Don't get caught up in the
-        psuedo-religious ferver that some programmers adopt. Every language is
-        good at some things and bad at others. This includes both Python and
-        JavaScript.
+        Which operator set to use in a language often depends on the languages.
+        Perhaps the creators of Python thought the syntax of Structured Query
+        Language (SQL) was easier to understand and so they adopted its and, or,
+        and not operators. This is opinion and as such it and the alternative C
+        operators used in JavaScript, &&, ||, !, are just as valid. Don't get
+        caught up in the psuedo-religious ferver that some programmers adopt.
+        Every language is good at some things and bad at others. This includes
+        both Python and JavaScript.
       </p>
-
 
       <h1>Arrays</h1>
       <p>In JavaScript, arrays can be declared like this.</p>
-      <pre><code>
+      <pre><code class="lang-js">
 let names = ['Bob','Sue','Jorge','Svetlana']
 	</code></pre>
       <p>This should look very familiar to you.</p>
       <p>You access elements of an array like this</p>
-      <pre><code>
+      <pre><code class="lang-js">
 let aName = names[0]
 	</code></pre>
       <p>
         with zero being the index of the first element in the array. Modifying
         values in the array is doable also.
       </p>
-      <pre><code>
+      <pre><code class="lang-js">
 names[2]='George'
 	</code></pre>
       <p>Now the third element of the array is George instead of Jorge.</p>
       <p>
-        JavaScript has a lot of Built in Functions(BIF's), or built-in object methods, that you can use to
-        modify arrays. Imagine you needed to use an array to keep track of
-        customers lined up to see a movie. As people show up, they need to line
-        up in the order they arrived. You can simulate this using the push
-        method of array.
+        JavaScript has a lot of Built in Functions(BIF's), or built-in object
+        methods, that you can use to modify arrays. Imagine you needed to use an
+        array to keep track of customers lined up to see a movie. As people show
+        up, they need to line up in the order they arrived. You can simulate
+        this using the push method of array.
       </p>
       <p>
         If Bob, Sue, George, and Svetlana were already waiting in line for the
         show in that order, and then Grace showed up too, you would use push to
         add Grace at the end of the array (the back of the line).
       </p>
-      <pre><code>
+      <pre><code class="lang-js">
 names.push('Grace')
 	</code></pre>
       <p>
         Print the updated names array to the console and you see Grace added on
         the end.
       </p>
-      <pre><code>
-console.log(names)//Displays ['Bob','Sue','George','Svetlana','Grace']
+      <pre><code class="lang-js">
+console.log(names)
+//Displays ['Bob','Sue','George','Svetlana','Grace']
 	</code></pre>
       <p>
         Since you can add elements to the end of the array, surely there is a
@@ -255,9 +254,10 @@ console.log(names)//Displays ['Bob','Sue','George','Svetlana','Grace']
         pop method.
       </p>
       <p></p>
-      <pre><code>
+      <pre><code class="lang-js">
 names.pop()
-console.log(names)//Displays ['Bob','Sue','George','Svetlana']
+console.log(names)
+//Displays ['Bob','Sue','George','Svetlana']
 	</code></pre>
       <p>
         Can you remove elements from the end or add them to the beginning of the
@@ -278,7 +278,7 @@ console.log(names)//Displays ['Bob','Sue','George','Svetlana']
         target="_blank"
         ><img
           alt="This work is licensed under a Creative Commons Attribution 4.0 International License"
-          style="border-width: 0;"
+          style="border-width: 0"
           src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a
       ><br />This work is licensed under a
       <a
@@ -288,5 +288,6 @@ console.log(names)//Displays ['Bob','Sue','George','Svetlana']
         >Creative Commons Attribution 4.0 International License</a
       >.
     </footer>
+    <script src="../js/prism.js"></script>
   </body>
 </html>

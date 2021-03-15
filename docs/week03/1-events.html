@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Events</title>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>DOM Events</h1>
+    </header>
+    <main>
+      <h2>Event driven programming.</h2>
+      <p>
+        Browsers operate by events. Most of the time they sit waiting for
+        something to happen. We can take advantage of this to make the things we
+        need to happen. There are a lot of possible events!
+      </p>
+      <p>The next section is taken directly from MDN...</p>
+      <div class="callout">
+        <p>
+          The
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/Reference/Events"
+            >Event Reference</a
+          >
+          attempts to maintain a list of the standard Events used in modern web
+          browsers.
+        </p>
+        <p>
+          In general, we can distinguish events of different kinds based on the
+          object emitting the event including:
+        </p>
+        <ul>
+          <li>
+            the <code>window</code> object, such as due to resizing the browser,
+          </li>
+          <li>
+            the <code>window.screen</code> object, such as due to changes in
+            device orientation,
+          </li>
+          <li>
+            the <code>document</code> object, including the loading,
+            modification, user interaction, and unloading of the page,
+          </li>
+          <li>
+            the objects in the DOM (document object model) tree including user
+            interactions or modifications,
+          </li>
+          <li>
+            the <code>XMLHttpRequest</code> objects used for network requests,
+            and
+          </li>
+          <li>
+            the media objects such as <code>audio</code> and <code>video</code>,
+            when the media stream players change state.
+          </li>
+        </ul>
+        <p>Some notable events are:</p>
+        <ul>
+          <li>
+            the global object
+            <a href="/en-US/docs/Web/API/Window"><code>window</code></a> emits
+            an event called
+            <a href="/en-US/docs/Web/Reference/Events/load_(ProgressEvent)"
+              ><code>'load'</code></a
+            >
+            when the page has finished rendering, meaning that all resources
+            have been downloaded and acted upon, so that the scripts have been
+            run and the images displayed,
+          </li>
+          <li>
+            the global object
+            <a href="/en-US/docs/Web/API/Window"><code>window</code></a> emits
+            an event called
+            <a href="/en-US/docs/Web/Reference/Events/resize"
+              ><code>'resize'</code></a
+            >
+            when the height or the width of the browser window is changed by a
+            user,
+          </li>
+          <li>
+            the DOM object
+            <a href="/en-US/docs/Web/API/Document"><code>document</code></a>
+            representing the HTML document emits an event called<code>
+              <a href="/en-US/docs/Web/Reference/Events/DOMContentLoaded"
+                >'DOMContentLoaded'</a
+              ></code
+            >
+            when the document has finished loading,
+          </li>
+          <li>
+            the DOM node objects such as
+            <a href="/en-US/docs/Web/HTML/Element/div"><code>div</code></a> or
+            <a href="/en-US/docs/Web/HTML/Element/button"
+              ><code>button</code></a
+            >
+            emit an event called
+            <a href="/en-US/docs/Web/Reference/Events/click"
+              ><code>'click'</code></a
+            >
+            when the user presses the mouse button while the mouse pointer is on
+            top of the DOM node in the HTML page.
+          </li>
+        </ul>
+      </div>
+      <h2>addEventListener</h2>
+      <pre><code class="lang-js">target.addEventListener(type, listener [, options]);</code></pre>
+      <p>
+        How do we make something happen when a specific event happens?
+        <code>addEventListener</code>. Let's say we had a button in our HTML.
+        When the user clicks on that button with the mouse, we would like it to
+        read the value of an input, and output it to another element.
+      </p>
+      <div class="callout">
+        <h2>Callbacks</h2>
+        <p>
+          We have mentioned that in Javascript functions are special
+          objects...but since they are objects we can do anything with functions
+          that we can a normal object. This includes assigning functions to
+          variables, and passing functions into other functions as arguments, as
+          well as returning functions from functions.
+        </p>
+        <p>
+          When we pass a function into another function we call it a 'callback'.
+          <code>addEventListener</code> is a good example. The second parameter
+          (<code>listener</code>) that it is expecting should be a function.
+          This function will get called when the event we are listening for
+          happens.
+        </p>
+      </div>
+      <h3>HTML</h3>
+      <pre><code class="lang-markup">
+&lt;input id="inputBox" type="text"&gt;
+&lt;button id="submitButton"&gt;Submit&lt;/button&gt;
+&lt;p id="output"&gt;&lt;/p&gt;
+      </code></pre>
+      <h3>Javascript</h3>
+      <pre><code class="lang-js">
+const buttonElement = document.getElementById('submitButton');
+
+function copyInput() {
+    const inputElement = document.getElementById('inputBox');
+    const outputElement = document.getElementById('output');
+    outputElement.innerHTML = inputElement.value;
+}
+buttonElement.addEventListener('click', copyInput);
+      </code></pre>
+      <h3>The Event object</h3>
+      <p>
+        <code>addEventListener</code> will always pass an object containing
+        information about the event that happened into your callback function.
+        It contains a lot of very useful stuff.
+      </p>
+      <pre><code class="lang-js">
+// modify the copyInput callback to receive the event object
+function copyInput(event) {
+    // take a look at the event!
+    console.log(event)
+    const inputElement = document.getElementById('inputBox');
+    const outputElement = document.getElementById('output');
+    outputElement.innerHTML = inputElement.value;
+}
+              </code></pre>
+      <p>
+        A few properties of particular interest would be
+        <code>event.target</code>, <code>event.currentTarget</code>, and
+        <code>event.type</code>
+      </p>
+      <a href="2-array-methods.html">Next: Array Methods</a>
+    </main>
+    <footer>
+      Much of the detail above comes from
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Overview_of_Events_and_Handlers"
+        >MDN: Overview of Events and Handlers</a
+      >
+      Highly recommend reading to learn more.
+    </footer>
+    <script src="../js/prism.js"></script>
+  </body>
+</html>

@@ -3,23 +3,26 @@
 
 <html>
   <head>
+    <title>CSE 121b | Functions and Array Methods</title>
     <link
       rel="shortcut icon"
       href="https://byui-cse.github.io/Language-Courses/site/images/fav.ico"
-      type="image/x-i        con"
+      type="image/x-icon"
     />
     <script type="text/javascript">
       var codeType = "JavaScript";
     </script>
-    <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <!-- <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
     <link
       rel="stylesheet"
       href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css"
-    />
+    /> -->
     <link
       rel="stylesheet"
       href="https://byui-cse.github.io/Language-Courses/site/weekly.css"
     />
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <script
       type="text/javascript"
       src="https://byui-cse.github.io/Language-Courses/site/weekly.js"
@@ -74,12 +77,9 @@
         making up the name begin with an upper-case letter. For example, a
         function that averages two numbers could be defined like this.
       </p>
-      <pre>
-
-<code class="JavaScript">function averageTwoNumbers(firstNum, secondNum){
-	return (firstNum+secondNum)/2
-}</code>
-	</pre>
+      <pre><code class="lang-js">function averageTwoNumbers(firstNum, secondNum){
+	return (firstNum+secondNum)/2;
+}</code></pre>
 
       <p>
         Notice the '{' and '}' operators. These are the JavaScript scope
@@ -92,13 +92,11 @@
         As with Python, JavaScript functions can have more than one line of
         code. The previous example could be written as
       </p>
-      <pre>
-<code class="JavaScript">function averageTwoNumbers(firstNum, secondNum){
-	let sum = firstNum+secondNum
-	let avg = sum/2
-	return avg
-}</code>
-	</pre>
+      <pre><code class="lang-js">function averageTwoNumbers(firstNum, secondNum){
+	let sum = firstNum+secondNum;
+	let avg = sum/2;
+	return avg;
+}</code></pre>
 
       <p>
         It does exactly the same thing, it's just broken up into multiple lines
@@ -129,13 +127,11 @@
         expression type syntax.
       </p>
       <pre>
-<code class="JavaScript">let averageTwoNumbers = function(firstNum, secondNum){
-	let sum = firstNum+secondNum
-	let avg = sum/2
-	return avg
-
-}</code>
-	</pre>
+<code class="lang-js">let averageTwoNumbers = function(firstNum, secondNum){
+	let sum = firstNum+secondNum;
+	let avg = sum/2;
+	return avg;
+}</code></pre>
 
       <p>
         Regardless of if you used a function declaration or expression to create
@@ -152,7 +148,7 @@
         a simple, syntactically correct example.
       </p>
       <pre>
-<code class="JavaScript">averageTwoNumbers(15,20)
+<code class="lang-js">averageTwoNumbers(15,20)
 /*
  *
  * a bunch of other code goes here
@@ -160,11 +156,10 @@
  */
 
 function averageTwoNumbers(firstNum, secondNum){
-	let sum = firstNum+secondNum
-	let avg = sum/2
-	return avg
-}</code>
-	</pre>
+	let sum = firstNum+secondNum;
+	let avg = sum/2;
+	return avg;
+}</code></pre>
 
       <p>
         Wow. This does seem pretty good. It does come with a drawback. When the
@@ -176,7 +171,7 @@ function averageTwoNumbers(firstNum, secondNum){
         this...
       </p>
       <pre>
-<code class="JavaScript">averageTwoNumbers(15,20)
+<code class="lang-js">averageTwoNumbers(15,20)
 /*
  *
  * a bunch of other code goes here
@@ -184,11 +179,10 @@ function averageTwoNumbers(firstNum, secondNum){
  */
 
 let averageTwoNumbers = function(firstNum, secondNum){
-	let sum = firstNum+secondNum
-	let avg = sum/2
-	return avg
-}</code>
-	</pre>
+	let sum = firstNum+secondNum;
+	let avg = sum/2;
+	return avg;
+}</code></pre>
 
       <p>
         your code will fail to run since the averageTwoNumbers function doesn't
@@ -196,18 +190,17 @@ let averageTwoNumbers = function(firstNum, secondNum){
         instead.
       </p>
       <pre>
-<code class="JavaScript">let averageTwoNumbers = function(firstNum, secondNum){
-	let sum = firstNum+secondNum
-	let avg = sum/2
-	return avg
+<code class="lang-js">let averageTwoNumbers = function(firstNum, secondNum){
+	let sum = firstNum+secondNum;
+	let avg = sum/2;
+	return avg;
 }
 /*
  *
  * a bunch of other code goes here
  *
  */
-averageTwoNumbers(15,20)</code>
-	</pre>
+averageTwoNumbers(15,20)</code></pre>
 
       <p>
         When you use the function expression syntax, the use of the function HAS
@@ -289,7 +282,7 @@ averageTwoNumbers(15,20)</code>
         an <strong>Array</strong> for example as we studied last week. Did you
         wonder when you saw the code example
       </p>
-      <pre><code>names.push('Grace')</code></pre>
+      <pre><code class="lang-js">names.push('Grace')</code></pre>
       <p>
         where the <strong>.push()</strong> came from? It's a built in part of an
         Array in Javascript. Arrays have
@@ -323,15 +316,13 @@ averageTwoNumbers(15,20)</code>
       <p>Like this.</p>
 
       <pre>
-<code class="JavaScript">let filteredLikes = likeCounts.filter(aCount => aCount >= 10)
-}</code>
-	</pre>
+<code class="lang-js">let filteredLikes = likeCounts.filter(aCount => aCount >= 10);</code></pre>
       <p>
         Let's break this up so you can see how it is done. The filter function
         has one parameter, a function similar to the callback Lambda function
         you learned about in Python. In JavaScript it is called by the less
         Computer Sciencey name of 'anonymous callback function.' This callback
-        function has one paramter, an element of the array. This parameter,
+        function has one parameter, an element of the array. This parameter,
         aCount, is seperated by the '=>' operator from the next bit of code
         describing the filtering to be done. In this case, comparing the aCount
         parameter to 10.
@@ -345,9 +336,8 @@ averageTwoNumbers(15,20)</code>
       <p>How should the likes array be modified?</p>
       <p>Like this.</p>
       <pre>
-<code class="JavaScript">likes = likeCounts.map(aCount => aCount += 5)
-</code>
-	</pre>
+<code class="lang-js">likes = likeCounts.map(aCount => aCount += 5);
+</code></pre>
       <p>
         Maybe you are asked to total the customers likes. How should you do
         that?
@@ -360,9 +350,9 @@ averageTwoNumbers(15,20)</code>
         the final result is the summation of the likes.
       </p>
       <pre>
-<code class="JavaScript">let totalLikes = likeCounts.reduce((accumulator, aCount) => accumulator += aCount,0)
-</code>
-	</pre>
+<code class="lang-js">let totalLikes = likeCounts
+                  .reduce((accumulator, aCount) => accumulator += aCount,0);
+</code></pre>
       <p>
         What if you are to give five bonus likes only for those that already
         have 10 likes and then sum the result? You could do a seperate line of
@@ -371,9 +361,11 @@ averageTwoNumbers(15,20)</code>
         map, filter, and reduce.
       </p>
       <pre>
-<code class="JavaScript">let sum = likeCounts.filter(aCount => aCount >= 10).map(aCount=>aCount += 5).reduce((accumulator, aCount) => accumulator += aCount,0)
-</code>
-	</pre>
+<code class="lang-js">let sum = likeCounts
+          .filter(aCount => aCount >= 10)
+          .map(aCount=>aCount += 5)
+          .reduce((accumulator, aCount) => accumulator += aCount,0);
+</code></pre>
 
       <p>
         Suppose you wanted to be able to easily test your 'bonus likes' code by
@@ -381,13 +373,13 @@ averageTwoNumbers(15,20)</code>
         more than one line of code. You can do that! It would look like this.
       </p>
       <pre>
-<code class="JavaScript">likeCounts.filter(aCount => aCount >= 10).map(aCount=>{
-		aCount += 5
-		console.log(aCount)
-		return aCount
-		})
-</code>
-	</pre>
+<code class="lang-js">likeCounts.filter(aCount => aCount >= 10)
+          .map(aCount=>{
+            aCount += 5;
+            console.log(aCount);
+            return aCount;
+          });
+</code></pre>
       <p>
         Notice the use of the JavaScript scope operators and the inclusion of
         the return keyword in the last line of map's callback function. For map,
@@ -420,5 +412,6 @@ averageTwoNumbers(15,20)</code>
         >Creative Commons Attribution 4.0 International License</a
       >.
     </footer>
+    <script src="../js/prism.js"></script>
   </body>
 </html>

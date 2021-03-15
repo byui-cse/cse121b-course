@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Methods and Callbacks</title>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Array Methods and Callbacks</h1>
+    </header>
+    <main>
+      <h2>Callbacks</h2>
+      <p>
+        We have mentioned that in Javascript functions are special objects...but
+        since they are objects we can do anything with functions that we can a
+        normal object. This includes assigning functions to variables, and
+        passing functions into other functions as arguments, as well as
+        returning functions from functions.
+      </p>
+      <p>
+        When we pass a function into another function we call it a 'callback'.
+        Callbacks are used a lot in Javascript.
+      </p>
+      <h2>Array helper methods</h2>
+      <p>
+        If we enter something like <code>[1,2,3]</code> in the console of a
+        browser we will see our array show up with an arrow, if we expand the
+        array by clicking on the arrow we see the values in our array and
+        something that looks like this: <code>__proto__</code>. Open that up and
+        we see a bunch of stuff associated with every array. Most of the list is
+        helper functions, methods that do useful things with arrays.
+      </p>
+      <p>Let's take a look at a few of the more common ones.</p>
+      <h2>forEach</h2>
+      <p>
+        Looping through arrays is a very common task in programming. You can do
+        this with a <code>for</code> loop, but there is a better way.
+        <code>forEach</code>
+      </p>
+      <pre><code class="lang-js">
+  arr.forEach(callback(currentValue [, index [, array]])[, thisArg])
+</code></pre>
+      <p>That is the official syntax for the method. How do we read that?</p>
+      <ol>
+        <li>
+          First note that we will call this method from an existing array.
+        </li>
+        <li>
+          Second notice that it expects a <kbd>callback</kbd> function as it's
+          first argument. This callback can be a named function or an anonymous
+          function.
+        </li>
+        <li>
+          The callback is where the action takes place...it defines what we want
+          to happen for each item in the array. <code>.forEach()</code> will
+          handle the looping, where to start, where to stop, and will
+          automatically pass each item in the array one at a time into the
+          callback function.
+        </li>
+        <li>
+          That callback function will have up to three parameters passed in that
+          we can use.
+          <ol>
+            <li>First and required is the current array value.</li>
+            <li>Second (optional) the index of the current array value</li>
+            <li>Third (optional) the entire array.</li>
+          </ol>
+        </li>
+        <li>
+          After the callback there is an optional parameter to use as
+          <code>this</code>. We will talk more about <code>this</code> later.
+        </li>
+      </ol>
+      <pre><code class="lang-js">
+// example 1
+const steps = ['one', 'two', 'three'];
+// callback declaration
+function makeList(item) {
+  const listElement = document.getElementById('myList');
+  listElement.innerHTML += `&lt;li&gt;${item}&lt;/li&gt;`;
+}
+steps.forEach(makeList);
+
+// example 2
+// is the luckyNumber in the list?
+const myArray = [12, 34, 21, 54];
+const luckyNumber = 21;
+let luckyIndex = -1;
+myArray.forEach(function(item, index) {
+  if(item === luckyNumber) {
+    luckyIndex = index;
+  }
+});
+      </code></pre>
+      <h2>map</h2>
+      <p>
+        <code>map</code> is great when we need to change each item in an array
+        somehow. It returns a new array and does NOT modify the original array.
+      </p>
+      <pre><code class="lang-js">
+let new_array = arr.map(function callback( currentValue[, index[, array]]) {
+    // return element for new_array
+}[, thisArg])
+      </code></pre>
+      <p>
+        The syntax looks very similar to <code>forEach</code>, but notice that
+        it needs a variable to store the new array it will return. We also need
+        to make sure that the callback function we provide returns a
+        value...usually the modified version of the array element.
+      </p>
+      <pre><code class="lang-js">
+// example 1
+const steps = ['one', 'two', 'three'];
+const stepsHtml = steps.map(function(step) {
+  return `&lt;li&gt;${step}&lt;/li&gt;`;
+});
+document.getElementById('myList').innerHTML = stepsHtml.join();
+
+// example 2
+const grades = ['A', 'B', 'A'];
+function convertGradeToPoints(grade) {
+  let points = 0;
+  if(grade === 'A') {
+    points = 4;
+  } else if (grade === 'B') {
+    points = 3;
+  }
+  return points;
+}
+const gpaPoints = grades.map(convertGradeToPoints);
+
+
+      </code></pre>
+      <h2>reduce</h2>
+      <p>
+        <code>reduce</code> is useful when we need to coppase an array into a
+        single value. It really only makes sense if the array is made up of
+        values that can be mathematically flattened
+      </p>
+      <pre><code class="lang-js">
+arr.reduce(callback( accumulator, currentValue, [, index[, array]] )[, initialValue])
+      </code></pre>
+      <p>
+        Once again there is that callback. The parameters are different however.
+        The first argument is going to be for the accumulator...the total of
+        whatever operation we are performing.
+      </p>
+      <pre><code class="lang-js">
+// example 1
+// see map example for where the gpaPoints array came from...
+const gpaPoints = grades.map(convertGradeToPoints);
+const pointsTotal = gpaPoints.reduce(function(total, item) {
+  return total + item;
+});
+const gpa = pointsTotal / gpaPoints.length;
+
+// example 2
+// this is the same thing as above, but with an arrow function
+const pointsTotal = gpaPoints.reduce((total, item) => total + item);
+const gpa = pointsTotal / gpaPoints.length;
+
+// this could be further simplified as
+const gpa = gpaPoints.reduce((total, item) => total + item) / gpaPoints.length;
+      </code></pre>
+      <h2>indexOf</h2>
+      <pre><code class="lang-js">
+  // improved luckyNumber
+const myArray = [12, 34, 21, 54];
+const luckyNumber = 21;
+let luckyIndex = myArray.indexOf(luckyNumber);
+
+</code></pre>
+      <h2>filter</h2>
+      <pre><code class="lang-js">
+let newArray = arr.filter(callback(element[, index, [array]])[, thisArg])
+      </code></pre>
+      <p>
+        <code>filter</code> is similar to <code>map</code> in that it returns a
+        new array of elements. The elements in the calling array will be
+        included in the new array if they pass a test that you include in the
+        callback you pass in.
+      </p>
+      <pre><code class="lang-js">
+const words = ['watermelon', 'peach', 'apple', 'tomato', 'grape'];
+const shortWords = words.filter(function(word) {
+  return word.length &lt; 6;
+});
+
+//same thing with an arrow function
+const shortWords = words.filter((word) => word.length &lt; 6);
+      </code></pre>
+      <h2>shift, pop, push</h2>
+      <pre><code class="lang-js">
+let classes = ['CSE121b', ' CIT111', ' WDD130']; 
+console.log(classes); 
+console.log(classes[2]); 
+classes[2] = "CIT222"; 
+console.log(classes); 
+document.querySelector('#class').textContent = classes.join('  '); 
+  
+// take off from beginning 
+classes.shift(); 
+document.querySelector('#class').textContent = classes.join('  '); 
+  
+// take off the end 
+classes.pop(); 
+document.querySelector('#class').textContent = classes.join('  '); 
+  
+// add one to the array 
+classes.push('CIT 230'); 
+document.querySelector('#class').textContent = classes.join('  ');        
+      </code></pre>
+      <a href="3-organizing.html">Next: Organizing our code</a>
+    </main>
+    <script src="../js/prism.js"></script>
+  </body>
+</html>
