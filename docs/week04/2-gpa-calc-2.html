@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New and Improved GPA Calculator</title>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>New and Improved GPA Calculator</h1>
+    </header>
+    <main>
+      <h2>Review</h2>
+      <p>
+        The calculator we built last week was useful to look at ESModules and
+        have a conversation about organizing our code, but it was pretty
+        limited. We can do more...especially with what we now know about objects
+        in Javascript.
+      </p>
+      <p>
+        A more useful calculator would pull the list of grades from some data
+        source (transcript) so the user doesn't have to type all the grades in.
+        Users are often also interested in how they did in a semester or
+        overall.
+      </p>
+      <p>
+        Pulling data from a database is beyond the scope of this course...but we
+        can simulate one pretty easily with a JS object.
+      </p>
+      <h2>Refactoring</h2>
+      <p>
+        Let's begin where we left off with the first calculator. When
+        programmers need to go in and make significant changes to existing code
+        it is called <em>refactoring</em>. This is a fairly common occurance.
+        Sometimes driven by required changes, sometimes by bugs, and sometimes
+        just because the developer thought of a better way to code the problem
+        up. In our case we will refactor because of changing requirements...
+      </p>
+      <h2>Changes</h2>
+      <ol>
+        <li>
+          The data will no longer be pulled from the user through an input.
+        </li>
+        <li>
+          We need to instead display a dropdown that will let the user select a
+          specific semester or "All"...this list of semesters should be based
+          off of the semesters in the "transcript"
+        </li>
+        <li>
+          Once a semester is selected and submitted the application should do
+          the following:
+          <ol>
+            <li>
+              Read through the transcript one row at a time and convert the list
+              of grades associated with the semester into a list of gpa points.
+              Store the list of Gpa points in the semester object
+            </li>
+            <li>
+              The gpa can then be calculated and stored in the semester object
+            </li>
+            <li>
+              A request will be made to get the calculated data from the module,
+              and it should be displayed as an HTML table to the user.
+            </li>
+          </ol>
+        </li>
+        <li>
+          We will need a couple of new methods in our <kbd>ui.js</kbd> module.
+          One to create an HTML table, and one to populate the
+          <code>option</code> elements in a <code>select</code>
+        </li>
+        <li>
+          We need to add the transcript as well...to keep it simple we will just
+          store it as an array of objects in the gpa.js module. It should look
+          like this:
+          <pre><code class="lang-js">
+const transcript = [
+{
+    semester: "Spring",
+    year: "2020",
+    semesterCode: "S20",
+    grades: ["A", "A-", "B", "A"]
+},
+{
+    semester: "Fall",
+    year: "2020",
+    semesterCode: "F20",
+    grades: ["A", "A", "A-", "A"]
+},
+{
+    semester: "Winter",
+    year: "2020",
+    semesterCode: "W20",
+    grades: ["B", "A-", "B", "C"]
+}
+];
+          </code></pre>
+        </li>
+        <li>
+          We will need a couple of new functions in our <kbd>gpa.js</kbd> module
+          along with the transcript data. We need a function to scan the
+          transcript and pull out the semester information and return it, and
+          then we will also need a function to return the gpa data once it has
+          been calculated. (since it is in the module it will be
+          private...nothing outside the module should be able to modify it
+          directly. We want to control access)
+        </li>
+      </ol>
+      <h2>Getting started</h2>
+      <p>
+        To make sure we are starting at the same place, grab
+        <a href="../boilerplate/gpa-2.zip">my code from here</a>. I've also
+        added comments to guide us.
+      </p>
+      <p>
+        I would recommend the following order for completing this application:
+      </p>
+      <ol>
+        <li>
+          Check out <kbd>index.html</kbd> first to see what elements and ids you
+          have to work with.
+        </li>
+        <li>
+          Begin with the methods to build the HTML elements in the
+          <kbd>ui.js</kbd> module. To Test your functions you can use something
+          like this in <kbd>main.js</kbd> (make sure you <code>import</code> the
+          methods in!):
+          <pre><code class="lang-js">
+const semesters = [{ label: 'Fall 2020', value: 'F20'}, { label: 'winter 2021', value: 'W21'}];
+buildElements.select(semesters, "#semester");
+const gpa = [{ semester: 'Fall', year: '2020', gpa: 3.42 }, { semester: 'Winter', year: '2021', gpa: 3.6 } ]
+buildElements.gpaTable(gpa, "#output");
+    </code></pre>
+        </li>
+        <li>
+          Next work on <kbd>gpa.js</kbd>. It would probably make sense to write
+          the methods in the order they appear. <code>getSemesterInfo</code>,
+          <code>calculateGpa</code>, and then <code>getGpaInfo</code>
+        </li>
+        <li>
+          Finally you will need complete the <code>submit</code> function we are
+          using as the event handler for the click of our button.
+        </li>
+      </ol>
+    </main>
+
+    <script src="../js/prism.js"></script>
+  </body>
+</html>

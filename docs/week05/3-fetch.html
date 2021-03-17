@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch</title>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Fetch</h1>
+    </header>
+    <main>
+      <h2>AJAX: asynchronous requests</h2>
+      <p>
+        AJAX stands for Asynchronous Javascript And Xml. It is a collection of
+        technologies that allow a webpage to make a request to a server after it
+        has loaded for additional information. The requests are Asynchronous in
+        that the program the made them does not wait around doing nothing until
+        they come back...it will move on and do more stuff, the requests are
+        made with Javascript, but they don't often return XML anymore. Most
+        often now you will get the information back as JSON.
+      </p>
+      <p>
+        Originally the requests were made using
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest"
+          target="_blank"
+          ><code>XmlHttpRequest</code></a
+        >, and you will still see that around, but more and more developers are
+        turning to the newer
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+          target="_blank"
+          ><code>fetch</code></a
+        >
+        command to make their requests.
+      </p>
+      <h2>Promises</h2>
+      <p>
+        The asynchronous nature of these requests is a blessing and a curse. A
+        blessing because the developer has no control over how quickly or slowly
+        the server responds. So if the request was made synchronously nothing
+        else could happen until the request finished. If the server you are
+        waiting for is slow, it will make your application slow...not good. So
+        asynchronous requests allow our code to interact with external sources
+        while still being performant.
+      </p>
+      <p>
+        Asynchronous programming is a bit different to work with however. You
+        have to deal with the fact that your code might not run in the order you
+        wrote it. This is the curse. There are two main ways for dealing with
+        this. One we have talked about before...callback functions. They have
+        been used for a while now, but often lead to code that is really hard to
+        follow...<a href="http://callbackhell.com" target="_blank"
+          >callback hell</a
+        >
+        is what it is often called.
+      </p>
+      <p>
+        The newer method for writing asynchronous code is <kbd>Promises</kbd>.
+        Promises essentially give us another way to say "when you finish your
+        thing...<code>then</code> do this next thing". The best way to
+        understand them is by seeing them in practice. Luckily for us
+        <code>fetch</code> uses promises.
+      </p>
+      <h2>Examples</h2>
+      <p>
+        We will use <code>fetch</code> to pull some data from a remote API
+        (application programming interface). An API is essentially what happens
+        when an organization decides to expose part of a program they own to the
+        world. Why would they do this? Well let's take Calendly for example. It
+        is an online scheduling application. A student can go sign up for an
+        appointment with their instructor easily with it. The University uses
+        Microsoft Exchange for calendaring. If something doesn't show up
+        there...I will miss it. Luckily Exchange has an API. Through this API
+        Calendly can log into my Exchange account and add things directly to my
+        calendar if I give it permission to.
+      </p>
+      <p>
+        So as soon as a student signs up for an appointment in Calendly, the
+        appointment automatically gets added to my calendar. This is one example
+        of when an API is very useful.
+      </p>
+      <p>
+        We are going to use a fairly simple free API called
+        <a href="https://pokeapi.co" target="_blank">pokeapi</a>. If you visit
+        that website you will find the documentation on how to request data, and
+        examples. Let's use the example it has to pull information about the
+        Pokemon Ditto.
+      </p>
+      <pre><code class="lang-js">
+const url = 'https://pokeapi.co/api/v2/pokemon/ditto';
+const results = fetch(url);
+console.log(results);
+      </code></pre>
+      <p>
+        There is a lot going on in that simple line of code. With it we made a
+        request for some specific information from a remote server. Check the
+        console and you will find however that we did not get the information
+        yet. Just as was mentioned above <code>fetch</code> returns a Promise.
+        We have to tell it what we want it to do once the promise
+        <kbd>fulfills</kbd> or finishes what it is doing. We do that with the
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then"
+          target="_blank"
+          ><code>.then()</code></a
+        >
+        method.
+      </p>
+      <pre><code class="lang-js">
+  promise.then(onFulfilled[, onRejected]);
+
+  promise.then(value => {
+    // fulfillment
+  }, reason => {
+    // rejection
+  });
+</code></pre>
+      <p>
+        <code>.then()</code> takes two parameters...one required that contains
+        what should happen if the request was successful, and one optional that
+        contains what should happen if the request fails.
+      </p>
+      <p>
+        <code>fetch</code> does not return usable data initially. Instead we
+        have to tell it what we were expecting...and ask it to convert the
+        response into the right kind of data. The three types it understands are
+        <kbd>json()</kbd>, <kbd>text()</kbd> (HTML and XML would be considered
+        text), and <kbd>blob()</kbd> (blob is anything that isn't text or json).
+        We are expecting JSON back from the api we made the request to. So we
+        should convert it to that.
+      </p>
+      <pre><code class="lang-js line-numbers">
+const url = "https://pokeapi.co/api/v2/pokemon/ditto";
+let results = null;
+// takes a fetch response and checks to make sure it was OK.
+// then returns the body of the response as a PROMISE to some JSON.
+function convertToJson(response) {
+  if (response.ok) {
+    return response.json();
+  } else {
+    console.log("error:", response);
+  }
+}
+// this is where we would do whatever we needed to do with the resulting data.
+function doStuff(data) {
+  results = data;
+  console.log("first: ", results);
+}
+
+// read this as: make a request to URL, WHEN it finishes THEN run convertToJson
+// WHEN it finishes THEN run doStuff
+fetch(url).then(convertToJson).then(doStuff);
+// meanwhile...continue with the rest of the program...
+console.log("second: ", results);
+</code></pre>
+
+      <p>
+        Note that the second console.log ran first...then the first one.
+        Remember that in async programming Javascript does not wait for
+        everything to finish before moving on. If we had tried to use
+        <code>results</code> immediately it would have failed. Instead we do
+        whatever we need to do with <code>results</code> in the callback that
+        gets called by <code>.then()</code>.
+      </p>
+      <div class="callout">
+        <p>
+          Note that this would often be done with anonymous functions...without
+          the comments and condensed the code above could look like this:
+        </p>
+        <pre><code class="lang-js line-numbers">const url = 'https://pokeapi.co/api/v2/pokemon/ditto';
+let results = null;
+fetch(url)
+.then((response) => {
+  if (response.ok) {
+    return response.json();
+  } else {
+    console.log("error:", response);
+  }
+})
+.then((data) => {
+  results = data;
+  console.log("first: ", results);
+});
+console.log('second: ', results);
+      </code></pre>
+        <p>
+          In english I would read that code as: "Make a request to the URL, when
+          it finishes THEN take the response, convert it to JSON and return it;
+          when that finishes THEN set the results variable equal to the JSON
+          data, and log results out".
+        </p>
+      </div>
+      <h2>Example 2</h2>
+      <p>
+        Our <code>doStuff</code> function in the example above is a bit
+        underwhelming...lets make it do more than just log out. It should really
+        display the data that we retrieved to the user in the browser. We need a
+        list!
+      </p>
+      <ol>
+        <li>
+          Add an element to our HTML to hold the pokemon data...something like
+          <code>&ltsection id="output"&gt&lt;/section&gt;</code>
+        </li>
+        <li>Get that element with javascript. (document.querySelector)</li>
+        <li>
+          In the <code>doStuff</code> function create a variable and build out
+          the html that we want to display the information. (I recommend a
+          template literal string)
+        </li>
+        <li>Insert our HTML into the output element (innerHTML)</li>
+      </ol>
+      <pre><code class="lang-js">function doStuff(data) {
+  const outputElement = document.querySelector('#output');
+  results = data;
+  const html = `&lt;h2&gt;${results.name}&lt;/h2&gt;
+                &lt;img src="${results.sprites.front_default}" alt="Image of ${results.name}"&gt;`;
+  outputElement.innerHTML = html;
+  console.log("first: ", results);
+}</code></pre>
+      <h2>Example 3</h2>
+      <p>
+        As interesting as Ditto is...it would be more fun to get information on
+        lots of pokemon...if we make a slight change to the URL we are making
+        the request to, we can get a list of pokemon instead of just one. Let's
+        do that and then make a new function called
+        <code>doStuffList</code> that will output the list.
+      </p>
+      <ol>
+        <li>
+          Add a <kbd>ul</kbd> element to our html to hold the list. (<code
+            >&ltul id="outputList"&gt&lt;/ul&gt;</code
+          >)
+        </li>
+        <li>Get that element with Javascript</li>
+        <li>
+          Change the url that we are using to make the request to
+          <kbd>const url = "https://pokeapi.co/api/v2/pokemon";</kbd>
+        </li>
+        <li>Create a function: <code>function doStuffList(data) {}</code></li>
+        <li>
+          In the function start by console.logging <code>data</code>. Take a
+          look at the structure of what got sent back. Notice that our list is
+          inside of a property called <kbd>results</kbd>
+        </li>
+        <li>
+          Create a variable called <kbd>pokeList</kbd> and set it equal to
+          <kbd>data.results</kbd>
+        </li>
+        <li>
+          for each of the pokemon in the list: create a line of html to output
+          it (<code>`&ltli&gt${pokeList.name}&lt;/li&gt`</code>
+        </li>
+        <li>Add the new list to what was already in our output element.</li>
+        <li>
+          Change your <code>fetch</code> call to use the
+          <kbd>doStuffList</kbd> function instead of <kbd>doStuff</kbd>
+        </li>
+      </ol>
+      <pre><code class="lang-js">function doStuffList(data) {
+  console.log(data);
+  const pokeListElement = document.querySelector('#pokeList');
+  const pokeList = data.results;
+  pokeList.forEach((currentItem) => {
+      const html = `&lt;li&gt;${currentItem.name}&lt;/li&gt;`;
+      // note the += here...
+      pokeListElement.innerHTML += html;
+  })
+}</code></pre>
+      <h2>Example 4</h2>
+      <p>Our pokemon list is not alphabetized...we should fix that.</p>
+      <ol>
+        <li>Create a function: <code>function sortPokemon(list) {}</code></li>
+        <li>
+          Check out some documentation on <code>Array.sort</code>.
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort"
+            target="_blank"
+            >MDN: Sort</a
+          >. Notice that it provides an example compare function at the
+          bottom...we can use that as a model.
+        </li>
+      </ol>
+      <pre><code class="lang-js line-numbers">function compare(a,b) {
+  if(a.name > b.name) {
+    // sort b before a
+      return 1;
+  } else if(a.name < b.name) {
+    // a and b different but unchanged (already in the correct order)
+      return -1;
+  } else return 0; // a and b are equal
+}
+
+function sortPokemon(list) {
+    let sortedList = list.sort(compare);
+    return sortedList;
+}
+function doStuffList(data) {
+  console.log(data);
+  const pokeListElement = document.querySelector('#outputList');
+  const pokeList = data.results;
+  // sort our list before output it
+  pokeList = sortPokemon(pokeList);
+  pokeList.forEach((currentItem) => {
+      const html = `&lt;li&gt;${currentItem.name}&lt;/li&gt;`;
+      //note the += here
+      pokeListElement.innerHTML += html;
+  })
+}</code></pre>
+    </main>
+
+    <script src="../js/prism.js"></script>
+  </body>
+</html>

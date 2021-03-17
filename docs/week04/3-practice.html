@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice</title>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Practice!</h1>
+    </header>
+    <main>
+      <h2>Example 1</h2>
+      <pre><code class="lang-js">
+//sorting an array 
+let fruit = ['banana','apple','orange']; 
+    
+fruit.sort(); 
+console.log(fruit); 
+    
+//now it's an array of objects 
+let autos = [ 
+    {name: 'Porche', color: 'red', top_speed: '120mph'}, 
+    {name: 'Bentley', color: 'green', top_speed: '110mph'}, 
+    {name: 'Jeep', color: 'blue', top_speed: '100mph'}   
+]; 
+    
+//now the sort method needs a callback function which takes 2 parameters 
+//so first the 1st and 2nd items are sent in as a and b 
+//-1, 1 and 0 tell it the sort order precedence 
+//we need to let it know which property to sort we used .name 
+//try a.color and b.color 
+function obj_sort(a, b) { 
+    if(a.name < b.name) { 
+        return -1; 
+    } else if (a.name > b.name) { 
+        return 1; 
+    } else { 
+        return 0; 
+    }; 
+}; 
+    
+autos.sort(obj_sort); 
+
+console.log(autos);</code></pre>
+      <h2>Example 2</h2>
+
+      <p>
+        This is a more complex example. We will take a list of animals...sort it
+        either ascending or descending, then display it.
+      </p>
+      <ol>
+        <li>
+          Create a directory called <kbd>animals</kbd>. Add 3 files to the
+          directory: <kbd>index.html</kbd>, <kbd>main.js</kbd>,
+          <kbd>animals.js</kbd>
+        </li>
+        <li>
+          In the index file we need a dropdown that will let us pick whether to
+          sort ascending or descending, and a place to output our list of
+          animals. We should also link main.js up with the html. Below is an
+          example html file you can look at if you need to:
+          <details>
+            <summary>index.html</summary>
+            <pre><code class="lang-markup">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Animals&lt;/title&gt;
+    &lt;script src="main.js" type="module"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Animals&lt;/h1&gt;
+    &lt;select id="sortBy"&gt;
+      &lt;option&gt;Pick one&lt;/option&gt;
+      &lt;option value="petNameAscending"&gt;Pet Name Ascending&lt;/option&gt;
+      &lt;option value="petNameDescending"&gt;Pet Name Descending&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;section id="pets"&gt;&lt;/section&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+          </details>
+        </li>
+        <li>
+          Often we would pull the data we display on pages like this from a
+          database or API. We haven't learned how to do that yet...but we can do
+          something similar using the modules that we learned about last week.
+          Open the <kbd>animals.js</kbd> file and enter the following in it:
+          <pre><code class="lang-js">export const animals = [
+    {
+        "name": "Meowsy",
+        "species" : "cat",
+        "foods": {
+        "likes": ["tuna", "catnip"],
+        "dislikes": ["ham", "zucchini"]
+        }
+    },
+    {
+        "name": "Barky",
+        "species" : "dog",
+        "foods": {
+        "likes": ["bones", "carrots"],
+        "dislikes": ["tuna"]
+        }
+    },
+    {
+        "name": "Purrpaws",
+        "species" : "cat",
+        "foods": {
+        "likes": ["mice"],
+        "dislikes": ["cookies"]
+        }
+    }
+];</code></pre>
+        </li>
+        <li>
+          Import our list of animals into <kbd>main.js</kbd> with import:
+          <code>import { animals } from './animals.js';</code>. Now we can use
+          the variable <code>animals</code> just like any locally declared
+          variable.
+        </li>
+        <li>
+          Next we should create a function to output our list of animals. List
+          the name and species of the animal. It should accept a list, and the
+          id of the output element as arguments.
+          <pre><code class="lang-js">function output(list, outputId) { }</code></pre>
+          Inside the function we need to loop over each element and build the
+          appropriate html...then add (append) the new HTML to the output
+          element.
+        </li>
+        <li>
+          Next we need to attach a listener to our sort dropdown. Instead of
+          listening for a click as we have often done, this time we want to do
+          something if the value in the dropdown changes.
+          <pre><code class="lang-js">document.querySelector("#sortBy").addEventListener('change', sortBy);</code></pre>
+        </li>
+        <li>
+          Finally we need to write the <code>sortBy</code> function that is used
+          in our listener. Since we need to be able to sort either ascending or
+          descending we will need two helper functions to pass into
+          <code>.sort()</code>. These will look at a <kbd>name</kbd> property of
+          an object and sort based on it. This seems like something that could
+          be re-usable. Lets make it easy for ourselves to reuse our functions
+          if we need them again by putting them into a module. Create another
+          file called <kbd>helpers.js</kbd> and place two functions into it:
+          <pre><code class="lang-js">export function sortByNameAscending(obj1, obj2){ }
+export function sortByNameDescending(obj1, obj2){ }            
+          </code></pre>
+          Notice the <code>export</code> keyword. This will make them available
+          outside of our module. Go ahead and import them into
+          <kbd>main.js</kbd> like we did animals earlier.
+          <pre><code class="lang-js">import { sortByNameAscending, sortByNameDescending } from './sortHelpers.js'</code></pre>
+          Using the example above of sorting cars, see if you can write the two
+          functions. If you get stuck see below.
+          <details>
+            <summary>Sort Helpers</summary>
+            <pre><code class="lang-js">export function sortByNameAscending(obj1, obj2){ 
+    let name1 = obj1.name.toUpperCase(); 
+    let name2 = obj2.name.toUpperCase(); 
+    if(name1 < name2){ 
+        return -1; // switch
+    } else if (name1 > name2) { 
+        return 1; // leave
+    } else { 
+        return 0; 
+    } 
+}
+
+export function sortByNameDescending(obj1, obj2){ 
+    let name1 = obj1.name.toUpperCase(); 
+    let name2 = obj2.name.toUpperCase(); 
+    if(name1 > name2){ 
+        return -1; // switch
+    } else if (name1 < name2) { 
+        return 1; // leave
+    } else { 
+        return 0; 
+    } 
+}</code></pre>
+          </details>
+        </li>
+        <li>
+          Finish our application by completing the
+          <code>sortBy()</code> function. See below if you get stuck!
+          <details>
+            <summary>
+              <code>sortBy()</code>
+            </summary>
+            <pre><code class="lang-js">function sortBy() { 
+    document.querySelector('#pets').innerHTML = ""; 
+    let sort = document.querySelector("#sortBy").value;  
+    if(sort == 'petNameAscending') { 
+        output( animals.sort(sortByNameAscending) ); 
+    } else if (sort == 'petNameDescending') { 
+        output( animals.sort(sortByNameDescending) ); 
+    } else { 
+        alert('Pick ASC or DESC'); 
+    } 
+} </code></pre>
+          </details>
+        </li>
+      </ol>
+      <p>
+        To see a working version of this demo:
+        <a href="../solutions/animals/index.html" target="_blank"
+          >Animal List</a
+        >
+      </p>
+      <a href="2-gpa-calc-2.html"
+        >Next: New and Improved GPA Calculator example</a
+      >
+    </main>
+
+    <script src="../js/prism.js"></script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objects</title>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Objects</h1>
+    </header>
+    <main>
+      <h2>Encapsulation</h2>
+      <p>
+        Remember that one principle of code organization is encapsulation.
+        Putting related data and actions (methods) together. Object literals are
+        the simplest way to do that in Javascript
+      </p>
+      <h2>Object literals</h2>
+      <p>To create an Object literal we simply use the {} operators. ie</p>
+      <pre><code class="lang-js">
+const aCourse = {
+  code: 'CSE121b',
+  name: 'Javascript Language',  
+}
+      </code></pre>
+      <p>Notice a couple of things.</p>
+      <ul>
+        <li>
+          The keys are strings and do not need to be quoted (but they can be).
+        </li>
+        <li>After the key is a semicolon, then the value.</li>
+        <li>
+          The values can be anything that can be assigned to a variable in
+          Javascript: primitives, arrays, other objects, functions...
+        </li>
+        <li>
+          keys that store data are called <kbd>properties</kbd>, keys that store
+          functions are called <kbd>methods</kbd>
+        </li>
+      </ul>
+      <p>
+        In order to assign students to a course so it can be taught one or more
+        sections must be created...we could represent that this way:
+      </p>
+      <pre><code class="lang-js">
+const aCourse = {
+  code: 'CSE121b',
+  name: 'Javascript Language', 
+  sections: [
+    { sectionNum: 1, roomNum: 'STC 353', enrolled: 26, days: 'TTh', instructor: 'Bro T', students: [...]},
+    { sectionNum: 2, roomNum: 'STC 347', enrolled: 25, days: 'TTh', instructor: 'Sis A', students: [...]}
+  ] 
+}
+      </code></pre>
+      <p>In order to access the data in the object the most common way is the dot operator. ie to get the course code: <pre><code class="lang-js">aCourse.code  // CSE121b</code></pre> To get the number enrolled in section 2: <pre><code class="lang-js">aCourse.sections[1].enrolled   // 25</code></pre> </p>
+      <p>We might also want to create a new section...we can add a method to the Course to do that.</p>    <pre><code class="lang-js">
+const aCourse = {
+  code: 'CSE121b',
+  name: 'Javascript Language', 
+  sections: [
+    { sectionNum: 1, roomNum: 'STC 353', enrolled: 26, days: 'TTh', instructor: 'Bro T', students: [...]},
+    { sectionNum: 2, roomNum: 'STC 347', enrolled: 25, days: 'TTh', instructor: 'Sis A', students: [...]}
+  ],
+  createSection: function(section) {
+    // logic to create a section
+  } 
+}
+              </code></pre> 
+             <p>To call our method we can do this: <pre><code class="lang-js">aCourse.createSection(someSectionInfo)</code></pre></p>
+             <h2><code>this</code></h2>
+             <p>One important concept when using Object Literals like this is <code>this</code>. When you create an object it creates a reference to itself. That reference is called <code>this</code>. We will need to use that reference in our methods for them to work </p>
+             <pre><code class="lang-js">
+const aCourse = {
+  code: 'CSE121b',
+  name: 'Javascript Language', 
+  sections: [
+    { sectionNum: 1, roomNum: 'STC 353', enrolled: 26, days: 'TTh', instructor: 'Bro T', students: [...]},
+    { sectionNum: 2, roomNum: 'STC 347', enrolled: 25, days: 'TTh', instructor: 'Sis A', students: [...]}
+  ],
+  createSection: function(section) {
+    // find highest current section number
+    const highSectionNum = this.sections.reduce((highest, current) => Math.max(highest.sectionNum, current.sectionNum));
+    const newSection = { sectionNum: highSectionNum+1, roomNum: 'STC 341', enrolled: 25, days: 'TTh', instructor: 'Bro T'};
+    this.sections.push(newSection);
+  } 
+}
+aCourse.createSection(); 
+console.log(aCourse.sections);
+</code></pre> 
+      <h2>JSON</h2>
+      <p>
+        JSON stands for Javascript Object Notation, and was developed to make JS
+        objects portable. It is very common for Javascript stored data to need to be transferred acrossed the Internet.  A JS object cannot be transferred as it is. JSON is simply a string representation of a JS object.
+      </p>
+      <p>To convert a JS object to JSON we use <code>JSON.stringify()</code>, to convert a JSON string into an Object we <code>JSON.parse()</code> it.</p>
+      <pre><code class="lang-js">
+        const aCourse = {
+          code: 'CSE121b',
+          name: 'Javascript Language',  
+        }
+        // convert to JSON
+        sendSomeData(JSON.stringify(aCourse));
+        // some data that we got from a server
+        const response = getSomeExternalData();
+        const objectWeCanUse = JSON.parse(response);
+        // JSON coming from a fetch call...
+        const remoteData = fetch(someUrl).then((response) => response.json());
+      </code></pre>
+
+      <a href="2-gpa-calc-2.html"
+        >Next: New and Improved GPA Calculator example</a
+      >
+    </main>
+    
+    <script src="../js/prism.js"></script>
+  </body>
+</html>

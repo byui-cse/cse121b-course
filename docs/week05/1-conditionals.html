@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conditionals</title>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Conditionals</h1>
+    </header>
+    <main>
+      <h2>IF</h2>
+      <p>Any questions?</p>
+      <h2>Switch</h2>
+      <p>
+        <code>switch</code> is an alternative to <code>if...else</code> It's
+        useful when you have a set of values that you need to check.
+      </p>
+      <pre><code class="lang-js">
+      let grade = 'A';
+      let gpaPoints = 0;
+switch(grade) {
+  case 'A':
+    gpaPoints = 4;
+    break;
+  case 'B':
+    gpaPoints = 3;
+    break;
+  default:
+    gpaPoints = -1;
+}
+      </code></pre>
+      <a href="2-loops.html">Next: Loops</a>
+    </main>
+    <footer>
+      Much of the detail above comes from
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Overview_of_Events_and_Handlers"
+        >MDN: Overview of Events and Handlers</a
+      >
+      Highly recommend reading to learn more.
+    </footer>
+    <script src="../js/prism.js"></script>
+  </body>
+</html>
