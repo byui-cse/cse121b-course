@@ -47,7 +47,7 @@
       </p>
       <ol>
         <li>
-          Javascript prefers numeric comparisons and will coerce to a primitve
+          Javascript prefers numeric comparisons and will coerce to a primitive
           numeric value if it can
         </li>
         <li>
@@ -98,6 +98,43 @@ y == [ 1, 2, 3 ];     // false...doesn't work with double equal either :(
         two values where the result will be the same whether coercion happens or
         not, or when you don't care if the value is the same type...sometimes
         you want things to be coerced.
+      </p>
+      <h2>Manual coercion</h2>
+      <p>
+        Sometimes we know that the data is in the wrong format, and need to
+        change it to the correct type. For example if you have a user input some
+        information in an HTML input element, and then get that information with
+        javascript it will always be a string. What if the form was asking for
+        the person's age so that we could tell them how old they will be in 10
+        years?
+      </p>
+      <pre><code class="lang-markup">&lt;-- HTML --&gt;
+&lt;label for="age"&gt;Enter your Age&lt;/label&gt;
+&lt;input id="age"&gt;</code></pre>
+      <pre><code class="lang-js">// get age from input
+const age = document.getElementById('age').value; // assume 21 was entered
+// add 10 years
+const agePlus10 = age + 10;
+console.log(agePlus10); // would give something like 2110 (21 + 10)
+      </code></pre>
+      <p>
+        Remember that if Javascript is asked to add a string and a number it
+        will coerce the number to be a string. We need to manually change the
+        type to get this to work correctly.
+      </p>
+      <pre><code class="lang-js">// get age from input
+const age = document.getElementById('age').value; // assume 21 was entered
+// add 10 years
+const agePlus10 = parseInt(age) + 10;
+console.log(agePlus10); // success! 31
+              </code></pre>
+      <p>
+        There is also a <code>parseFloat()</code> function for decimal point
+        conversion.
+      </p>
+      <p>
+        Continue onto the DOM for more information about
+        <code>document.getElementById</code>
       </p>
       <a href="3-dom.html">Next: DOM</a>
     </main>

@@ -30,14 +30,15 @@
   </head>
 
   <body onload="fetchSource()">
-    <header class="hero-image">
-      <section class="hero-text">
-        <h1>CSE 121b: Week 03</h1>
-        <p>Creating, Calling, and Using Functions</p>
-      </section>
+    <header class="headerBanner">
+      <div>
+        <h1>Javascript Language</h1>
+        <h2>CSE 121b</h2>
+      </div>
     </header>
     <main>
-      <h1>Organization and Access</h1>
+      <h1>Week3: Creating, Calling, and Using Functions</h1>
+      <h2>Organization and Access</h2>
       <p>
         All computer languages are ways to organize your communication and
         thinking. In this, they are very similar to spoken languages. Each
@@ -237,8 +238,8 @@ averageTwoNumbers(15,20)</code></pre>
           >An Introduction to Functions, Execution Context and the Call Stack </a
         >. (22min)
       </p>
-      <p></p>
-      <h3>Libraries - sharing your functions with others</h3>
+
+      <h2>Libraries - sharing your functions with others</h2>
       <p>
         A higher order organizational idea in JavaScript is library. Libraries
         are a way that you can share your code for other programmers to use in
@@ -275,7 +276,7 @@ averageTwoNumbers(15,20)</code></pre>
         and start again at the <strong>ES Modules</strong> section.
       </p>
 
-      <h3>Map, Filter, and Reduce</h3>
+      <h2>Map, Filter, and Reduce</h2>
       <p>
         In JavaScript, as in most languages, it is important not to write code
         that duplicates fundamental parts of the standard language library. Take
@@ -323,11 +324,19 @@ averageTwoNumbers(15,20)</code></pre>
         you learned about in Python. In JavaScript it is called by the less
         Computer Sciencey name of 'anonymous callback function.' This callback
         function has one parameter, an element of the array. This parameter,
-        aCount, is seperated by the '=>' operator from the next bit of code
+        aCount, is separated by the '=>' operator from the next bit of code
         describing the filtering to be done. In this case, comparing the aCount
         parameter to 10.
       </p>
-
+      <div class="callout">
+        <p>
+          The callback function above could also be written in the older
+          longhand form of an anonymous function, in fact the two functions
+          below do <strong>exactly the same thing!</strong>:
+        </p>
+        <pre><code class="lang-js">function(aCount) { return aCount >= 10; }</code></pre>
+        <pre><code class="lang-js">aCount => aCount >= 10</code></pre>
+      </div>
       <p>
         On the other hand, maybe you have been asked to give the customer five
         'bonus likes' that are to be added to each posting.
