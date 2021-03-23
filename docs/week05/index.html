@@ -2,36 +2,59 @@
 -->
 
 <html>
+  <head>
+    <title>CSE 121b | Controlling your Code</title>
+    <link
+      rel="shortcut icon"
+      href="https://byui-cse.github.io/Language-Courses/site/images/fav.ico"
+      type="image/x-i        con"
+    />
+    <script type="text/javascript">
+      var codeType = "lang-js";
+    </script>
+    <!-- <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+        <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://byui-cse.github.io/Language-Courses/site/weekly.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://byui-cse.github.io/Language-Courses/site/weekly.js"
+    ></script>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
 
-<head>
-          <link rel="shortcut icon" href="https://byui-cse.github.io/Language-Courses/site/images/fav.ico" type="image/x-i        con">
-        <script type="text/javascript">
-                 var codeType = "JavaScript"
-        </script>
-        <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
-        <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css">
-        <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
-        <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
-
-</head>
-
-<body onload="fetchSource()">
-<header class="hero-image">
-  <section class="hero-text">
-    <h1>CSE 121b: Week 05</h1>
-    <p>Controlling Your Code</p>
-  </section>
-</header>
-	<h1>Choice Making and Computational Flow</h1>
-	<p>JavaScript and Python share a set of structures used to control which part of your code is executed, based on specific situations.
-	The idea of situational 'computational flow' control isn't unique to Python or JavaScript. It is found in all languages though the 
-    way it is accomplished can be different. Review the boolean operators from <a href="../week02/index.html" target="_blank">Week 02</a>. They are 
-    used by the control structures you will see below.
-    </p>
-	<h3>If</h3>
-	<p>In JavaScript, the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">if...else if....else statement</a> 
-	takes this form,</p>
-	<p><pre><code class="javascript">if(boolean expression){
+  <body onload="fetchSource()">
+    <header class="headerBanner">
+      <div>
+        <h1>Javascript Language</h1>
+        <h2>CSE 121b</h2>
+      </div>
+    </header>
+    <main>
+      <h1>Week 5: Controlling your Code</h1>
+      <h2>Choice Making and Computational Flow</h2>
+      <p>
+        JavaScript and Python share a set of structures used to control which
+        part of your code is executed, based on specific situations. The idea of
+        situational 'computational flow' control isn't unique to Python or
+        JavaScript. It is found in all languages though the way it is
+        accomplished can be different. Review the boolean operators from
+        <a href="../week02/index.html" target="_blank">Week 02</a>. They are
+        used by the control structures you will see below.
+      </p>
+      <h3>If</h3>
+      <p>
+        In JavaScript, the
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else"
+          >if...else if....else statement</a
+        >
+        takes this form,
+      </p>
+      <pre><code class="lang-js">if(boolean expression){
 	//code if true
 }
 else if(boolean expression){
@@ -39,17 +62,19 @@ else if(boolean expression){
 }
 else{
 	//code if no other match
-}</code>
-	</pre></p>
-	<p>
-	Notice the boolean expressions have parenthesis around them, and the JavaScript scope operators are used 
-	to indicate what lines of code executes in each condition. Here is a code example that evaluates the number of sales 
-	of product a company has for one day. The first condition checks if the number of sales is less than or equal to 50. Since the 
-	first check has been done, the second actually tests if the number of sales is greater than 50 and less than or equal to 1000. 
-	The default, 'else', is the number of sales being greater than 1000. 
-	</p>
+}</code></pre>
+      <p>
+        Notice the boolean expressions have parenthesis around them, and the
+        JavaScript scope operators are used to indicate what lines of code
+        executes in each condition. Here is a code example that evaluates the
+        number of sales of product a company has for one day. The first
+        condition checks if the number of sales is less than or equal to 50.
+        Since the first check has been done, the second actually tests if the
+        number of sales is greater than 50 and less than or equal to 1000. The
+        default, 'else', is the number of sales being greater than 1000.
+      </p>
 
-	<p><pre><code class="javascript">if(numSales <= 50){
+      <pre><code class="lang-js">if(numSales <= 50){
 	console.log("Way to few sales");
 }
 else if(numSales <= 1000){
@@ -57,84 +82,115 @@ else if(numSales <= 1000){
 }
 else{
 	console.log("A good number of sales.")
-}</code>
-	</pre></p>
-	<p>
-		There is another way to control your code that behaves similar to an if-else if-else statement. It's 
-		called a <a href="https://www.w3schools.com/js/js_switch.asp">switch</a>. It can be very helpful if you have large numbers of cases to check. Just be careful using it. 
-		It is VERY easy for those not familiar with them to put logic errors in their code using <a href="https://stackoverflow.com/questions/2922948/javascript-switch-vs-if-else-if-else">switches</a>.
-	</p>
-	<h3>Getting Loopy</h3>
-	<p>As mentioned in week 03, JavaScript has built in map, reduce, and filter functions for arrays. It also has a forEach loop that is used with arrays. Go visit <a
-		href="https://gist.github.com/ljharb/58faf1cfcb4e6808f74aae4ef7944cff"
-		target="_blank"
-		rel="noreferrer"
-		>this gist on array iteration thoughts</a
-	  > for a quick review of some of those array methods we can use to traverse an array.</p>
-	<p>
-		Maybe, in a different part of the likes application from week 3, you are asked to print each of the like values to the console. You could use 
-		the forEach function to do this. 
-	</p>
-	<pre>
-<code class="JavaScript">likeCounts.forEach(aCount => console.log(aCount))</code>
-	</pre>
-	</p>
-	<p>
-		Here is an important piece of advice. NEVER use the forEach method when map, filter, reduce, or some combination of them 
-		will accomplish the same task. It should rarely ever be used.
-	</p>
-	<p>
-		JavaScript has more types of loops that do things similar to the forEach loop. Use of these should be avoided when possible. Instead, use the 
-		map, filter, and reduce functions. If you design well by thinking outside the box, you will probably never need to use these or forEach. They 
-		are slower anyway.
-	</p>
-	<h4>The for-in Loop</h4>
-	<p>This is NOT the same as the python for-in loop. Its purpose is to iterate over the properties of an object, allowing you to manipulate or print 
-	out the property values associated with each key. We'll use the Lactated Ringers medication object from last week in this example. You could print out 
-	each of the values for Lactated Ringers like this.</p>
-	<pre>
-<code class="JavaScript">let aMedication = medications['Lactated Ringers']
+}</code></pre>
+      <p>
+        There is another way to control your code that behaves similar to an
+        if-else if-else statement. It's called a
+        <a href="https://www.w3schools.com/js/js_switch.asp">switch</a>. It can
+        be very helpful if you have large numbers of cases to check. Just be
+        careful using it. It is VERY easy for those not familiar with them to
+        put logic errors in their code using
+        <a
+          href="https://stackoverflow.com/questions/2922948/javascript-switch-vs-if-else-if-else"
+          >switches</a
+        >.
+      </p>
+      <h2>Getting Loopy</h2>
+      <p>
+        As mentioned in week 03, JavaScript has built in map, reduce, and filter
+        functions for arrays. It also has a forEach loop that is used with
+        arrays. Go visit
+        <a
+          href="https://gist.github.com/ljharb/58faf1cfcb4e6808f74aae4ef7944cff"
+          target="_blank"
+          rel="noreferrer"
+          >this gist on array iteration thoughts</a
+        >
+        for a quick review of some of those array methods we can use to traverse
+        an array.
+      </p>
+      <p>
+        Maybe, in a different part of the likes application from week 3, you are
+        asked to print each of the like values to the console. You could use the
+        forEach function to do this.
+      </p>
+      <pre><code class="lang-js">likeCounts.forEach(aCount => console.log(aCount))</code></pre>
+
+      <p>
+        Here is an important piece of advice. NEVER use the forEach method when
+        map, filter, reduce, or some combination of them will accomplish the
+        same task. It should rarely ever be used.
+      </p>
+      <p>
+        JavaScript has more types of loops that do things similar to the forEach
+        loop. Use of these should be avoided when possible. Instead, use the
+        map, filter, and reduce functions. If you design well by thinking
+        outside the box, you will probably never need to use these or forEach.
+        They are slower anyway.
+      </p>
+      <h4>The for-in Loop</h4>
+      <p>
+        This is NOT the same as the python for-in loop. Its purpose is to
+        iterate over the properties of an object, allowing you to manipulate or
+        print out the property values associated with each key. We'll use the
+        Lactated Ringers medication object from last week in this example. You
+        could print out each of the values for Lactated Ringers like this.
+      </p>
+      <pre>
+<code class="lang-js">let aMedication = medications['Lactated Ringers']
 for(propertyName in aMedication){
 	console.log(aMedication[propertyName])
-}</code>
-	</pre></p>
-	<h4>The for-of Loop</h4>
-	<p>The for-of loop IS the same as the Python for-in loop. It can, but shouldn't, be used to iterate over the elements of a list, set, map, or other type of 
-	data structure. It won't iterate over the properties of a defined object.</p>
-	<pre>
-<code class="JavaScript">let ages = [3,5,-1]
+}</code></pre>
+      <h4>The for-of Loop</h4>
+      <p>
+        The for-of loop IS the same as the Python for-in loop. It can, but
+        shouldn't, be used to iterate over the elements of a list, set, map, or
+        other type of data structure. It won't iterate over the properties of a
+        defined object.
+      </p>
+      <pre>
+<code class="lang-js">let ages = [3,5,-1]
 for(anAge of ages){
 	console.log(anAge)
-}</code>
-	</pre></p>
-	<h4>The for Loop</h4>
-	<p>Here is another type of loop you shouldn't use. The C-like for loop. JavaScript doesn't have the concept of a range. Heaven forbid 
-	you should use this loop to accomplish something 10 or some other number of times, but this is how you would do it.</p>
-	<p><pre>
-<code class="JavaScript">for(var i = 1, i <=10, i++){
+}</code></pre>
+      <h4>The for Loop</h4>
+      <p>
+        Here is the traditional C-like <code>for</code> loop. If you are looping
+        over an array (the most common thing we do with loops) please don't use
+        this! You should really look at <code>.map</code>, <code>.filter</code>,
+        or <code>.forEach</code> as they are MUCH better suited to that.
+        Sometimes you just need to do something (not dealing with arrays) a
+        known number of times. The <code>for</code> loop is good for that.
+      </p>
+      <pre>
+<code class="lang-js">for(var i = 1, i <=10, i++){
 	console.log(i)
-}</code>
-	</pre></p>
-	<h4>The while Loop</h4>
-	<p>Like Python's while loop, JavaScript's while loop works with a single boolean logic check to assess the state of your application 
-		by assessing one or more boolean logic statements. As long as the logic statements are true, the loop continues looping.
-	Otherwise it stops. Again, you may never need to use this loop if you wisely apply map, filter, and reduce.</p>
-	<p><pre>
-<code class="JavaScript">let total = 0
+}</code></pre>
+      <h4>The while Loop</h4>
+      <p>
+        Like Python's while loop, JavaScript's while loop works with a single
+        boolean logic check to assess the state of your application by assessing
+        one or more boolean logic statements. As long as the logic statements
+        are true, the loop continues looping. Otherwise it stops. This is useful
+        when you need to loop an unknown number of times, but again, you will
+        rarely need to use this loop if you wisely apply map, filter, and
+        reduce.
+      </p>
+      <pre>
+<code class="lang-js">let total = 0
 while(total < 10){
 	console.log(total)
 	total++
-}</code>
-	</pre></p>
-
-<footer>
+}</code></pre>
+    </main>
+    <footer>
       <a
         rel="license"
         href="http://creativecommons.org/licenses/by/4.0/"
         target="_blank"
         ><img
           alt="This work is licensed under a Creative Commons Attribution 4.0 International License"
-          style="border-width: 0;"
+          style="border-width: 0"
           src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a
       ><br />This work is licensed under a
       <a
@@ -144,5 +200,6 @@ while(total < 10){
         >Creative Commons Attribution 4.0 International License</a
       >.
     </footer>
-</body>
+    <script src="../js/prism.js"></script>
+  </body>
 </html>
