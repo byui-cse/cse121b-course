@@ -141,7 +141,8 @@ const foodsElement = document.querySelector('#favorite-foods');
 const foodListElements = myInfo.favoriteFoods.map(food => `&lt;li&gt;${food}&lt;/li&gt;`);
 // we need to flatten the array of strings into one big string. .join does this.
 foodsElement.innerHTML = foodListElements.join('');
-// we could in fact simplify this down to one line!
+
+// OR we could in fact simplify this down to one line!
 document.querySelector('#favorite-foods').innerHTML = 
   myInfo.favoriteFoods
         .map(food => `&lt;li&gt;${food}&lt;/li&gt;`)
@@ -152,7 +153,9 @@ document.querySelector('#favorite-foods').innerHTML =
         Which do you prefer? How easy is it to figure out what is going on
         looking at that compared to one of the more verbose examples above?
         Simplification is a good thing, but it can be taken too far and make
-        code harder to read and understand.
+        code harder to read and understand. Sometimes it's worth typing a few
+        more characters to have readable code.
+        <kbd>Readable code = maintainable code</kbd>
       </p>
       <p>
         On the week 4 activity you actually were asked to output multiple arrays
