@@ -40,7 +40,38 @@
         approach that problem. The solution looked like this for the foods
         section:
       </p>
-      <pre><code class="lang-js">// Step 4: For each favorite food in the favoriteFoods property, create an HTML &lt;li&gt; element and place its value in the &lt;li&gt; element
+      <pre><code class="lang-js">
+myInfo = {
+  name: 'Brother Thayne',
+  photo: 'images/photo.jpg',
+  favoriteFoods: [
+      'Fettucini',
+      'Steak',
+      'Chicken',
+      'Shrimp',
+      'Baked Potato'
+  ],
+  hobbies: [
+      'Reading',
+      'Fishing',
+      'Camping'
+  ],
+  placesLived: [
+      {
+          place: 'Rexburg, ID',
+          length: '5 years'
+      },
+      {
+          place: 'Ammon, ID',
+          length: '3 years'
+      },
+      {
+          place: 'Sandy, UT',
+          length: '1 year'
+      }
+  ]
+};
+// Step 4: For each favorite food in the favoriteFoods property, create an HTML &lt;li&gt; element and place its value in the &lt;li&gt; element
   let favoriteFood1 = document.createElement('li');
   favoriteFood1.textContent = myInfo.favoriteFoods[0];
   
@@ -123,6 +154,29 @@ document.querySelector('#favorite-foods').innerHTML =
         Simplification is a good thing, but it can be taken too far and make
         code harder to read and understand.
       </p>
+      <p>
+        On the week 4 activity you actually were asked to output multiple arrays
+        of information. Can we make what we did above more re-usable?
+      </p>
+      <pre><code class="lang-js">
+// reusable!
+const foodsElement = document.querySelector('#favorite-foods');
+const placesElement = document.querySelector('#places-lived');
+function renderList(list, element, templateCallback) {
+  const htmlList = list.map(templateCallback);
+  element.innerHTML = htmlList.join('');
+}
+function foodsTemplate(food) {
+  return `&lt;li&gt;${food}&lt;/li&gt;`;
+}
+
+function placesTemplate(place) {
+  return `&lt;dt&gt;${place.place}&lt;/dt&gt;&lt;dd&gt;${place.length}&lt;/dd&gt;`;
+}
+
+renderList(myInfo.favoriteFoods, foodsElement, foodsTemplate);
+renderList(myInfo.placesLived, placesElement, placesTemplate);
+</code></pre>
       <a href="3-fetch.html">Next: Fetch</a>
     </main>
 
