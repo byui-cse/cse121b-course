@@ -167,9 +167,9 @@ document.querySelector('#favorite-foods').innerHTML =
 // reusable!
 const foodsElement = document.querySelector('#favorite-foods');
 const placesElement = document.querySelector('#places-lived');
-function renderList(list, element, templateCallback) {
+function generateListMarkup(list, templateCallback) {
   const htmlList = list.map(templateCallback);
-  element.innerHTML = htmlList.join('');
+  return htmlList.join('');
 }
 function foodsTemplate(food) {
   return `&lt;li&gt;${food}&lt;/li&gt;`;
@@ -179,8 +179,8 @@ function placesTemplate(place) {
   return `&lt;dt&gt;${place.place}&lt;/dt&gt;&lt;dd&gt;${place.length}&lt;/dd&gt;`;
 }
 
-renderList(myInfo.favoriteFoods, foodsElement, foodsTemplate);
-renderList(myInfo.placesLived, placesElement, placesTemplate);
+foodsElement.innerHTML = generateListMarkup(myInfo.favoriteFoods, foodsTemplate);
+placesElement.innerHTML = generateListMarkup(myInfo.placesLived, placesTemplate);
 </code></pre>
       </details>
       <p class="callout">
