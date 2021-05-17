@@ -158,7 +158,9 @@ document.querySelector('#favorite-foods').innerHTML =
         On the week 4 activity you actually were asked to output multiple arrays
         of information. Can we make what we did above more re-usable?
       </p>
-      <pre><code class="lang-js">
+      <details>
+        <summary>Solution</summary>
+        <pre><code class="lang-js">
 // reusable!
 const foodsElement = document.querySelector('#favorite-foods');
 const placesElement = document.querySelector('#places-lived');
@@ -177,6 +179,12 @@ function placesTemplate(place) {
 renderList(myInfo.favoriteFoods, foodsElement, foodsTemplate);
 renderList(myInfo.placesLived, placesElement, placesTemplate);
 </code></pre>
+      </details>
+      <p class="callout">
+        This is an important example. It is very 'Javascripty' in it's approach.
+        Becoming comfortable reading, using, and writing code similar to above
+        is our goal.
+      </p>
       <a href="3-fetch.html">Next: Fetch</a>
     </main>
 
