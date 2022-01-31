@@ -65,7 +65,7 @@ myInfo.favoriteFoods.forEach((food) => {
 });
 
 // Step 6: Repeat Step 4 for each hobby in the hobbies property
-myInfo.favoriteFoods.forEach((hobby) => {
+myInfo.hobbies.forEach((hobby) => {
     let hobbyElem = document.createElement('li');
     hobbyElem.textContent = hobby;
 
