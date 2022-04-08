@@ -14,13 +14,11 @@
 
 // Step 6: Using an else statement, set the message variable to 'Woohoo!  It is the weekend!'
 
-
 /* SWITCH, CASE, BREAK */
 
 // Step 1: Declare a new variable to hold another message
 
 // Step 2: Use switch, case and break to set the message variable to the day of the week as a string (e.g. Sunday, Monday, etc.) using the day of week variable declared in Step 2 above
-
 
 /* OUTPUT */
 
@@ -28,9 +26,7 @@
 
 // Step 2: Assign the value of the second message variable to the HTML element with an ID of message2
 
-
 /* FETCH */
-
 // Step 1: Declare a global empty array variable to store a list of temples
 
 // Step 2: Declare a function named output that accepts a list of temples as an array argument and does the following for each temple:
@@ -42,25 +38,19 @@
 // - Appends the <h3> element, the two <h4> elements, and the <img> element to the <article> element as children
 // - Appends the <article> element to the HTML element with an ID of temples
 
-// Step 3: Using the built-in fetch method, call this absolute URL: 'https://byui-cse.github.io/cse121b-course/week05/temples.json'
+// Step 3: Create another function called getTemples. Make it an async function.
+// Step 4: In the function, using the built-in fetch method, call this absolute URL: 'https://byui-cse.github.io/cse121b-course/week05/temples.json'. Create a variable to hold the response from your fetch. You should have the program wait on this line until it finishes.
+// Step 5: Convert your fetch response into a Javascript object ( hint: .json() ). Store this in the templeList variable you declared earlier (Step 1). Make sure the the execution of the code waits here as well until it finishes.
+// Step 6: Finally, call the output function and pass it the list of temples. Execute your getTemples function to make sure it works correctly.
 
-// Step 4: Add a .then() method to turn the returned string into a JavaScript object ( hint: .json() )
+// Step 7: Declare a function named reset that clears all of the <article> elements from the HTML element with an ID of temples
 
-// Step 5: Add another .then() method with a variable name to hold the temples and an empty arrow function
-
-// Step 6: Inside of second .then() method, assign the list of temples (as a JSON object) to the temples variable
-
-// Step 7: Finally, call the output function and pass it the list of temples
-
-// Step 8: Declare a function named reset that clears all of the <article> elements from the HTML element with an ID of temples
-
-// Step 9: Declare a function named sortBy that does the following:
+// Step 8: Declare a function named sortBy that does the following:
 // - Calls the reset function
 // - Sorts the global temple list by the currently selected value of the HTML element with an ID of sortBy
 // - Calls the output function passing in the sorted list of temples
 
-// Step 10: Add a change event listener to the HTML element with an ID of sortBy that calls the sortBy function
-
+// Step 9: Add a change event listener to the HTML element with an ID of sortBy that calls the sortBy function
 
 /* STRETCH */
 

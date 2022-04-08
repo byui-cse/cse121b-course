@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSE 121b: Week 02 | Ponder and Prove</title>    
+	<script type="text/javascript">
+    	var codeType = "JavaScript"
+    </script>
+    <!-- <script src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css"> -->
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
+	<link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+	<script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
+	<!-- <link rel="stylesheet" href="../main.css"> -->
+</head>
+
+<body  onload="fetchSource()">
+	
+	<header class="headerBanner">
+		<div>
+		  <h1>Javascript Language</h1>
+		  <h2>CSE 121b</h2>
+		</div>
+	  </header>
+	<main>
+		<h1>Ponder and Prove: Week 2 </h1>
+		<h2>The Fundamentals</h2>
+		<section class="callout">
+			<h3>Before beginning this Task:</h3>
+			<ul>
+				<li>
+					Make sure you have reviewed the <a href="../week01/" target="_blank">Installation and
+						Purpose</a>
+					and <a href="../week02/" target="_blank">The Fundamentals</a>
+					course
+					content.
+				</li>
+				<li>
+					Download the following Zip file and extract it into a local folder of your choice:
+					<a href="week02.zip">week02.zip</a>
+				</li>
+				<li>
+					Open the local folder in VS Code
+				</li>
+			</ul>
+		</section>
+		<section>
+			<h3>JavaScript and HTML</h3>
+			<p>
+				In the Tasks for this course, you will manipulate content in HTML files from JavaScript. In order to link
+				a JavaScript file to an HTML file, an HTML <span class="tag">&lt;script&gt;</span></code> tag is used.
+			</p>
+			<p>
+				The <span class="tag">&lt;script&gt;</span> tag is commonly placed before the closing <span class="tag">&lt;/body&gt;</span> tag
+				as follows:
+			</p>
+
+			<p><pre><code class="lang-markup">&lt;main&gt;
+	&lt;section&gt;
+		&lt;div&gt;
+			&lt;label for="name"&gt;Name:&lt;/label&gt;
+			&lt;span id="name"&gt;&lt;/span&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+			&lt;label for="food"&gt;Favorite Foods:&lt;/label&gt;
+			&lt;span id="food"&gt;&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;
+	&amp;copy;&lt;span id="year"&gt;&lt;/span&gt; | Biography | Lesson 2
+&lt;/footer&gt;
+&lt;script src="scripts/task2.js"&gt;&lt;/script&gt;
+</code></pre></p>
+			<p>
+				The "src" attribute of the <span class="tag">&lt;script&gt;</span> tag should point to the folder and file name of
+				the JavaScript file relative to the current HTML file.
+			</p>
+		</section>
+		<section>
+			<h3>Accessing HTML elements using JavaScript</h3>
+			<p>Since this is not an HTML course, you aren't required to know HTML elements in depth. 
+			However, you will need an understanding of how to access HTML elements from JavaScript code, 
+			since using JavaScript to access HTML elements in web pages is a very common use of JavaScript.</p>
+			<p>
+				There are several ways to access HTML elements. One of which is by using the <span class="file_name">getElementById</span> method.
+			</p>
+			<p>
+					<pre><code class="lang-js" >document.getElementById('elementId')</code></pre>
+				</p>
+				<p>
+					In real code, the id "elementId" is replaced by an actual, unique id.
+					For example, this HTML element 
+				<p>
+					<pre><code class="lang-js" >&lt;section id="discussion"&gt;</code></pre>
+				</p>
+				<p>has an id of "discussion". That means the following JavaScript is used to find the element and store it in a variable for later use. 
+				</p>
+				<p>
+					 <pre><code class="lang-js" >let theDiscussionElement = document.getElementById('discussion')</code></pre> 
+				</p>
+
+				<p>
+					Another approach is to use the <span class="file_name">querySelector</span> method:
+				</p>
+				<p>
+					<pre><code class="lang-js" >document.querySelector('#elementId')</code></pre>
+				</p>
+				<p>
+					The "elementId" is, again, the value of the HTML attribute's id. Notice that a pound sign (#) is required before the name of the id value.
+				</p>
+				<p>
+					Using the same discussion HTML element you looked at before, the JavaScript to get it and store it in a variable is
+				</p>
+				<p>
+					<pre><code class="lang-js" >let theDiscussionElement = document.querySelector('#discussion');</code></pre>
+				</p>
+			</p>
+
+			<h3>Modifying HTML elements using JavaScript</h3>
+			<p>
+				Once you get access to the HTML element, you can change its content by using one of two properties, 
+				the first of which uses the element's <span class="file_name">innerHTML</span> property.
+				</p>
+				<p>
+					Here is some JavaScript code that does this.
+				</p>
+				<p>
+					<pre><code class="lang-js" >
+document.querySelector('#discussion').innerHTML = 'The content I would like to
+display in the HTML file.';
+					</code></pre>
+				</p>
+				<p>
+					Another, similar, way uses the element's <span class="file_name">textContent</span> property.
+				</p>
+				<p>
+					<pre><code class="lang-js" >
+document.querySelector('#discussion').textContent = 'The content I would like to
+display in the HTML file.';
+					</code></pre>
+				</p>
+			</p>
+			<p>
+				You can also modify an HTML element using the <span class="file_name">setAttribute</span> method. To 
+				change the picture displayed in an image tag modify the <span class="file_name">src</span> property of the image element.
+			</p>
+			<p>
+				<pre><code class="lang-js" >document.querySelector('#mainImage')
+		.setAttribute('src', 'images/main.png');</code></pre>
+			</p>
+			<p>
+				Of course, you can make this same modification directly.
+			</p>
+
+			<p>
+				<pre><code class="lang-js" >document.querySelector('#mainImage').src = 'images/main.png';</code></pre>
+			</p>
+		</section>
+		<section>
+			<h3>Variables</h3>
+			<h4>Complete the following steps</h4>
+			<p>In the <span class="file_name">task2.js</span> file:</p>
+			<ol>
+				<li>Declare and instantiate a variable to hold your name</li>
+				<li>Place the value of the name variable into the <span class="file_name">task2.html</span> file inside of the
+					element with an "id of "name"
+					(hint: document.querySelector())</li>
+				<li>Declare and instantiate a variable to hold the current year</li>
+				<li>Place the value of the current year variable into the <span class="file_name">task2.html</span> file inside of
+					the element with an <span class="file_name">id</span> of
+					"year"</li>
+				<li>Copy an image of yourself into the <span class="file_name">images</span> folder</li>
+				<li>Declare and instantiate a variable to hold the name and location of your picture (hint:
+					<span class="file_name">images/imagename.png</span>)</li>
+				<li>Place the value of the picture variable into the <span class="file_name">task2.html</span> file in the "src"
+					attribute of the <span class="file_name">img</span>
+					element (hint: document.querySelector().setAttribute())</li>
+			</ol>
+		</section>
+		<section>
+			<h3>Arrays</h3>
+			<h4>Complete the following steps</h4>
+			<p>In the <span class="file_name">task2.js</span> file:</p>
+			<ol>
+				<li>Declare an array variable to hold your favorite foods ( hint: [] ) and fill it with your favorite foods as strings.</li>
+				<li>Use JavaScript to modify the element who's <span class="file_name">id</span> is "food" found in the <span class="file_name">task2.html</span> file.</li>
+				<li>Declare and instantiate a variable to hold another of your favorite foods.</li>
+				<li>Add the value stored in this variable to the favorite food array.</li>
+				<li>Repeat Step 2</li>
+				<li>Remove the first element in the favorite foods array</li>
+				<li>Repeat Step 2</li>
+				<li>Remove the last element in the favorite foods array</li>
+				<li>Repeat Step 2</li>
+			</ol>
+		</section>
+		
+	</main>
+	<footer>
+      <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        ><img
+          alt="This work is licensed under a Creative Commons Attribution 4.0 International License"
+          style="border-width: 0;"
+          src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a
+      ><br />This work is licensed under a
+      <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        >Creative Commons Attribution 4.0 International License</a
+      >.
+    </footer>
+	<script src="../js/prism.js"></script>
+</body>
+
+</html>

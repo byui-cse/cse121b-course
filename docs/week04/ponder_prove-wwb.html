@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSE 121b: Week 04 | Ponder and Prove</title>
+    <script type="text/javascript">
+      var codeType = "JavaScript";
+    </script>
+    <!-- <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://byui-cse.github.io/Language-Courses/site/weekly.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://byui-cse.github.io/Language-Courses/site/weekly.js"
+    ></script>
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header class="headerBanner">
+      <div>
+        <h1>Javascript Language</h1>
+        <h2>CSE 121b</h2>
+      </div>
+    </header>
+    <main>
+      <h1>Week 4: Ponder and Prove</h1>
+      <section class="callout">
+        <h3>Before beginning this Task:</h3>
+        <ul>
+          <li>
+            Make sure you have read and understood the
+            <a href="../week04/" target="_blank">reading for the week</a>.
+          </li>
+          <li>
+            Download the following Zip file and extract it into a local folder
+            of your choice:
+            <a href="week04.zip">week04.zip</a>
+          </li>
+          <li>
+            It would probably also be helpful to review these examples of
+            <a href="../week03/2-array-methods.html" target="_blank"
+              >using array methods</a
+            >
+            from week 3, or to watch this short video on
+            <a
+              href="https://www.loom.com/share/0a45366b8a914345ae00be7c2764cded"
+              target="_blank"
+              >creating DOM with loops</a
+            >
+          </li>
+          <li>Open the folder created by unzipping week04.zip in VS Code</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Object Literals</h3>
+        <p>
+          In your previous weeks' tasks, you declared and used individual
+          variables. In this Task, you are to rework the Biography Task from
+          week 02 using object literals.
+        </p>
+      </section>
+      <section>
+        <h3>Data Changes</h3>
+        <p>Complete the following steps.</p>
+        <p>In the <span class="file_name">task4.js</span> file:</p>
+        <ol>
+          <li>
+            Declare a new variable to hold information about yourself and assign
+            an empty object to the variable ( hint: {} )
+          </li>
+          <li>
+            Add a property to this object literal named
+            <span class="hljs-string">name</span> and set its value to be your
+            name as a string.
+          </li>
+          <li>
+            Add a property named <span class="hljs-string">photo</span>. Set its
+            value to be an image's path and name (one used in Task 2) as a
+            string.
+          </li>
+          <li>
+            Add a property named <span class="hljs-string">favoriteFoods</span>.
+            Set its value to be an array of your favorite foods as strings (
+            hint: [] ).
+          </li>
+          <li>
+            Add a property named <span class="hljs-string">hobbies</span>. Set
+            its value to be an array of your hobbies as strings.
+          </li>
+          <li>
+            Add a property named <span class="hljs-string">placesLived</span>.
+            Set its value to be an empty array.
+          </li>
+          <li>
+            Add an item to the placesLived array that is new object literal with
+            two properties: <span class="hljs-string">place</span> and
+            <span class="hljs-string">length</span>
+          </li>
+          <ul>
+            <li>
+              For each of these properties, add appropriate values as strings.
+            </li>
+          </ul>
+          <li>
+            Add additional object literals with appropriate values to the
+            <span class="hljs-string">placesLived</span> array for each place
+            you've lived
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h3>Output Changes</h3>
+        <p>Complete the following steps.</p>
+        <p>In the <span class="file_name">task4.js</span> file:</p>
+        <ol>
+          <li>
+            Assign the value of the
+            <span class="hljs-string">name</span> property (of the object
+            declared above) to the HTML &lt;span&gt; who's ID is <em>name</em>
+          </li>
+          <li>
+            Assign the value of the
+            <span class="hljs-string">photo</span> property as the
+            <em>src</em> attribute of the HTML &lt;img&gt; who's ID is
+            <em>photo</em>
+          </li>
+          <li>
+            Assign the value of the
+            <span class="hljs-string">name</span> property as the
+            <em>alt</em> attribute of the HTML &lt;img&gt; who's ID is
+            <em>photo</em>
+          </li>
+          <li>
+            For each favorite food in the
+            <span class="hljs-string">favoriteFoods</span> property, create an
+            HTML &lt;li&gt; element and place its value in the &lt;ul&gt;
+            element
+          </li>
+          <li>
+            Append the &lt;li&gt; elements created above as children of the HTML
+            &lt;ul&gt; element who's ID is <em>favorite-foods</em>
+          </li>
+          <li>
+            Repeat Step 4 for each hobby in the
+            <span class="hljs-string">hobbies</span> property
+          </li>
+          <li>
+            Repeat Step 5 using the HTML &lt;ul&gt; element with an ID of
+            <em>hobbies</em>
+          </li>
+          <li>
+            For each object in the
+            <span class="hljs-string">placesLived</span> property: <br />-
+            Create an HTML &lt;dt&gt; element and put its
+            <span class="hljs-string">place</span> property in the &lt;dt&gt;
+            element <br />- Create an HTML &lt;dd&gt; element and put its
+            <span class="hljs-string">length</span> property in the &lt;dd&gt;
+            element<br />
+          </li>
+          <li>
+            Append the HTML &lt;dt&gt; and &lt;dd&gt; elements created above to
+            the HTML &lt;dl&gt; element with an ID of <em>places-lived</em>
+          </li>
+        </ol>
+      </section>
+    </main>
+    <footer>
+      <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        ><img
+          alt="This work is licensed under a Creative Commons Attribution 4.0 International License"
+          style="border-width: 0"
+          src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a
+      ><br />This work is licensed under a
+      <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        >Creative Commons Attribution 4.0 International License</a
+      >.
+    </footer>
+    <script src="../js/prism.js"></script>
+  </body>
+</html>
